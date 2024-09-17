@@ -1,0 +1,21 @@
+{
+  "name": "ct22-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mix build --production",
+    "dev": "mix watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "laravel-mix": "^6.0.49",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
