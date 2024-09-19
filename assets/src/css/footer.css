@@ -1,0 +1,7 @@
+.footer {
+    @apply text-8xl;
+}
+
+.footer-child {
+    @apply mt-4 pt-6;
+}

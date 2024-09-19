@@ -1,17 +1,21 @@
-const mix = require("laravel-mix")
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin")
+const mix = require("laravel-mix");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
-mix.disableSuccessNotifications()
+// Disable success notifications
+mix.disableSuccessNotifications();
 
 // Compile TypeScript
-mix.js("assets/js/main.js", "dist/main.min.js")
+mix.js("assets/src/main.js", "dist/main.min.js");
 
-// Compile CSS
-mix.css("assets/css/main.css", "dist/main.min.css")
+// Compile Tailwind CSS
+mix.postCss("assets/src/main.css", "dist/main.min.css", [
+    require("tailwindcss"),
+]);
 
 // Set the public path
-mix.setPublicPath("assets")
+mix.setPublicPath("assets");
 
+// BrowserSync configuration
 mix.webpackConfig({
     plugins: [
         new BrowserSyncPlugin({
@@ -22,5 +26,5 @@ mix.webpackConfig({
     ],
     resolve: {
         extensions: [".js"],
-    },
-})
+    }
+});
