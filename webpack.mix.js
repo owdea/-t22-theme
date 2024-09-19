@@ -1,5 +1,6 @@
 const mix = require("laravel-mix");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const cssnano = require('cssnano');
 
 // Disable success notifications
 mix.disableSuccessNotifications();
@@ -7,9 +8,11 @@ mix.disableSuccessNotifications();
 // Compile TypeScript
 mix.js("assets/src/main.js", "dist/main.min.js");
 
-// Compile Tailwind CSS
+// Compile Tailwind CSS using PostCSS
 mix.postCss("assets/src/main.css", "dist/main.min.css", [
     require("tailwindcss"),
+    require("postcss-import"),  // Přidání postcss-import pro zpracování importů
+    ...mix.inProduction() ? [cssnano()] : []  // Přidání cssnano pouze v produkčním režimu
 ]);
 
 // Set the public path
@@ -26,5 +29,8 @@ mix.webpackConfig({
     ],
     resolve: {
         extensions: [".js"],
-    }
+    },
+    watchOptions: {
+        ignored: /node_modules/,      // Ignoruje složku node_modules
+    },
 });
