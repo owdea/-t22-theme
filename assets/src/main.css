@@ -3,3 +3,30 @@
 
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/source_sans_pro_normal.woff2");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/source_sans_pro_semibold.woff2");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "TV Sans Screen";
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreen-Regular.woff2");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "TV Sans Screen";
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreen-Regular.woff2");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "TV Sans Screen";
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreen-Regular.woff2");
+    font-weight: 700;
+}
