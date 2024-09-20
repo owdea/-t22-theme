@@ -24,9 +24,6 @@ BROWSER_SYNC_PROXY=your_local_url
 - **`assets`** - styles, scripts, images, fonts
 - **`node_modules`** - Dependencies installed via yarn (gitignore)
 - **`template-parts`** - templates
-- **`utils`** - WP and plugins configuration
-  - **`acf`** - ACF configuration in PHP and JSON
-  - **`cpt`** - Custom Post configuration
 - **`functions.php`**
 - **`index.php`** - default content file
 - **`header.php`** - header file
