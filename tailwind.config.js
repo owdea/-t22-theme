@@ -45,8 +45,13 @@ module.exports = {
             },
             // 414px, 522px (velikosti nadpisu náhledu článků), 767px, 992px (změna velikostí fotek), 1024px, 1200px
             screens: {
-
-            }
+                'sm': '414px',
+                'md': '522px',
+                'tablet': '767px',
+                'lg': '992px',
+                'xl': '1024px',
+                '2xl': '1200px',
+            },
         },
     },
     plugins: [
