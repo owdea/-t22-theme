@@ -14,8 +14,11 @@
 <header>
 <div>
 <?php
-echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-gradient.svg" >';
+echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-gradient.svg" alt="čt22 logo">';
 get_search_form();
+echo '<button type="submit" class="search-submit">';
+echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">';
+echo '</button>';
 wp_nav_menu(
     array(
         'theme_location' => 'secondary',
@@ -23,7 +26,11 @@ wp_nav_menu(
         'container'      => 'nav'
     )
 );
+
 echo '</div>';
+
+
+
 wp_nav_menu(
     array(
         'theme_location' => 'primary',
