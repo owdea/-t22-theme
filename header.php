@@ -12,6 +12,21 @@
 <?php wp_body_open(); ?>
 
 <header>
-
+<?php
+wp_nav_menu(
+    array(
+        'theme_location' => 'primary',
+        'menu_class'     => 'header',
+        'container'      => 'nav'
+    )
+);
+wp_nav_menu(
+    array(
+        'theme_location' => 'secondary',
+        'menu_class'     => 'header',
+        'container'      => 'nav'
+    )
+);
+?>
 </header>
 <main id="primary" class="site-main" role="main">
