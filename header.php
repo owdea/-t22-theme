@@ -12,17 +12,21 @@
 <?php wp_body_open(); ?>
 
 <header>
+<div>
 <?php
+echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-gradient.svg" >';
+get_search_form();
 wp_nav_menu(
     array(
-        'theme_location' => 'primary',
+        'theme_location' => 'secondary',
         'menu_class'     => 'header',
         'container'      => 'nav'
     )
 );
+echo '</div>';
 wp_nav_menu(
     array(
-        'theme_location' => 'secondary',
+        'theme_location' => 'primary',
         'menu_class'     => 'header',
         'container'      => 'nav'
     )
