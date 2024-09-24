@@ -1,6 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+
 const plugin = require("tailwindcss/plugin");
+const colors = require("tailwindcss/colors");
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+    safelist: [
+        'bg-transparent',
+    ],
     content: [
         "./src/main.css",
         "./template-parts/**/*.php",
@@ -23,6 +28,9 @@ module.exports = {
             "3xl": "2.625rem", //42px
         },
         colors: {
+            lightscale: {
+                20: '#ffffff',
+            },
             bluescale: {
                 60: "#007aff",
                 80: "#00288c",
@@ -51,6 +59,12 @@ module.exports = {
                 'lg': '992px',
                 'xl': '1024px',
                 '2xl': '1200px',
+            },
+            backgroundColor: {
+                ...colors
+            },
+            colors: {
+                ...colors
             },
         },
     },

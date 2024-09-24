@@ -12,7 +12,6 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts_and_styles');
 register_nav_menus(
     array(
         'primary' => __( 'Primary Menu' ),
-        'secondary' => __( 'Secondary Menu' ),
         'footer' => __( 'Footer Menu' ),
     )
 );

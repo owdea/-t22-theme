@@ -1,2 +1,18 @@
-.header {
+.header-top {
+    @apply flex justify-between bg-header-gradient;
+    .header-top-right {
+        @apply flex;
+    }
+    .header-top-right button {
+        @apply bg-transparent;
+    }
+    .header-top-right img {
+        @apply text-white;
+    }
+    .secondary-menu {
+        @apply hidden fixed top-24 bg-lightscale-20;
+    }
+    .secondary-menu.visible {
+        @apply block;
+    }
 }
