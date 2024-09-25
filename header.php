@@ -13,11 +13,12 @@
 
 echo '<header>';
 echo '<div class="header-top">';
-echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">';
+echo '<img class="header-logo" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">';
 echo '<div class="header-top-right">';
 get_search_form();
 echo '<button class="secondary-menu-btn">';
 echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">';
+echo '<span>ČT</span>';
 echo '</button>';
 echo '<div class="secondary-menu">';
 echo '<div class="secondary-menu-icons">';

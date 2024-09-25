@@ -63,6 +63,9 @@ module.exports = {
             backgroundColor: {
                 ...colors
             },
+            borderColor: {
+                'white-transparent': 'rgba(255, 255, 255, 0.2)',
+            },
             colors: {
                 ...colors
             },

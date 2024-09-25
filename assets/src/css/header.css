@@ -1,18 +1,30 @@
 .header-top {
     @apply flex justify-between bg-header-gradient;
+    .header-logo {
+        @apply mx-6 my-5;
+    }
     .header-top-right {
-        @apply flex;
+        @apply flex items-center;
+        & form {
+            @apply flex h-full border-x border-white-transparent px-5;
+            & label {
+                @apply flex;
+            }
+        }
     }
-    .header-top-right button {
+    & input {
         @apply bg-transparent;
-    }
-    .header-top-right img {
-        @apply text-white;
     }
     .secondary-menu {
         @apply hidden fixed top-24 bg-lightscale-20;
     }
     .secondary-menu.visible {
         @apply block;
+    }
+    .secondary-menu-btn {
+        @apply bg-transparent flex text-white px-5;
+        & img {
+            @apply mr-2;
+        }
     }
 }
