@@ -13,7 +13,9 @@
 
 echo '<header>';
 echo '<div class="header-top">';
-echo '<img class="header-logo" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">';
+echo '<a href="' . get_site_url() . '">
+     <img class="header-logo" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">
+     </a>';
 echo '<div class="header-top-right">';
 get_search_form();
 echo '<button class="secondary-menu-btn">';
@@ -102,7 +104,8 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 
-
+echo '<div id="primary-menu" class="primary-menu">';
+echo '<button class="primary-more-btn">Další</button>';
 wp_nav_menu(
     array(
         'theme_location' => 'primary',
@@ -110,6 +113,11 @@ wp_nav_menu(
         'container'      => 'nav'
     )
 );
+
+echo '<ul class="primary-more"></ul>';
+echo '<a class="primary-sport">Sport</a>';
+echo '<a class="primary-live">Živé vysílání<a>';
+echo '</div>';
 ?>
 </header>
 <main id="primary" class="site-main" role="main">

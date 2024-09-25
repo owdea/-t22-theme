@@ -63,3 +63,15 @@
         }
     }
 }
+.primary-menu {
+    @apply h-[57px] mx-auto my-0 px-6 max-w-[1264px];
+    & nav {
+        @apply h-full;
+        & ul {
+            @apply flex items-center h-full flex-wrap;
+            & li {
+                @apply px-[14px] shrink-0;
+            }
+        }
+    }
+}
