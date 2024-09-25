@@ -23,12 +23,12 @@
 }
 @font-face {
     font-family: "TV Sans Screen";
-    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreen-Regular.woff");
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreenMed-Regular.woff");
     font-weight: 600;
 }
 @font-face {
     font-family: "TV Sans Screen";
-    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreen-Regular.woff");
+    src: url("/wp-content/themes/ct22-theme/assets/fonts/TVSansScreen-Bold.woff");
     font-weight: 700;
 }
 

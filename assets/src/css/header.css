@@ -16,7 +16,28 @@
         @apply bg-transparent;
     }
     .secondary-menu {
-        @apply hidden fixed top-24 bg-lightscale-20;
+        @apply hidden fixed top-24 bg-lightscale-20 max-w-[320px] shadow-secondary-menu rounded;
+        & div {
+            @apply px-[30px] py-[20px];
+        }
+        & ul {
+            @apply py-2;
+        }
+        .secondary-menu-icons {
+            @apply columns-2 flex flex-wrap;
+            & a {
+                @apply w-3/6 px-[5px] py-[13px];
+                & img {
+                    @apply h-[21px];
+                }
+            }
+        }
+        .secondary-menu-icons a:first-child {
+            @apply w-full;
+            & img {
+                @apply h-[24px];
+            }
+        }
     }
     .secondary-menu.visible {
         @apply block;
@@ -25,6 +46,20 @@
         @apply bg-transparent flex text-white px-5;
         & img {
             @apply mr-2;
+        }
+    }
+    .secondary-menu-headings {
+        @apply flex flex-col border-y border-lightscale-40;
+        & a {
+            @apply text-sm font-semibold font-TV px-10 py-[9px] flex;
+        }
+    }
+    .secondary-menu-navigators {
+        @apply font-Source;
+        & li {
+            & a {
+                @apply px-10 py-[9px] flex;
+            }
         }
     }
 }

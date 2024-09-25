@@ -30,6 +30,8 @@ module.exports = {
         colors: {
             lightscale: {
                 20: '#ffffff',
+                40: '#E0E0E0',
+
             },
             bluescale: {
                 60: "#007aff",
@@ -50,6 +52,9 @@ module.exports = {
         extend: {
             backgroundImage: {
                 'header-gradient': 'linear-gradient(90deg, rgb(1, 156, 225) 0%, rgb(0, 40, 140) 100%)',
+            },
+            boxShadow: {
+                'secondary-menu': '0px 1px 3px rgba(0, 0, 0, 0.2), 0px 12px 24px -8px rgba(0, 0, 0, 0.15)',
             },
             // 414px, 522px (velikosti nadpisu náhledu článků), 767px, 992px (změna velikostí fotek), 1024px, 1200px
             screens: {

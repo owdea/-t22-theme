@@ -38,7 +38,7 @@ if (have_rows('secondary_menu_icons', 'option')) :
 endif;
 echo '</div>';
 if (have_rows('secondary_menu_headings', 'option')) :
-    echo '<ul>';
+    echo '<ul class="secondary-menu-headings">';
 
     while (have_rows('secondary_menu_headings', 'option')) : the_row();
 
@@ -64,7 +64,7 @@ endif;
 $menu_items = get_field('secondary_menu_navigators', 'options');
 
 if ($menu_items) {
-    echo '<ul>';
+    echo '<ul class="secondary-menu-navigators">';
 
     foreach ($menu_items as $item) {
         // Post Object
