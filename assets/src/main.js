@@ -10,45 +10,63 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//const menuWidth = document.getElementById('primary-menu').offsetWidth
+
 document.addEventListener("DOMContentLoaded", function() {
     const primaryMenuWidth = document.querySelector("#primary-menu");
 
     if (primaryMenuWidth) {
+        let navigatorWidth = document.getElementById('primary-navigator').offsetWidth;
+        let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
+        let buttonPrimary = document.getElementById('primary-button').offsetWidth
+        const primaryMenuWidthCounted = primaryMenuWidth.offsetWidth;
+        let primaryElements = document.querySelectorAll('#primary-menu nav ul li');
+        let primaryArray = Array.from(primaryElements);
+        let primaryMoreArray = document.getElementById('primary-more');
+        let widthSum = 0;
+
+        for (let i = 0; i < primaryArray.length; i++) {
+
+            if (navigatorWidth + liveStreamWidth + buttonPrimary + widthSum + primaryArray[i].offsetWidth > primaryMenuWidthCounted) {
+                primaryMoreArray.append(primaryArray[i]);
+            } else {
+                widthSum += primaryArray[i].offsetWidth;
+            }
+        }
+
         const resize_ob = new ResizeObserver(function(entries) {
             let rect = entries[0].contentRect;
             let width = rect.width;
 
-            let navigatorWidth = document.getElementById('primary-navigator').offsetWidth;
-            let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
+            // Získání aktuálních prvků z obou seznamů
+            primaryArray = Array.from(document.querySelectorAll('#primary-menu nav ul li'));
+            primaryMoreElements = document.querySelectorAll('#primary-more li');
+            primaryMoreLiArray = Array.from(primaryMoreElements);
 
-            let primaryElements = document.querySelectorAll('#primary-menu nav ul li'); // NodeList
-            let primaryArray = Array.from(primaryElements); // Převod na pole
+
+            widthSum = 0;
+            primaryArray.forEach(item => {
+                widthSum += item.offsetWidth;
+            });
+
+            //Přesun do druhého pole
+            if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryArray[primaryArray.length - 1].offsetWidth > width) {
+                primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
+                widthSum -= primaryArray[primaryArray.length - 1].offsetWidth
+            }
+
+            // Znovu aktualizovat seznam prvků a šířku
+            primaryMoreElements = document.querySelectorAll('#primary-more li');
+            primaryMoreLiArray = Array.from(primaryMoreElements);
             let primaryHTMLElement = document.getElementById('primary-menu-ul'); // HTMLElement
 
-            let primaryMoreArray = document.getElementById('primary-more'); // HTMLElement
 
-            let widthSum = 0;
-
-            // Přesun prvků do "více" menu, pokud se nevejdou
-            for (let i = 0; i < primaryArray.length; i++) {
-                if (navigatorWidth + liveStreamWidth + widthSum + primaryArray[i].offsetWidth > width) {
-                    primaryMoreArray.prepend(primaryArray[i]); // Použij přímo primaryArray[i]
-                } else {
-                    widthSum += primaryArray[i].offsetWidth;
-                }
-            }
-
-            // Získej aktualizovaný seznam prvků v secondary menu
-            let primaryMoreElements = document.querySelectorAll('#primary-more li'); // NodeList
-            let primaryMoreLiArray = Array.from(primaryMoreElements); // Pole
-
-            // Ověření, že se nám první položka správně vrací
-            if (navigatorWidth + liveStreamWidth + widthSum + primaryMoreLiArray[0].offsetWidth <= width) {
-                console.log(primaryMoreArray[0]); // Zobrazí se správný prvek
+            //Přesun do prvního pole
+            if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryMoreLiArray[0].offsetWidth <= width) {
                 primaryHTMLElement.append(primaryMoreLiArray[0]);
+                widthSum += primaryMoreLiArray[0].offsetWidth;
             }
         });
+
 
         resize_ob.observe(primaryMenuWidth);
     } else {

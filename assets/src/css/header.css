@@ -64,20 +64,26 @@
     }
 }
 .primary-menu {
-    @apply h-[57px] mx-auto my-0 px-6 max-w-[1264px];
+    @apply h-[57px] mx-auto my-0 max-w-[1264px] flex;
     & nav {
         @apply h-full;
         & ul {
-            @apply flex items-center h-full flex-wrap;
+            @apply flex items-center h-full flex-nowrap;
             & li {
                 @apply px-[14px] shrink-0;
             }
         }
     }
+    .primary-live,
+    .primary-navigator,
+    .primary-more-btn {
+        @apply whitespace-nowrap self-center px-[14px];
+    }
 }
 
 .primary-more {
+    @apply flex flex-col invisible absolute;
     & li {
-        @apply inline;
+        @apply px-[14px] shrink-0 inline self-start;
     }
 }

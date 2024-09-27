@@ -113,7 +113,7 @@ wp_nav_menu(
         'container'      => 'nav'
     )
 );
-echo '<button class="primary-more-btn">Další</button>';
+echo '<button id="primary-button" class="primary-more-btn">Další...</button>';
 echo '<ul id="primary-more" class="primary-more"></ul>';
 echo '<a id="primary-navigator" class="primary-navigator">Sport</a>';
 echo '<a id="primary-live" class="primary-live">Živé vysílání<a>';
