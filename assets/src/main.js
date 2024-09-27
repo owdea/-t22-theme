@@ -18,42 +18,41 @@ document.addEventListener("DOMContentLoaded", function() {
         const resize_ob = new ResizeObserver(function(entries) {
             let rect = entries[0].contentRect;
             let width = rect.width;
-            //console.log('Current Width : ' + width);
-            let navigatorWidth = document.getElementById('primary-navigator').offsetWidth
-            let liveStreamWidth = document.getElementById('primary-live').offsetWidth
 
-            let primaryElements = document.querySelectorAll('#primary-menu nav ul li'); //NodeList - kolekce li elementů z viditelného UL
-            let primaryArray = Array.from(primaryElements); //Array - pole li elementů vytvořené z NodeListu
-            let primaryHTMLElement = document.getElementById('primary-menu-ul') //HTML Element
+            let navigatorWidth = document.getElementById('primary-navigator').offsetWidth;
+            let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
 
-            let primaryMoreArray = document.getElementById('primary-more') //HTMLElement
+            let primaryElements = document.querySelectorAll('#primary-menu nav ul li'); // NodeList
+            let primaryArray = Array.from(primaryElements); // Převod na pole
+            let primaryHTMLElement = document.getElementById('primary-menu-ul'); // HTMLElement
 
-            let widthSum = 0
+            let primaryMoreArray = document.getElementById('primary-more'); // HTMLElement
+
+            let widthSum = 0;
+
+            // Přesun prvků do "více" menu, pokud se nevejdou
             for (let i = 0; i < primaryArray.length; i++) {
                 if (navigatorWidth + liveStreamWidth + widthSum + primaryArray[i].offsetWidth > width) {
-                    primaryMoreArray.prepend(primaryElements[i])
+                    primaryMoreArray.prepend(primaryArray[i]); // Použij přímo primaryArray[i]
                 } else {
-                    widthSum += primaryArray[i].offsetWidth
+                    widthSum += primaryArray[i].offsetWidth;
                 }
-
             }
-            let primaryMoreElements = document.querySelectorAll('#primary-menu-ul li'); //NodeList
-            console.log("primaryMoreElements:" + primaryMoreElements);
-            let primaryMoreLiArray = Array.from(primaryMoreElements); //Array - pole elementů
-            console.log("PrimaryMoreLiArray:" + primaryMoreLiArray);
 
-            for (let j = 0; j < primaryMoreLiArray.length; j++) {
-                /*if (navigatorWidth + liveStreamWidth + widthSum + primaryMoreLiArray[j].offsetWidth <= width) {
-                    primaryHTMLElement.append(primaryMoreLiArray[j]);
-                    widthSum += primaryMoreLiArray[j].offsetWidth
-                } else {
+            // Získej aktualizovaný seznam prvků v secondary menu
+            let primaryMoreElements = document.querySelectorAll('#primary-more li'); // NodeList
+            let primaryMoreLiArray = Array.from(primaryMoreElements); // Pole
 
-                }*/
+            // Ověření, že se nám první položka správně vrací
+            if (navigatorWidth + liveStreamWidth + widthSum + primaryMoreLiArray[0].offsetWidth <= width) {
+                console.log(primaryMoreArray[0]); // Zobrazí se správný prvek
+                primaryHTMLElement.append(primaryMoreLiArray[0]);
             }
-            console.log(widthSum)
         });
+
         resize_ob.observe(primaryMenuWidth);
     } else {
         console.error("Element s ID #primary-menu nebyl nalezen.");
     }
 });
+
