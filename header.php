@@ -105,18 +105,18 @@ echo '</div>';
 echo '</div>';
 
 echo '<div id="primary-menu" class="primary-menu">';
-echo '<button class="primary-more-btn">Další</button>';
 wp_nav_menu(
     array(
         'theme_location' => 'primary',
         'menu_class'     => 'header',
+        'menu_id'        => 'primary-menu-ul',
         'container'      => 'nav'
     )
 );
-
-echo '<ul class="primary-more"></ul>';
-echo '<a class="primary-sport">Sport</a>';
-echo '<a class="primary-live">Živé vysílání<a>';
+echo '<button class="primary-more-btn">Další</button>';
+echo '<ul id="primary-more" class="primary-more"></ul>';
+echo '<a id="primary-navigator" class="primary-navigator">Sport</a>';
+echo '<a id="primary-live" class="primary-live">Živé vysílání<a>';
 echo '</div>';
 ?>
 </header>
