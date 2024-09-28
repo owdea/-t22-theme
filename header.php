@@ -100,24 +100,36 @@ if ($menu_items) {
     echo 'Žádné navigační položky nebyly nalezeny.';
 }
 
-echo '</div>';
-echo '</div>';
-echo '</div>';
-
-echo '<div id="primary-menu" class="primary-menu">';
-wp_nav_menu(
-    array(
-        'theme_location' => 'primary',
-        'menu_class'     => 'header',
-        'menu_id'        => 'primary-menu-ul',
-        'container'      => 'nav'
-    )
-);
-echo '<button id="primary-button" class="primary-more-btn">Další...</button>';
-echo '<ul id="primary-more" class="primary-more"></ul>';
-echo '<a id="primary-navigator" class="primary-navigator">Sport</a>';
-echo '<a id="primary-live" class="primary-live">Živé vysílání<a>';
-echo '</div>';
 ?>
+</div>
+</div>
+</div>
+<div class="primary-menu-container">
+    <div id="primary-menu" class="primary-menu">
+        <div>
+            <?php wp_nav_menu(
+                array(
+                    'theme_location' => 'primary',
+                    'menu_class' => 'header',
+                    'menu_id' => 'primary-menu-ul',
+                    'container' => 'nav'
+                )
+            );?>
+            <div class="primary-more-container">
+                <button id="primary-button" class="primary-more-btn">Další...</button>
+                <ul id="primary-more" class="primary-more"></ul>
+            </div>
+        </div>
+        <div>
+            <a id="primary-navigator" class="primary-navigator">Sport</a>
+            <button id="primary-live" class="primary-live">
+                <svg fill="none" height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="4" cy="4" fill="currentColor" r="4"></circle>
+                </svg>
+                <a>ŽIVÉ VYSÍLÁNÍ</a>
+            </button>
+        </div>
+    </div>
+</div>
 </header>
 <main id="primary" class="site-main" role="main">

@@ -4,12 +4,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (menuButton && secondaryMenu) {
         menuButton.addEventListener('click', function () {
-            secondaryMenu.classList.toggle('visible');
+            secondaryMenu.classList.toggle('visibleBlock');
         });
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const moreButton = document.querySelector('.primary-more-btn');
+    const primaryMoreMenu = document.querySelector('.primary-more');
 
+    if (moreButton && primaryMoreMenu) {
+        moreButton.addEventListener('click', function() {
+            primaryMoreMenu.classList.toggle('visibleVisible')
+        })
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     const primaryMenuWidth = document.querySelector("#primary-menu");
@@ -19,15 +28,24 @@ document.addEventListener("DOMContentLoaded", function() {
         let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
         let buttonPrimary = document.getElementById('primary-button').offsetWidth
         const primaryMenuWidthCounted = primaryMenuWidth.offsetWidth;
+
         let primaryElements = document.querySelectorAll('#primary-menu nav ul li');
         let primaryArray = Array.from(primaryElements);
+
         let primaryMoreArray = document.getElementById('primary-more');
+
         let widthSum = 0;
 
         for (let i = 0; i < primaryArray.length; i++) {
-
             if (navigatorWidth + liveStreamWidth + buttonPrimary + widthSum + primaryArray[i].offsetWidth > primaryMenuWidthCounted) {
                 primaryMoreArray.append(primaryArray[i]);
+                console.log("Poslední prvek: " + primaryArray[i].textContent)
+                console.log("Přesouvám zbytek")
+                for (let j = i + 1; j < primaryArray.length; j++) {
+                    primaryMoreArray.append(primaryArray[j]);
+                    console.log("Přesunutý prvek: " + primaryArray[j].textContent);
+                }
+                break;
             } else {
                 widthSum += primaryArray[i].offsetWidth;
             }
@@ -39,8 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Získání aktuálních prvků z obou seznamů
             primaryArray = Array.from(document.querySelectorAll('#primary-menu nav ul li'));
-            primaryMoreElements = document.querySelectorAll('#primary-more li');
-            primaryMoreLiArray = Array.from(primaryMoreElements);
 
 
             widthSum = 0;
@@ -48,22 +64,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 widthSum += item.offsetWidth;
             });
 
-            //Přesun do druhého pole
-            if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryArray[primaryArray.length - 1].offsetWidth > width) {
-                primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
-                widthSum -= primaryArray[primaryArray.length - 1].offsetWidth
-            }
-
             // Znovu aktualizovat seznam prvků a šířku
-            primaryMoreElements = document.querySelectorAll('#primary-more li');
-            primaryMoreLiArray = Array.from(primaryMoreElements);
+            let primaryMoreElements = document.querySelectorAll('#primary-more li');
+            let primaryMoreLiArray = Array.from(primaryMoreElements);
             let primaryHTMLElement = document.getElementById('primary-menu-ul'); // HTMLElement
+            let navigatorWidth = document.getElementById('primary-navigator').offsetWidth;
+            let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
+            let buttonPrimary = document.getElementById('primary-button').offsetWidth
 
-
-            //Přesun do prvního pole
-            if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryMoreLiArray[0].offsetWidth <= width) {
+            //Přesun do druhého pole
+            if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary > width) {
+                //Šírky - vybraný navigátor, živé vysílání, součet prozatím ponechaných navigátorů z prvního UL, šířka nového navigároru musí být větší než
+                //console.log({navigatorWidth, liveStreamWidth, widthSum, buttonPrimary, last: primaryArray[primaryArray.length - 1].offsetWidth, sum: navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryArray[primaryArray.length - 1].offsetWidth, width})
+                console.log("Další přesun: " + primaryArray[primaryArray.length - 1].textContent)
+                primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
+            } else if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryMoreLiArray[0].offsetWidth <= width) {
                 primaryHTMLElement.append(primaryMoreLiArray[0]);
-                widthSum += primaryMoreLiArray[0].offsetWidth;
             }
         });
 

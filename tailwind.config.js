@@ -70,9 +70,11 @@ module.exports = {
             },
             borderColor: {
                 'white-transparent': 'rgba(255, 255, 255, 0.2)',
+                'black-transparent': 'rgba(0, 0, 0, 0.2)',
             },
             colors: {
-                ...colors
+                ...colors,
+                'live-red': "#ED1C1A"
             },
         },
     },
