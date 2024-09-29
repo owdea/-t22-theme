@@ -5,6 +5,9 @@ const colors = require("tailwindcss/colors");
 module.exports = {
     safelist: [
         'bg-transparent',
+        'visibleBlock',
+        'primary-menu-container',
+        'current-menu-item'
     ],
     content: [
         "./src/main.css",

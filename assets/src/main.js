@@ -74,8 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //Přesun do druhého pole
             if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary > width) {
-                //Šírky - vybraný navigátor, živé vysílání, součet prozatím ponechaných navigátorů z prvního UL, šířka nového navigároru musí být větší než
-                //console.log({navigatorWidth, liveStreamWidth, widthSum, buttonPrimary, last: primaryArray[primaryArray.length - 1].offsetWidth, sum: navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryArray[primaryArray.length - 1].offsetWidth, width})
                 console.log("Další přesun: " + primaryArray[primaryArray.length - 1].textContent)
                 primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
             } else if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryMoreLiArray[0].offsetWidth <= width) {
