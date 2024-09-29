@@ -132,16 +132,6 @@ if ($menu_items) {
             </div>
         </div>
         <div>
-            <?php wp_nav_menu(
-                array(
-                    'theme_location' => 'primary',
-                    'menu_class' => 'header-mobile',
-                    'menu_id' => 'primary-menu-ul-mobile',
-                    'container' => 'nav'
-                )
-            );?>
-        </div>
-        <div>
             <a id="primary-navigator" class="primary-navigator">Sport</a>
             <button id="primary-live" class="primary-live">
                 <svg fill="none" height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg">

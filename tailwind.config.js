@@ -79,7 +79,7 @@ module.exports = {
             colors: {
                 ...colors,
                 'live-red': "#ED1C1A",
-                'navigator-green': "#6dc2a0"
+                'navigator-green': "#228900"
             },
         },
     },

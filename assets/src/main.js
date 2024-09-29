@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (moreButton && primaryMoreMenu) {
         moreButton.addEventListener('click', function() {
             primaryMoreMenu.classList.toggle('visibleVisible')
+            moreButton.classList.toggle('primary-button-active')
         })
     }
 });
@@ -81,10 +82,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
                 let buttonPrimary = document.getElementById('primary-button').offsetWidth
 
+                //Vytvoření neviditelného elementu pro sledování šířky prvního elementu se správnými styly
+                const elementToDelete = document.querySelector('.primary-menu-more-first-item-duplicate');
+                if (elementToDelete) {
+                    elementToDelete.remove();
+                }
+                const originalElement = primaryMoreLiArray[0];
+                const duplicateElement = originalElement.cloneNode(true);
+                duplicateElement.className = '';
+                duplicateElement.classList.add('primary-menu-more-first-item-duplicate');
+                document.body.appendChild(duplicateElement);
+
+
                 //Přesun do druhého pole
                 if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary > width) {
                     primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
-                } else if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + primaryMoreLiArray[0].offsetWidth <= width) {
+                } else if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimary + document.querySelector('.primary-menu-more-first-item-duplicate').offsetWidth <= width) {
                     primaryHTMLElement.append(primaryMoreLiArray[0]);
                 }
             });

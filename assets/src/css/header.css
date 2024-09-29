@@ -72,6 +72,9 @@
         }
         .primary-menu-desktop {
             @apply invisible absolute tablet:visible tablet:static;
+            .primary-button-active {
+                @apply bg-darkscale-80 text-white;
+            }
         }
         & div {
             @apply flex;
@@ -142,9 +145,18 @@
     .primary-more-container {
         @apply relative flex;
         .primary-more {
-            @apply flex flex-col invisible absolute top-[67px] w-max;
+            @apply flex flex-col invisible absolute top-[67px] w-max shadow-secondary-menu;
             & li {
-                @apply px-[14px] shrink-0 inline self-start;
+                @apply shrink-0 inline self-start w-full;
+                &.current-menu-item {
+                    @apply bg-transparent;
+                    & a {
+                        @apply text-black font-semibold;
+                    }
+                }
+                & a {
+                    @apply w-full block px-[26px] py-[9px] font-normal;
+                }
             }
         }
     }
@@ -160,6 +172,14 @@
             }
         }
     }
+}
+
+.primary-menu-more-first-item-duplicate {
+    @apply list-none font-Source font-semibold px-[14px] w-fit invisible absolute left-[-3000px];
+
+}
+.duplicate-element::marker {
+
 }
 
 .visibleVisible {
