@@ -63,6 +63,7 @@ module.exports = {
             screens: {
                 'sm': '414px',
                 'md': '522px',
+                'stablet': '640px',
                 'tablet': '767px',
                 'lg': '992px',
                 'xl': '1024px',
@@ -77,7 +78,8 @@ module.exports = {
             },
             colors: {
                 ...colors,
-                'live-red': "#ED1C1A"
+                'live-red': "#ED1C1A",
+                'navigator-green': "#6dc2a0"
             },
         },
     },

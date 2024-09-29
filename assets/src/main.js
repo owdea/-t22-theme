@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    const primaryMenuMobileButton = document.querySelector('.primary-menu-mobile-icon');
+    const primaryMenuMobile = document.querySelector('.primary-menu-mobile');
+
+    if (primaryMenuMobileButton && primaryMenuMobile) {
+        primaryMenuMobileButton.addEventListener('click', function () {
+            primaryMenuMobile.classList.toggle('visibleFlex');
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     const moreButton = document.querySelector('.primary-more-btn');
     const primaryMoreMenu = document.querySelector('.primary-more');
 

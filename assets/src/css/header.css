@@ -39,9 +39,6 @@
             }
         }
     }
-    .secondary-menu.visibleBlock {
-        @apply block;
-    }
     .secondary-menu-btn {
         @apply bg-transparent flex text-white px-5;
         & img {
@@ -64,10 +61,18 @@
     }
 }
 .primary-menu-container {
-    @apply px-6 my-0;
+    @apply my-0;
+    @apply tablet:px-6;
     .primary-menu {
         @apply h-[57px] max-w-[1264px] flex font-Source text-darkscale-80 justify-between;
-        @apply tablet:border-b-[1px] tablet:border-b-black-transparent mx-auto font-semibold;
+        @apply border-b-[1px] border-b-black-transparent mx-auto font-semibold;
+        .primary-menu-mobile-icon {
+            @apply relative flex items-center w-full px-4 gap-1 font-normal;
+            @apply tablet:hidden;
+        }
+        .primary-menu-desktop {
+            @apply invisible absolute tablet:visible tablet:static;
+        }
         & div {
             @apply flex;
         }
@@ -98,13 +103,18 @@
         }
 
         .primary-navigator {
-            @apply h-full flex items-center;
+            @apply h-full flex items-center border-x-black-transparent border-x;
+            @apply tablet:border-x-0;
         }
-        .primary-navigator:hover,
+
         .primary-more-btn:hover,
         .header li a:hover,
         .current-menu-item {
             @apply bg-darkscale-80 text-lightscale-20;
+        }
+
+        .primary-navigator:hover {
+            @apply bg-navigator-green text-lightscale-20;
         }
         /*
         .current-menu-item::before {
@@ -118,7 +128,15 @@
         .primary-live {
             @apply flex items-center text-live-red gap-1 h-full;
         }
-
+        .primary-live:hover {
+            @apply bg-live-red text-lightscale-20;
+        }
+        .primary-live-mobile {
+            @apply stablet:hidden;
+        }
+        .primary-live-tablet {
+            @apply hidden stablet:block;
+        }
     }
 
     .primary-more-container {
@@ -129,9 +147,29 @@
                 @apply px-[14px] shrink-0 inline self-start;
             }
         }
-
-        .visibleVisible {
-            @apply visible;
+    }
+    .primary-menu-mobile {
+        @apply hidden font-Source text-darkscale-80 font-normal;
+        & nav {
+            @apply w-full;
+            & ul {
+                @apply py-4;
+                & li {
+                    @apply px-[26px] py-[9px];
+                }
+            }
         }
     }
+}
+
+.visibleVisible {
+    @apply visible !important;
+}
+
+.visibleBlock {
+    @apply block !important;
+}
+
+.visibleFlex {
+    @apply flex !important;
 }

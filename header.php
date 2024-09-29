@@ -105,20 +105,41 @@ if ($menu_items) {
 </div>
 </div>
 <div class="primary-menu-container">
-    <div id="primary-menu" class="primary-menu">
-        <div>
-            <?php wp_nav_menu(
-                array(
-                    'theme_location' => 'primary',
-                    'menu_class' => 'header',
-                    'menu_id' => 'primary-menu-ul',
-                    'container' => 'nav'
+    <?php
+        ob_start();
+        wp_nav_menu(
+            array(
+                'theme_location' => 'primary',
+                'menu_class' => 'header',
+                'menu_id' => 'primary-menu-ul',
+                'container' => 'nav'
                 )
-            );?>
+        );
+        $primary_menu = ob_get_clean();
+    ?>
+    <div id="primary-menu" class="primary-menu">
+        <button class="primary-menu-mobile-icon" id="primary-menu-mobile-icon">
+            <svg  fill="none" height="24" viewBox="0 0 24 25" width="24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M20.4 16.5a.6.6 0 01.6.6v.8a.6.6 0 01-.6.6H3.6a.6.6 0 01-.6-.6v-.8a.6.6 0 01.6-.6h16.8zm0-5a.6.6 0 01.6.6v.8a.6.6 0 01-.6.6H3.6a.6.6 0 01-.6-.6v-.8a.6.6 0 01.6-.6h16.8zm0-5a.6.6 0 01.6.6v.8a.6.6 0 01-.6.6H3.6a.6.6 0 01-.6-.6v-.8a.6.6 0 01.6-.6h16.8z" fill="currentColor" fill-rule="evenodd"></path></svg>
+            <a>Rubriky</a>
+        </button>
+        <div class="primary-menu-desktop">
+            <?php
+                echo $primary_menu;
+            ?>
             <div class="primary-more-container">
                 <button id="primary-button" class="primary-more-btn">Další...</button>
                 <ul id="primary-more" class="primary-more"></ul>
             </div>
+        </div>
+        <div>
+            <?php wp_nav_menu(
+                array(
+                    'theme_location' => 'primary',
+                    'menu_class' => 'header-mobile',
+                    'menu_id' => 'primary-menu-ul-mobile',
+                    'container' => 'nav'
+                )
+            );?>
         </div>
         <div>
             <a id="primary-navigator" class="primary-navigator">Sport</a>
@@ -126,9 +147,15 @@ if ($menu_items) {
                 <svg fill="none" height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="4" cy="4" fill="currentColor" r="4"></circle>
                 </svg>
-                <a>ŽIVÉ VYSÍLÁNÍ</a>
+                <a class="primary-live-mobile">ŽIVĚ</a>
+                <a class="primary-live-tablet">ŽIVÉ VYSÍLÁNÍ</a>
             </button>
         </div>
+    </div>
+    <div class="primary-menu-mobile">
+        <?php
+                echo $primary_menu;
+            ?>
     </div>
 </div>
 </header>
