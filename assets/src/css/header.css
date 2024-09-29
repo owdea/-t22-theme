@@ -67,7 +67,7 @@
     @apply px-6 my-0;
     .primary-menu {
         @apply h-[57px] max-w-[1264px] flex font-Source text-darkscale-80 justify-between;
-        @apply tablet:border-b-[1px] tablet:border-b-black-transparent;
+        @apply tablet:border-b-[1px] tablet:border-b-black-transparent mx-auto font-semibold;
         & div {
             @apply flex;
         }
