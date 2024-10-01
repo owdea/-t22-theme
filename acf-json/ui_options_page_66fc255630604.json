@@ -1,10 +1,10 @@
 {
-    "key": "ui_options_page_66f15d41efcad",
-    "title": "Sekundární menu",
+    "key": "ui_options_page_66fc255630604",
+    "title": "Primární menu",
     "active": true,
     "menu_order": 0,
-    "page_title": "Sekundární menu",
-    "menu_slug": "secondary-menu",
+    "page_title": "Primární menu",
+    "menu_slug": "primary-menu",
     "parent_slug": "none",
     "advanced_configuration": 0,
     "icon_url": "",
@@ -22,5 +22,5 @@
     "data_storage": "options",
     "post_id": "",
     "autoload": 0,
-    "modified": 1727801025
+    "modified": 1727800991
 }

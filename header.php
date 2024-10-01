@@ -131,8 +131,23 @@ if ($menu_items) {
                 <ul id="primary-more" class="primary-more"></ul>
             </div>
         </div>
+        <?php
+            $show_live_stream_button = get_field('show_live_stream_button', 'option');
+        ?>
         <div>
-            <a id="primary-navigator" class="primary-navigator">Sport</a>
+            <?php
+                $selected_navigator = get_field('selected_primary_navigator', 'option');
+
+                if ($selected_navigator) {
+                    $link = get_permalink($selected_navigator);
+                    $name = get_the_title($selected_navigator);
+
+                    if ($link && $name) {
+                        echo '<a id="primary-navigator" class="primary-navigator" href="' . esc_url($link) . '">' . esc_html($name) . '</a>';
+                    }
+                }
+            ?>
+            <?php if ($show_live_stream_button) : ?>
             <button id="primary-live" class="primary-live">
                 <svg fill="none" height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="4" cy="4" fill="currentColor" r="4"></circle>
@@ -140,6 +155,7 @@ if ($menu_items) {
                 <a class="primary-live-mobile">ŽIVĚ</a>
                 <a class="primary-live-tablet">ŽIVÉ VYSÍLÁNÍ</a>
             </button>
+            <?php endif; ?>
         </div>
     </div>
     <div class="primary-menu-mobile">

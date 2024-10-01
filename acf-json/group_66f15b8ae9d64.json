@@ -111,7 +111,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": "",
+                    "post_type": [
+                        "post",
+                        "page"
+                    ],
                     "post_status": "",
                     "taxonomy": "",
                     "return_format": "object",
@@ -172,7 +175,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": "",
+                    "post_type": [
+                        "post",
+                        "page"
+                    ],
                     "post_status": "",
                     "taxonomy": "",
                     "return_format": "object",
@@ -281,5 +287,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1727190530
+    "modified": 1727806556
 }

@@ -37,8 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const primaryMenuWidth = document.querySelector("#primary-menu");
 
     if (primaryMenuWidth) {
-        let navigatorWidth = document.getElementById('primary-navigator').offsetWidth;
-        let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
+        const navigatorElement = document.getElementById('primary-navigator');
+        const liveStreamElement = document.getElementById('primary-live');
+        let navigatorWidth = 0;
+        let liveStreamWidth = 0
+        if (navigatorElement) navigatorWidth = navigatorElement.offsetWidth;
+        if (liveStreamElement) liveStreamWidth = liveStreamElement.offsetWidth;
         let buttonPrimary = document.getElementById('primary-button').offsetWidth
         const primaryMenuWidthCounted = primaryMenuWidth.offsetWidth;
 
@@ -51,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (let i = 0; i < primaryArray.length; i++) {
             if (navigatorWidth + liveStreamWidth + buttonPrimary + widthSum + primaryArray[i].offsetWidth > primaryMenuWidthCounted) {
+                console.log({navigatorWidth: navigatorWidth, liveStreamWidth: liveStreamWidth})
                 primaryMoreArray.append(primaryArray[i]);
                 for (let j = i + 1; j < primaryArray.length; j++) {
                     primaryMoreArray.append(primaryArray[j]);
@@ -78,9 +83,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 let primaryMoreElements = document.querySelectorAll('#primary-more li');
                 let primaryMoreLiArray = Array.from(primaryMoreElements);
                 let primaryHTMLElement = document.getElementById('primary-menu-ul'); // HTMLElement
-                let navigatorWidth = document.getElementById('primary-navigator').offsetWidth;
-                let liveStreamWidth = document.getElementById('primary-live').offsetWidth;
-                let buttonPrimary = document.getElementById('primary-button').offsetWidth
+                const navigatorElement = document.getElementById('primary-navigator');
+                const liveStreamElement = document.getElementById('primary-live');
+                if (navigatorElement) navigatorWidth = navigatorElement.offsetWidth;
+                if (liveStreamElement) liveStreamWidth = liveStreamElement.offsetWidth;
+                let buttonPrimary = document.getElementById('primary-button').offsetWidth;
 
                 //Vytvoření neviditelného elementu pro sledování šířky prvního elementu se správnými styly
                 const elementToDelete = document.querySelector('.primary-menu-more-first-item-duplicate');

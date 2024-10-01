@@ -119,10 +119,10 @@
         .primary-navigator:hover {
             @apply bg-navigator-green text-lightscale-20;
         }
-        /*
-        .current-menu-item::before {
+
+        .primary-menu-desktop .current-menu-item::before {
             @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
-        }*/
+        }
 
         .primary-more-btn {
             @apply relative h-full flex items-center;
@@ -145,7 +145,7 @@
     .primary-more-container {
         @apply relative flex;
         .primary-more {
-            @apply flex flex-col invisible absolute top-[67px] w-max shadow-secondary-menu;
+            @apply hidden tablet:flex flex-col invisible absolute top-[67px] w-max shadow-secondary-menu;
             & li {
                 @apply shrink-0 inline self-start w-full;
                 &.current-menu-item {
