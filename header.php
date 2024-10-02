@@ -13,10 +13,14 @@
 
 echo '<header>';
 echo '<div class="header-top">';
-echo '<a href="' . get_site_url() . '">
+echo '<a id="header-logo" href="' . get_site_url() . '">
      <img class="header-logo" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">
      </a>';
 echo '<div class="header-top-right">';
+echo '<button id="mobile-search-bar-button" >';
+echo '<img id="mobile-search-magnifier" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/magnifier.svg" alt="Ikona lupy">';
+echo '<img id="mobile-search-exit" class="hidden" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/exit-icon.svg" alt="Exit icon">';
+echo '</button>';
 get_search_form();
 echo '<button class="secondary-menu-btn">';
 echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">';

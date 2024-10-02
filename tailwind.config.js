@@ -62,6 +62,7 @@ module.exports = {
             // 414px, 522px (velikosti nadpisu náhledu článků), 767px, 992px (změna velikostí fotek), 1024px, 1200px
             screens: {
                 'sm': '414px',
+                'smd': '427px',
                 'md': '522px',
                 'stablet': '640px',
                 'tablet': '767px',

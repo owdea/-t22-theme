@@ -1,14 +1,52 @@
 .header-top {
     @apply flex justify-between bg-header-gradient;
     .header-logo {
-        @apply mx-6 my-5;
+        @apply mx-6 my-[15.5px];
+        @apply tablet:my-5
     }
     .header-top-right {
         @apply flex items-center;
         & form {
-            @apply flex h-full border-x border-white-transparent px-5;
+            @apply hidden h-full border-x-0 tablet:border-x border-white-transparent px-5;
+            @apply tablet:flex;
             & label {
                 @apply flex;
+            }
+        }
+        #mobile-search-bar-button {
+            @apply tablet:hidden;
+        }
+        .secondary-menu-btn {
+            @apply bg-transparent flex text-white p-2.5;
+            @apply tablet:px-5;
+            & img {
+                @apply tablet:mr-2;
+            }
+            & span {
+                @apply hidden;
+                @apply tablet:block;
+            }
+        }
+        #mobile-search-bar-button {
+            @apply p-2.5 h-full;
+        }
+        .mobile-search-bar-button img,
+        .secondary-menu-btn img{
+            @apply w-6;
+        }
+    }
+    .header-top-right-mobile {
+        @apply w-full flex-row-reverse;
+        & form {
+            @apply flex w-full pr-0;
+            & label {
+                @apply w-full;
+                & input {
+                    @apply w-full h-[55px];
+                }
+            }
+            & button {
+                @apply p-2.5;
             }
         }
     }
@@ -16,7 +54,8 @@
         @apply bg-transparent;
     }
     .secondary-menu {
-        @apply hidden fixed top-24 bg-lightscale-20 max-w-[320px] shadow-secondary-menu rounded;
+        @apply right-0 max-w-full w-full hidden fixed top-[115px] bg-lightscale-20 shadow-secondary-menu rounded z-50;
+        @apply smd:max-w-[320px] smd:w-auto smd:right-2;
         & div {
             @apply px-[30px] py-[20px];
         }
@@ -39,12 +78,7 @@
             }
         }
     }
-    .secondary-menu-btn {
-        @apply bg-transparent flex text-white px-5;
-        & img {
-            @apply mr-2;
-        }
-    }
+
     .secondary-menu-headings {
         @apply flex flex-col border-y border-lightscale-40;
         & a {
@@ -71,7 +105,8 @@
             @apply tablet:hidden;
         }
         .primary-menu-desktop {
-            @apply invisible absolute tablet:visible tablet:static;
+            @apply invisible absolute;
+            @apply tablet:visible tablet:static;
             .primary-button-active {
                 @apply bg-darkscale-80 text-white;
             }
@@ -138,14 +173,16 @@
             @apply stablet:hidden;
         }
         .primary-live-tablet {
-            @apply hidden stablet:block;
+            @apply hidden;
+            @apply stablet:block;
         }
     }
 
     .primary-more-container {
         @apply relative flex;
         .primary-more {
-            @apply hidden tablet:flex flex-col invisible absolute top-[67px] w-max shadow-secondary-menu;
+            @apply hidden flex-col invisible absolute top-[67px] w-max shadow-secondary-menu;
+            @apply tablet:flex;
             & li {
                 @apply shrink-0 inline self-start w-full;
                 &.current-menu-item {
@@ -178,9 +215,6 @@
     @apply list-none font-Source font-semibold px-[14px] w-fit invisible absolute left-[-3000px];
 
 }
-.duplicate-element::marker {
-
-}
 
 .visibleVisible {
     @apply visible !important;
@@ -192,4 +226,8 @@
 
 .visibleFlex {
     @apply flex !important;
+}
+
+.invisibleHidden {
+    @apply hidden !important;
 }

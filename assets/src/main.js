@@ -21,6 +21,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    const searchButton = document.querySelector('#mobile-search-bar-button');
+    const searchLabel = document.querySelector('.header-top-right');
+    const secondaryMenuButton = document.querySelector('.secondary-menu-btn');
+    const headerLogo = document.querySelector('#header-logo')
+    const magnifierIcon = document.querySelector('#mobile-search-magnifier')
+    const exitIcon = document.querySelector('#mobile-search-exit')
+
+    if (searchButton && searchLabel && secondaryMenuButton && headerLogo) {
+        searchButton.addEventListener('click', function () {
+            searchLabel.classList.toggle('header-top-right-mobile');
+            secondaryMenuButton.classList.toggle('invisibleHidden');
+            headerLogo.classList.toggle('invisibleHidden');
+            magnifierIcon.classList.toggle('invisibleHidden');
+            exitIcon.classList.toggle('visibleBlock');
+        });
+    }
+})
+
+document.addEventListener('DOMContentLoaded', function () {
     const moreButton = document.querySelector('.primary-more-btn');
     const primaryMoreMenu = document.querySelector('.primary-more');
 
