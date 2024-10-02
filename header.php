@@ -28,6 +28,8 @@ echo '<span>ČT</span>';
 echo '</button>';
 echo '<div class="secondary-menu">';
 echo '<div class="secondary-menu-icons">';
+
+//Getting Icons from the ACF plugin and showing them in Secondary menu (first part). (Array of fields [image and url])
 if (have_rows('secondary_menu_icons', 'option')) :
 
     while (have_rows('secondary_menu_icons', 'option')) : the_row();
@@ -43,6 +45,8 @@ if (have_rows('secondary_menu_icons', 'option')) :
     endwhile;
 endif;
 echo '</div>';
+
+//Getting h5 headings from the ACF plugin and showing them in Secondary menu (second part). (Array of Post Objects)
 if (have_rows('secondary_menu_headings', 'option')) :
     echo '<ul class="secondary-menu-headings">';
 
@@ -63,16 +67,15 @@ if (have_rows('secondary_menu_headings', 'option')) :
     endwhile;
 
     echo '</ul>';
-else :
-    echo '<p>no values</p>';
 endif;
 
+//Getting chosen navigators from the ACF plugin and showing them in Secondary menu (third part). (Array containing Post Objects or Taxonomies (Rubrika or Tema)
 $menu_items = get_field('secondary_menu_navigators', 'options');
-
-if ($menu_items) {
+if ($menu_items) :
     echo '<ul class="secondary-menu-navigators">';
 
     foreach ($menu_items as $item) {
+
         // Post Object
         if (!empty($item['secondary_menu_navigator_post']) && is_object($item['secondary_menu_navigator_post'])) {
             $post_object = $item['secondary_menu_navigator_post'];
@@ -100,9 +103,7 @@ if ($menu_items) {
         }
     }
     echo '</ul>';
-} else {
-    echo 'Žádné navigační položky nebyly nalezeny.';
-}
+endif;
 
 ?>
 </div>
@@ -110,6 +111,7 @@ if ($menu_items) {
 </div>
 <div class="primary-menu-container">
     <?php
+        //Storing primary menu in the $primary_menu variable
         ob_start();
         wp_nav_menu(
             array(
@@ -136,10 +138,12 @@ if ($menu_items) {
             </div>
         </div>
         <?php
+            //Getting ACF settings for showing Live Stream option in primary menu. (True/False)
             $show_live_stream_button = get_field('show_live_stream_button', 'option');
         ?>
         <div>
             <?php
+                //Getting 'selected navigator' option from ACF (on ČT24 website it is Sport)
                 $selected_navigator = get_field('selected_primary_navigator', 'option');
 
                 if ($selected_navigator) {
@@ -151,6 +155,7 @@ if ($menu_items) {
                     }
                 }
             ?>
+
             <?php if ($show_live_stream_button) : ?>
             <button id="primary-live" class="primary-live">
                 <svg fill="none" height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg">
