@@ -9,26 +9,28 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open();
+<?php wp_body_open(); ?>
 
-echo '<header>';
-echo '<div class="header-top">';
-echo '<a id="header-logo" href="' . get_site_url() . '">
-     <img class="header-logo" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">
-     </a>';
-echo '<div class="header-top-right">';
-echo '<button id="mobile-search-bar-button" >';
-echo '<img id="mobile-search-magnifier" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/magnifier.svg" alt="Ikona lupy">';
-echo '<img id="mobile-search-exit" class="hidden" src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/exit-icon.svg" alt="Exit icon">';
-echo '</button>';
-get_search_form();
-echo '<button class="secondary-menu-btn">';
-echo '<img src="' . get_site_url() . '/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">';
-echo '<span>ČT</span>';
-echo '</button>';
-echo '<div class="secondary-menu">';
-echo '<div class="secondary-menu-icons">';
+<header>
+    <div class="header-top">
+        <a id="header-logo" href="<?php echo get_site_url(); ?>">
+            <img class="header-logo" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">
+        </a>
+        <div class="header-top-right">
+            <button id="mobile-search-bar-button">
+                <img id="mobile-search-magnifier" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/magnifier.svg" alt="Ikona lupy">
+                <img id="mobile-search-exit" class="hidden" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/exit-icon.svg" alt="Exit icon">
+            </button>
+            <?php get_search_form(); ?>
+            <button class="secondary-menu-btn">
+                <img src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">
+                <span>ČT</span>
+            </button>
+            <div class="secondary-menu-container">
+                <div class="secondary-menu">
+                    <div class="secondary-menu-icons">
 
+<?php
 //Getting Icons from the ACF plugin and showing them in Secondary menu (first part). (Array of fields [image and url])
 if (have_rows('secondary_menu_icons', 'option')) :
 
@@ -44,7 +46,7 @@ if (have_rows('secondary_menu_icons', 'option')) :
 
     endwhile;
 endif;
-echo '</div>';
+                echo '</div>';
 
 //Getting h5 headings from the ACF plugin and showing them in Secondary menu (second part). (Array of Post Objects)
 if (have_rows('secondary_menu_headings', 'option')) :
@@ -106,10 +108,11 @@ if ($menu_items) :
 endif;
 
 ?>
-</div>
-</div>
-</div>
-<div class="primary-menu-container">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="primary-menu-container">
     <?php
         //Storing primary menu in the $primary_menu variable
         ob_start();

@@ -9,10 +9,37 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuButton && secondaryMenu) {
         menuButton.addEventListener('click', function () {
             secondaryMenu.classList.toggle('visibleBlock');
+            menuButton.classList.toggle('bg-shadow-light-active');
         });
     }
+});
 
+// Counting top position for secondary menu
+document.addEventListener('DOMContentLoaded', function () {
+    let adminBar = document.getElementById('wpadminbar');
+    let headerTop = document.querySelector('.header-top');
 
+    let adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
+    let headerTopHeight = headerTop ? headerTop.offsetHeight : 0;
+    let totalHeight = adminBarHeight + headerTopHeight;
+    document.querySelector('.secondary-menu-container').style.top = totalHeight + 'px';
+
+    let resizeObserver = new ResizeObserver(() => {
+        let adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
+        let headerTopHeight = headerTop ? headerTop.offsetHeight : 0;
+        let totalHeight = adminBarHeight + headerTopHeight;
+        document.querySelector('.secondary-menu-container').style.top = totalHeight + 'px';
+    });
+
+    if (adminBar) {
+        resizeObserver.observe(adminBar);
+    }
+    if (headerTop) {
+        resizeObserver.observe(headerTop);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of the mobile primary menu.
     // TODO: Hiding menu when changing res from mobile to wider.
     // TODO: -> Delete !important even in those classes, watch width of the screen and use specific class for mobile res.
@@ -24,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
             primaryMenuMobile.classList.toggle('visibleFlex');
         });
     }
-
-
+});
+document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of elements in case of opening mobile search menu.
     const searchButton = document.querySelector('#mobile-search-bar-button');
     const searchLabel = document.querySelector('.header-top-right');
@@ -41,9 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
             headerLogo.classList.toggle('invisibleHidden');
             magnifierIcon.classList.toggle('invisibleHidden');
             exitIcon.classList.toggle('visibleBlock');
+            searchButton.classList.toggle('bg-shadow-light-active');
         });
     }
-
+});
+document.addEventListener('DOMContentLoaded', function () {
     // Toggling "Další..." menu visibility on button click
     const moreButton = document.querySelector('.primary-more-btn');
     const primaryMoreMenu = document.querySelector('.primary-more');
@@ -54,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
             moreButton.classList.toggle('primary-button-active')
         })
     }
-
+});
+document.addEventListener('DOMContentLoaded', function () {
     // Handling changes in menu layout (visible menu and hidden elements in "Další..." menu
     document.fonts.ready.then(function() {
         // primaryMenu - whole bottom menu element (ul of navigators, chosen navigator (not required), live stream button (not required) and Další... button)

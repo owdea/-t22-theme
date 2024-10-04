@@ -1,5 +1,5 @@
 .header-top {
-    @apply flex justify-between bg-header-gradient;
+    @apply flex justify-between bg-header-gradient font-Source;
     .header-logo {
         @apply mx-6 my-[15.5px];
         @apply tablet:my-5
@@ -13,11 +13,14 @@
                 @apply flex;
             }
         }
+        & img:not(.secondary-menu img) {
+            @apply w-[24px] max-w-none;
+        }
         #mobile-search-bar-button {
             @apply tablet:hidden;
         }
         .secondary-menu-btn {
-            @apply bg-transparent flex text-white p-2.5;
+            @apply bg-transparent flex text-white p-2.5 items-center h-full;
             @apply tablet:px-5;
             & img {
                 @apply tablet:mr-2;
@@ -26,6 +29,11 @@
                 @apply hidden;
                 @apply tablet:block;
             }
+        }
+        .secondary-menu-btn:hover,
+        .bg-shadow-light-active,
+        #mobile-search-bar-button:hover {
+            @apply bg-shadow-light;
         }
         #mobile-search-bar-button {
             @apply p-2.5 h-full;
@@ -51,45 +59,52 @@
         }
     }
     & input {
-        @apply bg-transparent;
+        @apply bg-transparent outline-0;
     }
-    .secondary-menu {
-        @apply right-0 max-w-full w-full hidden fixed top-[115px] bg-lightscale-20 shadow-secondary-menu rounded z-50;
-        @apply smd:max-w-[320px] smd:w-auto smd:right-2;
-        & div {
-            @apply px-[30px] py-[20px];
-        }
-        & ul {
-            @apply py-2;
-        }
-        .secondary-menu-icons {
-            @apply columns-2 flex flex-wrap;
-            & a {
-                @apply w-3/6 px-[5px] py-[13px];
+    & input::-webkit-input-placeholder {
+        @apply text-white;
+    }
+    .secondary-menu-container {
+        @apply fixed right-0 z-50 p-0 h-full bg-shadow-dark;
+        @apply smd:p-4 smd:h-auto smd:bg-transparent;
+        .secondary-menu {
+            @apply max-w-full w-full hidden top-[115px] bg-lightscale-20 shadow-secondary-menu rounded;
+            @apply smd:max-w-[320px] smd:w-auto;
+            & div {
+                @apply px-[30px] py-[20px];
+            }
+            & ul {
+                @apply py-2;
+            }
+            .secondary-menu-icons {
+                @apply columns-2 flex flex-wrap;
+                & a {
+                    @apply w-3/6 px-[5px] py-[13px];
+                    & img {
+                        @apply h-[21px];
+                    }
+                }
+            }
+            .secondary-menu-icons a:first-child {
+                @apply w-full;
                 & img {
-                    @apply h-[21px];
+                    @apply h-[24px];
                 }
             }
         }
-        .secondary-menu-icons a:first-child {
-            @apply w-full;
-            & img {
-                @apply h-[24px];
+
+        .secondary-menu-headings {
+            @apply flex flex-col border-y border-lightscale-40;
+            & a {
+                @apply text-sm font-semibold font-TV px-10 py-[9px] flex;
             }
         }
-    }
-
-    .secondary-menu-headings {
-        @apply flex flex-col border-y border-lightscale-40;
-        & a {
-            @apply text-sm font-semibold font-TV px-10 py-[9px] flex;
-        }
-    }
-    .secondary-menu-navigators {
-        @apply font-Source;
-        & li {
-            & a {
-                @apply px-10 py-[9px] flex;
+        .secondary-menu-navigators {
+            @apply font-Source;
+            & li {
+                & a {
+                    @apply px-10 py-[9px] flex;
+                }
             }
         }
     }

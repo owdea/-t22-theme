@@ -71,7 +71,9 @@ module.exports = {
                 '2xl': '1200px',
             },
             backgroundColor: {
-                ...colors
+                ...colors,
+                'shadow-dark': 'rgba(0, 0, 0, 0.3);',
+                'shadow-light': 'rgba(255, 255, 255, 0.08);'
             },
             borderColor: {
                 'white-transparent': 'rgba(255, 255, 255, 0.2)',
