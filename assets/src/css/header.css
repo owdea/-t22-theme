@@ -1,5 +1,5 @@
 .header-top {
-    @apply flex justify-between bg-header-gradient font-Source;
+    @apply flex justify-between bg-blue-gradient font-Source;
     .header-logo {
         @apply mx-6 my-[15.5px];
         @apply tablet:my-5
@@ -7,20 +7,20 @@
     .header-top-right {
         @apply flex items-center;
         & form {
-            @apply hidden h-full border-x-0 tablet:border-x border-white-transparent px-5;
+            @apply hidden h-full border-x-0 px-5 tablet:border-x border-white-transparent;
             @apply tablet:flex;
             & label {
                 @apply flex;
             }
         }
         & img:not(.secondary-menu img) {
-            @apply w-[24px] max-w-none;
+            @apply max-w-none w-[24px];
         }
         #mobile-search-bar-button {
             @apply tablet:hidden;
         }
         .secondary-menu-btn {
-            @apply bg-transparent flex text-white p-2.5 items-center h-full;
+            @apply flex items-center h-full p-2.5 bg-transparent text-white;
             @apply tablet:px-5;
             & img {
                 @apply tablet:mr-2;
@@ -36,7 +36,7 @@
             @apply bg-shadow-light;
         }
         #mobile-search-bar-button {
-            @apply p-2.5 h-full;
+            @apply h-full p-2.5;
         }
         .mobile-search-bar-button img,
         .secondary-menu-btn img{
@@ -44,7 +44,7 @@
         }
     }
     .header-top-right-mobile {
-        @apply w-full flex-row-reverse;
+        @apply flex-row-reverse w-full;
         & form {
             @apply flex w-full pr-0;
             & label {
@@ -59,16 +59,19 @@
         }
     }
     & input {
-        @apply bg-transparent outline-0;
+        @apply bg-transparent outline-0 text-white;
+    }
+    & input::-webkit-search-cancel-button{
+        @apply hidden;
     }
     & input::-webkit-input-placeholder {
         @apply text-white;
     }
     .secondary-menu-container {
-        @apply fixed right-0 z-50 p-0 h-full bg-shadow-dark;
-        @apply smd:p-4 smd:h-auto smd:bg-transparent;
+        @apply right-0 fixed h-full p-0 bg-shadow-dark z-50 ;
+        @apply smd:h-auto smd:p-4 smd:bg-transparent;
         .secondary-menu {
-            @apply max-w-full w-full hidden top-[115px] bg-lightscale-20 shadow-secondary-menu rounded;
+            @apply top-[115px] hidden max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded;
             @apply smd:max-w-[320px] smd:w-auto;
             & div {
                 @apply px-[30px] py-[20px];
@@ -76,8 +79,11 @@
             & ul {
                 @apply py-2;
             }
+            & li:hover {
+                @apply bg-lightscale-40 text-redscale-40;
+            }
             .secondary-menu-icons {
-                @apply columns-2 flex flex-wrap;
+                @apply flex flex-wrap columns-2;
                 & a {
                     @apply w-3/6 px-[5px] py-[13px];
                     & img {
@@ -94,16 +100,16 @@
         }
 
         .secondary-menu-headings {
-            @apply flex flex-col border-y border-lightscale-40;
+            @apply flex flex-col border-y border-lightscale-60;
             & a {
-                @apply text-sm font-semibold font-TV px-10 py-[9px] flex;
+                @apply flex px-10 py-[9px] text-sm font-semibold font-TV;
             }
         }
         .secondary-menu-navigators {
             @apply font-Source;
             & li {
                 & a {
-                    @apply px-10 py-[9px] flex;
+                    @apply flex px-10 py-[9px];
                 }
             }
         }
@@ -113,15 +119,15 @@
     @apply my-0;
     @apply tablet:px-6;
     .primary-menu {
-        @apply h-[57px] max-w-[1264px] flex font-Source text-darkscale-80 justify-between;
-        @apply border-b-[1px] border-b-black-transparent mx-auto font-semibold;
+        @apply flex justify-between max-w-[1264px] h-[57px] font-Source text-darkscale-80;
+        @apply mx-auto border-b-[1px] border-b-black-transparent font-semibold;
         .primary-menu-mobile-icon {
-            @apply relative flex items-center w-full px-4 gap-1 font-normal;
+            @apply relative flex items-center gap-1 w-full px-4 font-normal;
             @apply tablet:hidden;
         }
         .primary-menu-desktop {
-            @apply invisible absolute;
-            @apply tablet:visible tablet:static;
+            @apply absolute invisible ;
+            @apply tablet:static tablet:visible;
             .primary-button-active {
                 @apply bg-darkscale-80 text-white;
             }
@@ -133,12 +139,12 @@
             @apply h-full;
 
             & ul {
-                @apply flex items-center h-full flex-nowrap;
+                @apply flex items-center flex-nowrap h-full;
 
                 & li {
                     @apply shrink-0 h-full;
                     & a {
-                        @apply px-[14px] h-full flex items-center;
+                        @apply flex items-center h-full px-[14px];
                     }
                 }
             }
@@ -147,7 +153,7 @@
         .primary-live,
         .primary-navigator,
         .primary-more-btn {
-            @apply whitespace-nowrap self-center px-[14px];
+            @apply self-center whitespace-nowrap px-[14px];
         }
 
         .primary-live,
@@ -156,7 +162,7 @@
         }
 
         .primary-navigator {
-            @apply h-full flex items-center border-x-black-transparent border-x;
+            @apply flex items-center h-full border-x-black-transparent border-x;
             @apply tablet:border-x-0;
         }
 
@@ -169,20 +175,20 @@
         .primary-navigator:hover {
             @apply bg-navigator-green text-lightscale-20;
         }
-
+/*
         .primary-menu-desktop .current-menu-item::before {
             @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
         }
-
+*/
         .primary-more-btn {
-            @apply relative h-full flex items-center;
+            @apply relative flex items-center h-full;
         }
 
         .primary-live {
-            @apply flex items-center text-live-red gap-1 h-full;
+            @apply flex items-center gap-1 h-full text-redscale-40;
         }
         .primary-live:hover {
-            @apply bg-live-red text-lightscale-20;
+            @apply bg-redscale-40 text-lightscale-20;
         }
         .primary-live-mobile {
             @apply stablet:hidden;
@@ -196,10 +202,10 @@
     .primary-more-container {
         @apply relative flex;
         .primary-more {
-            @apply hidden flex-col invisible absolute top-[67px] w-max shadow-secondary-menu;
+            @apply absolute top-[67px] hidden flex-col invisible w-max shadow-box-shadow;
             @apply tablet:flex;
             & li {
-                @apply shrink-0 inline self-start w-full;
+                @apply inline self-start shrink-0 w-full;
                 &.current-menu-item {
                     @apply bg-transparent;
                     & a {
@@ -207,13 +213,13 @@
                     }
                 }
                 & a {
-                    @apply w-full block px-[26px] py-[9px] font-normal;
+                    @apply block w-full px-[26px] py-[9px] font-normal;
                 }
             }
         }
     }
     .primary-menu-mobile {
-        @apply hidden font-Source text-darkscale-80 font-normal;
+        @apply hidden font-Source font-normal text-darkscale-80;
         & nav {
             @apply w-full;
             & ul {
@@ -224,10 +230,14 @@
             }
         }
     }
+    .primary-menu-mobile-icon {
+        @apply flex;
+        @apply tablet:hidden;
+    }
 }
 
 .primary-menu-more-first-item-duplicate {
-    @apply list-none font-Source font-semibold px-[14px] w-fit invisible absolute left-[-3000px];
+    @apply absolute left-[-3000px] invisible w-fit px-[14px] list-none font-Source font-semibold;
 
 }
 
@@ -237,10 +247,6 @@
 
 .visibleBlock {
     @apply block !important;
-}
-
-.visibleFlex {
-    @apply flex !important;
 }
 
 .invisibleHidden {

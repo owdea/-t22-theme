@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
             secondaryMenu.classList.toggle('visibleBlock');
             menuButton.classList.toggle('bg-shadow-light-active');
         });
+        document.addEventListener('click', function (event) {
+            // Check if the clicked element is not inside the menu or the button
+            if (!secondaryMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                secondaryMenu.classList.remove('visibleBlock');
+                menuButton.classList.remove('bg-shadow-light-active');
+            }
+        });
     }
 });
 
@@ -48,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (primaryMenuMobileButton && primaryMenuMobile) {
         primaryMenuMobileButton.addEventListener('click', function () {
-            primaryMenuMobile.classList.toggle('visibleFlex');
+            primaryMenuMobile.classList.toggle('primary-menu-mobile-icon');
         });
     }
 });

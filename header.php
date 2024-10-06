@@ -14,12 +14,12 @@
 <header>
     <div class="header-top">
         <a id="header-logo" href="<?php echo get_site_url(); ?>">
-            <img class="header-logo" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="čt22 logo">
+            <img class="header-logo" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="Logo ČT22">
         </a>
         <div class="header-top-right">
             <button id="mobile-search-bar-button">
                 <img id="mobile-search-magnifier" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/magnifier.svg" alt="Ikona lupy">
-                <img id="mobile-search-exit" class="hidden" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/exit-icon.svg" alt="Exit icon">
+                <img id="mobile-search-exit" class="hidden" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/exit-icon.svg" alt="Zavírací ikona">
             </button>
             <?php get_search_form(); ?>
             <button class="secondary-menu-btn">
@@ -46,7 +46,7 @@ if (have_rows('secondary_menu_icons', 'option')) :
 
     endwhile;
 endif;
-                echo '</div>';
+                echo '</div>'; //secondary-menu-icons
 
 //Getting h5 headings from the ACF plugin and showing them in Secondary menu (second part). (Array of Post Objects)
 if (have_rows('secondary_menu_headings', 'option')) :
@@ -108,11 +108,11 @@ if ($menu_items) :
 endif;
 
 ?>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="primary-menu-container">
+                </div> <!--secondary-menu-->
+            </div> <!--secondary-menu-container-->
+        </div> <!--header-top-right-->
+    </div> <!--header-top-->
+    <div class="primary-menu-container"> <!--IP-567 - začátek tiketu na spodní část headeru-->
     <?php
         //Storing primary menu in the $primary_menu variable
         ob_start();
