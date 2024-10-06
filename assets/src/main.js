@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (primaryMenuMobileButton && primaryMenuMobile) {
         primaryMenuMobileButton.addEventListener('click', function () {
-            primaryMenuMobile.classList.toggle('primary-menu-mobile-icon');
+            primaryMenuMobile.classList.toggle('primary-menu-mobile-active');
         });
     }
 });
@@ -90,6 +90,13 @@ document.addEventListener('DOMContentLoaded', function () {
             moreButton.classList.toggle('primary-button-active')
         })
     }
+    document.addEventListener('click', function (event) {
+        // Check if the clicked element is not inside the primary-more menu or the moreButton
+        if (!primaryMoreMenu.contains(event.target) && !moreButton.contains(event.target)) {
+            primaryMoreMenu.classList.remove('visibleVisible');
+            moreButton.classList.remove('primary-button-active');
+        }
+    });
 });
 document.addEventListener('DOMContentLoaded', function () {
     // Handling changes in menu layout (visible menu and hidden elements in "Další..." menu

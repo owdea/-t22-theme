@@ -230,7 +230,7 @@
             }
         }
     }
-    .primary-menu-mobile-icon {
+    .primary-menu-mobile-active {
         @apply flex;
         @apply tablet:hidden;
     }
