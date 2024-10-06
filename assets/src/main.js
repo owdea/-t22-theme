@@ -177,6 +177,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     duplicateElement.classList.add('primary-menu-more-first-item-duplicate');
                     document.body.appendChild(duplicateElement);
 
+                    const currentItemInMoreMenu = document.querySelector('#primary-more .current-menu-item');
+                    const primaryButton = document.getElementById('primary-button');
+
+                    // If there is an item with class 'current-menu-item', add the class to the button
+                    if (currentItemInMoreMenu) {
+                        primaryButton.classList.add('current-menu-item');
+                    } else {
+                        primaryButton.classList.remove('current-menu-item');
+                    }
 
                     //
                     if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimaryWidth > width) {
