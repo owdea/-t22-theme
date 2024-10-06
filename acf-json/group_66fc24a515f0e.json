@@ -25,7 +25,7 @@
         },
         {
             "key": "field_66fc2876b88f6",
-            "label": "Výběr hlavní stránky do menu",
+            "label": "Vybraná stránka v menu",
             "name": "selected_primary_navigator",
             "aria-label": "",
             "type": "post_object",
@@ -50,6 +50,44 @@
             "bidirectional": 0,
             "ui": 1,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_67020926cbbf6",
+            "label": "Výběr pozadí vybrané stránky",
+            "name": "selected_navigator_bg",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#228900",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_67020edc66e72",
+            "label": "Výběr barvy textu vybrané stránky",
+            "name": "selected_navigator_text_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ffffff",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -70,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1727806915
+    "modified": 1728190361
 }

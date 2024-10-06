@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_66f15b8b008e0",
-            "label": "Secondary menu icons",
+            "label": "Ikony sekundárního menu",
             "name": "secondary_menu_icons",
             "aria-label": "",
             "type": "repeater",
@@ -26,7 +26,7 @@
             "sub_fields": [
                 {
                     "key": "field_66f1621e43504",
-                    "label": "Secondary menu image",
+                    "label": "Obrázky v sekundárním menu",
                     "name": "secondary_menu_navigator_image",
                     "aria-label": "",
                     "type": "image",
@@ -53,7 +53,7 @@
                 },
                 {
                     "key": "field_66f1623943505",
-                    "label": "Secondary menu navigator link",
+                    "label": "Prokliknutelné odkazy obrázků v sekundárním menu",
                     "name": "secondary_menu_navigator_link",
                     "aria-label": "",
                     "type": "text",
@@ -77,7 +77,7 @@
         },
         {
             "key": "field_66f18029c2ce6",
-            "label": "Secondary menu headings",
+            "label": "Hlavní navigátory sekundárního menu",
             "name": "secondary_menu_headings",
             "aria-label": "",
             "type": "repeater",
@@ -94,7 +94,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Přidat řádek",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -130,7 +130,7 @@
         },
         {
             "key": "field_66f2c3766c1ba",
-            "label": "Secondary menu navigators",
+            "label": "Navigároty sekundárního menu",
             "name": "secondary_menu_navigators",
             "aria-label": "",
             "type": "repeater",
@@ -147,7 +147,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Přidat řádek",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -287,5 +287,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1727806556
+    "modified": 1728190278
 }
