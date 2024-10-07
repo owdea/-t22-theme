@@ -32,7 +32,7 @@
                 <img src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">
                 <span>ČT</span>
             </button>
-            <div class="secondary-menu-container">
+            <div class="secondary-menu-container transition-custom">
                 <div class="secondary-menu">
                     <div class="secondary-menu-icons">
 

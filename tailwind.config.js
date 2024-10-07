@@ -91,6 +91,13 @@ module.exports = {
         },
     },
     plugins: [
-        require("@tailwindcss/line-clamp")
+        require("@tailwindcss/line-clamp"),
+        function({ addUtilities }) {
+            addUtilities({
+                '.transition-custom': {
+                    transition: 'transform 10ms cubic-bezier(0, 0, 0.3, 1) 300ms, visibility 200ms cubic-bezier(0, 0, 0.3, 1), opacity 200ms cubic-bezier(0, 0, 0.3, 1)',
+                },
+            });
+        },
     ],
 }

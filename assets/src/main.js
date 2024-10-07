@@ -1,5 +1,4 @@
 // TODO: Hiding menu when changing res from mobile to wider.
-// TODO: -> Delete !important even in those classes, watch width of the screen and use specific class for mobile res.
 // TODO: Hide "Další..." button if there are not enough element to hide them
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of the secondary menu (top part of the header).
@@ -8,18 +7,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (menuButton && secondaryMenu) {
         menuButton.addEventListener('click', function () {
-            secondaryMenu.classList.toggle('visibleBlock');
+            if (secondaryMenu.classList.contains('secondary-menu-active')) {
+                secondaryMenu.classList.remove('secondary-menu-active');
+
+                // After animation it over it sets display:none
+                secondaryMenu.addEventListener('transitionend', function hideMenu() {
+                    if (!secondaryMenu.classList.contains('secondary-menu-active')) {
+                        secondaryMenu.style.display = 'none';
+                    }
+                    secondaryMenu.removeEventListener('transitionend', hideMenu);
+                });
+            } else { //Sets display block and runs transition after click
+                secondaryMenu.style.display = 'block';
+                secondaryMenu.offsetHeight; // Necessary to force a reflow before the animation (so the browser registers the `display` change)
+                secondaryMenu.classList.add('secondary-menu-active');
+            }
+
             menuButton.classList.toggle('bg-shadow-light-active');
         });
+
         document.addEventListener('click', function (event) {
-            // Check if the clicked element is not inside the menu or the button
             if (!secondaryMenu.contains(event.target) && !menuButton.contains(event.target)) {
-                secondaryMenu.classList.remove('visibleBlock');
-                menuButton.classList.remove('bg-shadow-light-active');
+                if (secondaryMenu.classList.contains('secondary-menu-active')) {
+                    secondaryMenu.classList.remove('secondary-menu-active');
+
+                    // Setting display: none after transition is over
+                    secondaryMenu.addEventListener('transitionend', function hideMenu() {
+                        if (!secondaryMenu.classList.contains('secondary-menu-active')) {
+                            secondaryMenu.style.display = 'none';
+                        }
+                        secondaryMenu.removeEventListener('transitionend', hideMenu);
+                    });
+
+                    menuButton.classList.remove('bg-shadow-light-active');
+                }
             }
         });
     }
 });
+
 
 // Counting top position for secondary menu
 document.addEventListener('DOMContentLoaded', function () {

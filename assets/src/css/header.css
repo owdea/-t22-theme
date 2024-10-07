@@ -70,8 +70,11 @@
     .secondary-menu-container {
         @apply right-0 fixed h-full p-0 bg-shadow-dark z-50 ;
         @apply smd:h-auto smd:p-4 smd:bg-transparent;
+        .secondary-menu.secondary-menu-active {
+            @apply visible opacity-100;
+        }
         .secondary-menu {
-            @apply top-[115px] hidden max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded;
+            @apply top-[115px] invisible opacity-0 max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded transition-custom;
             @apply smd:max-w-[320px] smd:w-auto;
             & div {
                 @apply px-[30px] py-[20px];
@@ -169,13 +172,14 @@
         .primary-more-btn:hover,
         .header li a:hover,
         .current-menu-item {
-            @apply bg-darkscale-80 text-lightscale-20;
+            @apply bg-darkscale-80 text-lightscale-20 relative;
         }
-/*
-        .primary-menu-desktop .current-menu-item::before {
+
+        .current-menu-item::before {
+            content: ' ';
             @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
         }
-*/
+
         .primary-more-btn {
             @apply relative flex items-center h-full;
         }
@@ -205,7 +209,7 @@
                 &.current-menu-item {
                     @apply bg-transparent;
                     & a {
-                        @apply text-black font-semibold;
+                        @apply text-black;
                     }
                 }
                 & a {
@@ -239,10 +243,12 @@
 
 .visibleVisible {
     @apply visible !important;
+    @apply opacity-100 !important;
 }
 
 .visibleBlock {
     @apply block !important;
+    @apply opacity-100 !important;
 }
 
 .invisibleHidden {
