@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of the mobile primary menu.
     // TODO: Hiding menu when changing res from mobile to wider.
-    // TODO: -> Delete !important even in those classes, watch width of the screen and use specific class for mobile res.
     const primaryMenuMobileButton = document.querySelector('.primary-menu-mobile-icon');
     const primaryMenuMobile = document.querySelector('.primary-menu-mobile');
 
@@ -152,19 +151,30 @@ document.addEventListener('DOMContentLoaded', function () {
             let primaryMoreArray = document.getElementById('primary-more');
 
             let widthSum = 0;
+            let primaryMenuWidthSum = 0
 
-            for (let i = 0; i < primaryArray.length; i++) {
-                if (navigatorWidth + liveStreamWidth + buttonPrimaryWidth + widthSum + primaryArray[i].offsetWidth > primaryMenuWidthCounted) {
-                    console.log({navigatorWidth: navigatorWidth, liveStreamWidth: liveStreamWidth})
-                    primaryMoreArray.append(primaryArray[i]);
-                    for (let j = i + 1; j < primaryArray.length; j++) {
-                        primaryMoreArray.append(primaryArray[j]);
+            primaryArray.forEach((element) => {
+                primaryMenuWidthSum += element.offsetWidth
+            })
+
+            if (navigatorWidth + liveStreamWidth + primaryMenuWidthSum <= primaryMenuWidthCounted) {
+
+            } else {
+                document.getElementById("primary-button").style.display = "flex";
+                for (let i = 0; i < primaryArray.length; i++) {
+                    if (navigatorWidth + liveStreamWidth + buttonPrimaryWidth + widthSum + primaryArray[i].offsetWidth > primaryMenuWidthCounted) {
+                        console.log({navigatorWidth: navigatorWidth, liveStreamWidth: liveStreamWidth})
+                        primaryMoreArray.append(primaryArray[i]);
+                        for (let j = i + 1; j < primaryArray.length; j++) {
+                            primaryMoreArray.append(primaryArray[j]);
+                        }
+                        break;
+                    } else {
+                        widthSum += primaryArray[i].offsetWidth;
                     }
-                    break;
-                } else {
-                    widthSum += primaryArray[i].offsetWidth;
                 }
             }
+
 
                 const resize_ob = new ResizeObserver(function (entries) {
                     let rect = entries[0].contentRect;
@@ -198,26 +208,47 @@ document.addEventListener('DOMContentLoaded', function () {
                         elementToDelete.remove();
                     }
                     const originalElement = primaryMoreLiArray[0];
-                    const duplicateElement = originalElement.cloneNode(true);
-                    duplicateElement.className = '';
-                    duplicateElement.classList.add('primary-menu-more-first-item-duplicate');
-                    document.body.appendChild(duplicateElement);
-
-                    const currentItemInMoreMenu = document.querySelector('#primary-more .current-menu-item');
                     const primaryButton = document.getElementById('primary-button');
-
-                    // If there is an item with class 'current-menu-item', add the class to the button
-                    if (currentItemInMoreMenu) {
-                        primaryButton.classList.add('current-menu-item');
+                    if (primaryMoreLiArray[0]) {
+                        console.log("Běží")
+                        let duplicateElement = originalElement.cloneNode(true);
+                        duplicateElement.className = '';
+                        duplicateElement.classList.add('primary-menu-more-first-item-duplicate');
+                        document.body.appendChild(duplicateElement);
+                        const currentItemInMoreMenu = document.querySelector('#primary-more .current-menu-item');
+                        // If there is an item with class 'current-menu-item', add the class to the button
+                        if (currentItemInMoreMenu) {
+                            primaryButton.classList.add('current-menu-item');
+                        } else {
+                            primaryButton.classList.remove('current-menu-item');
+                        }
+                        primaryButton.style.display = "flex";
                     } else {
-                        primaryButton.classList.remove('current-menu-item');
+                        primaryButton.style.display = "none";
                     }
+                    let bothMenuWidthSum = 0
+                    primaryArray.forEach((element) => {
+                        bothMenuWidthSum += element.offsetWidth
+                    })
+                    primaryMoreLiArray.forEach((element) => {
+                        bothMenuWidthSum += element.offsetWidth
+                    })
+
 
                     //
                     if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimaryWidth > width) {
                         primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
-                    } else if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimaryWidth + document.querySelector('.primary-menu-more-first-item-duplicate').offsetWidth <= width) {
-                        primaryHTMLElement.append(primaryMoreLiArray[0]);
+                        primaryButton.style.display = "flex";
+                        //(bothMenuWidthSum + navigatorWidth + liveStreamWidth && primaryMoreLiArray[0]) ||
+                    } else if (
+                        primaryMoreLiArray[0] &&
+                        navigatorWidth +
+                        liveStreamWidth +
+                        widthSum +
+                        (primaryMoreLiArray.length === 1 ? 0 : buttonPrimaryWidth) +
+                        document.querySelector('.primary-menu-more-first-item-duplicate').offsetWidth <= width) {
+                            primaryHTMLElement.append(primaryMoreLiArray[0]);
+                            primaryButton.style.display = "none";
                     }
             });
 

@@ -185,7 +185,7 @@
         }
 
         .primary-more-btn {
-            @apply relative flex items-center h-full;
+            @apply relative hidden items-center h-full;
         }
 
         .primary-live {
@@ -206,19 +206,22 @@
     .primary-more-container {
         @apply relative flex;
         .primary-more {
-            @apply absolute top-[67px] hidden flex-col invisible w-max shadow-box-shadow;
+            @apply absolute top-[67px] hidden flex-col invisible w-max shadow-box-shadow py-3;
             @apply tablet:flex;
             & li {
                 @apply inline self-start shrink-0 w-full;
                 &.current-menu-item {
                     @apply bg-transparent;
                     & a {
-                        @apply text-black;
+                        @apply text-black font-semibold;
                     }
                 }
                 & a {
                     @apply block w-full px-[26px] py-[9px] font-normal;
                 }
+            }
+            & li:hover {
+                @apply bg-gray-solid;
             }
         }
     }
@@ -230,6 +233,9 @@
                 @apply py-4;
                 & li {
                     @apply px-[26px] py-[9px];
+                }
+                & li:hover {
+                    @apply bg-gray-solid;
                 }
             }
         }
