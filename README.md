@@ -8,7 +8,7 @@ Running project on local machine for development and testing pusposes.
 
 ### Configuration
 
-Run `npm install` for installing theme dependencies.
+Run `npm install` and `yarn install` for installing theme dependencies.
 
 Create .env file in your theme root directory with next line of code.
 ```sh

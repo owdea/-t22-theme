@@ -1,249 +1,308 @@
 .header-top {
     @apply flex justify-between bg-blue-gradient font-Source;
-    .header-logo {
-        @apply mx-6 my-[15.5px];
-        @apply tablet:my-5
-    }
-    .header-top-right {
-        @apply flex items-center;
-        & form {
-            @apply hidden h-full border-x-0 px-5 tablet:border-x border-white-transparent;
-            @apply tablet:flex;
-            & label {
-                @apply flex;
-            }
-        }
-        & img:not(.secondary-menu img) {
-            @apply max-w-none w-[24px];
-        }
-        #mobile-search-bar-button {
-            @apply tablet:hidden;
-        }
-        .secondary-menu-btn {
-            @apply flex items-center h-full p-2.5 bg-transparent text-white;
-            @apply tablet:px-5;
-            & img {
-                @apply tablet:mr-2;
-            }
-            & span {
-                @apply hidden;
-                @apply tablet:block;
-            }
-        }
-        .secondary-menu-btn:hover,
-        .bg-shadow-light-active,
-        #mobile-search-bar-button:hover {
-            @apply bg-shadow-light;
-        }
-        #mobile-search-bar-button {
-            @apply h-full p-2.5;
-        }
-        .mobile-search-bar-button img,
-        .secondary-menu-btn img{
-            @apply w-6;
-        }
-    }
-    .header-top-right-mobile {
-        @apply flex-row-reverse w-full;
-        & form {
-            @apply flex w-full pr-0;
-            & label {
-                @apply w-full;
-                & input {
-                    @apply w-full h-[55px];
-                }
-            }
-            & button {
-                @apply p-2.5;
-            }
-        }
-    }
-    & input {
-        @apply bg-transparent outline-0 text-white;
-    }
-    & input::-webkit-search-cancel-button{
-        @apply hidden;
-    }
-    & input::-webkit-input-placeholder {
-        @apply text-white;
-    }
-    .secondary-menu-container {
-        @apply right-0 fixed h-full p-0 bg-shadow-dark z-50;
-        @apply smd:h-auto smd:p-4 smd:bg-transparent;
-        .secondary-menu.secondary-menu-active {
-            @apply visible opacity-100;
-        }
-        .secondary-menu {
-            @apply top-[115px] invisible hidden opacity-0 max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded transition-custom;
-            @apply smd:max-w-[320px] smd:w-auto;
-            & div {
-                @apply px-[30px] py-[20px];
-            }
-            & ul {
-                @apply py-2;
-            }
-            & li:hover {
-                @apply bg-lightscale-40 text-redscale-40;
-            }
-            .secondary-menu-icons {
-                @apply flex flex-wrap columns-2;
-                & a {
-                    @apply w-3/6 px-[5px] py-[13px];
-                    & img {
-                        @apply h-[21px];
-                    }
-                }
-            }
-            .secondary-menu-icons a:first-child {
-                @apply w-full;
-                & img {
-                    @apply h-[24px];
-                }
-            }
-        }
-
-        .secondary-menu-headings {
-            @apply flex flex-col border-y border-lightscale-60;
-            & a {
-                @apply flex px-10 py-[9px] text-sm font-semibold font-TV;
-            }
-        }
-        .secondary-menu-navigators {
-            @apply font-Source;
-            & li {
-                & a {
-                    @apply flex px-10 py-[9px];
-                }
-            }
-        }
-    }
 }
+
+.header-top .header-logo {
+    @apply mx-6 my-[15.5px];
+    @apply tablet:my-5
+}
+
+.header-top .header-top-right {
+    @apply flex items-center;
+}
+
+.header-top .header-top-right form {
+    @apply hidden h-full border-x-0 px-5 tablet:border-x border-white-transparent;
+    @apply tablet:flex;
+}
+
+.header-top .header-top-right label {
+    @apply flex;
+}
+
+.header-top .header-top-right img:not(.secondary-menu img) {
+    @apply max-w-none w-[24px];
+}
+
+.header-top .header-top-right #mobile-search-bar-button {
+    @apply tablet:hidden;
+}
+
+.header-top .header-top-right .secondary-menu-btn {
+    @apply flex items-center h-full p-2.5 bg-transparent text-white;
+    @apply tablet:px-5;
+}
+
+.header-top .header-top-right .secondary-menu-btn img {
+    @apply tablet:mr-2;
+}
+
+.header-top .header-top-right .secondary-menu-btn span {
+    @apply hidden;
+    @apply tablet:block;
+}
+
+.header-top .header-top-right .secondary-menu-btn:hover,
+.header-top .header-top-right .bg-shadow-light-active,
+.header-top .header-top-right #mobile-search-bar-button:hover {
+    @apply bg-shadow-light;
+}
+
+.header-top .header-top-right #mobile-search-bar-button {
+    @apply h-full p-2.5;
+}
+
+.header-top .header-top-right #mobile-search-bar-button img,
+.header-top .header-top-right .secondary-menu-btn img {
+    @apply w-6;
+}
+
+.header-top .header-top-right-mobile {
+    @apply flex-row-reverse w-full;
+}
+
+.header-top .header-top-right-mobile form {
+    @apply flex w-full pr-0;
+}
+
+.header-top .header-top-right-mobile form button {
+    @apply p-2.5;
+}
+
+.header-top .header-top-right-mobile form label {
+    @apply w-full;
+}
+
+.header-top .header-top-right-mobile form label input {
+    @apply w-full h-[55px]
+}
+
+.header-top input {
+    @apply bg-transparent outline-0 text-white;
+}
+
+.header-top input::-webkit-search-cancel-button{
+    @apply hidden;
+}
+
+.header-top input::-webkit-input-placeholder {
+    @apply text-white;
+}
+
+.header-top .secondary-menu-container {
+    @apply right-0 fixed h-full p-0 bg-shadow-dark z-50;
+    @apply smd:h-auto smd:p-4 smd:bg-transparent;
+}
+
+.header-top .secondary-menu-container .secondary-menu.secondary-menu-active {
+    @apply visible opacity-100;
+}
+
+.header-top .secondary-menu-container .secondary-menu {
+    @apply top-[115px] invisible hidden opacity-0 max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded transition-custom;
+    @apply smd:max-w-[320px] smd:w-auto;
+}
+
+.header-top .secondary-menu-container .secondary-menu div {
+    @apply px-[30px] py-[20px];
+}
+
+.header-top .secondary-menu-container .secondary-menu ul {
+    @apply py-2;
+}
+
+.header-top .secondary-menu-container .secondary-menu li:hover {
+    @apply bg-lightscale-40 text-redscale-40;
+}
+
+.header-top .secondary-menu-container .secondary-menu .secondary-menu-icons {
+    @apply flex flex-wrap columns-2;
+}
+
+.header-top .secondary-menu-container .secondary-menu .secondary-menu-icons a {
+    @apply w-3/6 px-[5px] py-[13px];
+}
+
+.header-top .secondary-menu-container .secondary-menu .secondary-menu-icons a img {
+    @apply h-[21px];
+}
+
+.header-top .secondary-menu-container .secondary-menu .secondary-menu-icons a:first-child {
+    @apply w-full;
+}
+
+.header-top .secondary-menu-container .secondary-menu .secondary-menu-icons a:first-child img {
+    @apply h-[24px];
+}
+
+.header-top .secondary-menu-container .secondary-menu-headings {
+    @apply flex flex-col border-y border-lightscale-60;
+}
+
+.header-top .secondary-menu-container .secondary-menu-headings a {
+    @apply flex px-10 py-[9px] text-sm font-semibold font-TV;@apply flex px-10 py-[9px] text-sm font-semibold font-TV;
+}
+
+.header-top .secondary-menu-container .secondary-menu-navigators {
+    @apply font-Source;
+}
+
+.header-top .secondary-menu-container .secondary-menu-navigators li a {
+    @apply flex px-10 py-[9px];
+}
+
 .primary-menu-container {
     @apply my-0;
     @apply tablet:px-6;
-    .primary-menu {
-        @apply flex justify-between max-w-[1264px] h-[57px] font-Source text-darkscale-80;
-        @apply mx-auto border-b-[1px] border-b-black-transparent font-semibold;
-        .primary-menu-mobile-icon {
-            @apply relative flex items-center gap-1 w-full px-4 font-normal;
-            @apply tablet:hidden;
-        }
-        .primary-menu-desktop {
-            @apply absolute invisible ;
-            @apply tablet:static tablet:visible;
-            .primary-button-active {
-                @apply bg-darkscale-80 text-white;
-            }
-        }
-        & div {
-            @apply flex;
-        }
-        & nav {
-            @apply h-full;
+}
 
-            & ul {
-                @apply flex items-center flex-nowrap h-full;
+.primary-menu-container .primary-menu {
+    @apply flex justify-between max-w-[1264px] h-[57px] font-Source text-darkscale-80;
+    @apply mx-auto border-b-[1px] border-b-black-transparent font-semibold;
+}
 
-                & li {
-                    @apply shrink-0 h-full;
-                    & a {
-                        @apply flex items-center h-full px-[14px];
-                    }
-                }
-            }
-        }
+.primary-menu-container .primary-menu div {
+    @apply flex;
+}
 
-        .primary-live,
-        .primary-navigator,
-        .primary-more-btn {
-            @apply self-center whitespace-nowrap px-[14px];
-        }
+.primary-menu-container .primary-menu .primary-menu-mobile-icon {
+    @apply relative flex items-center gap-1 w-full px-4 font-normal;
+    @apply tablet:hidden;
+}
 
-        .primary-live,
-        .primary-navigator {
-            @apply font-semibold;
-        }
+.primary-menu-container .primary-menu .primary-menu-desktop {
+    @apply absolute invisible;
+    @apply tablet:static tablet:visible;
+}
 
-        .primary-navigator {
-            @apply flex items-center h-full border-x-black-transparent border-x;
-            @apply tablet:border-x-0;
-        }
+.primary-menu-container .primary-menu .primary-menu-desktop .primary-button-active {
+    @apply bg-darkscale-80 text-white;
+}
 
-        .primary-more-btn:hover,
-        .header li a:hover,
-        .current-menu-item {
-            @apply bg-darkscale-80 text-lightscale-20 relative;
-        }
+.primary-menu-container .primary-menu div {
+    @apply flex;
+}
 
-        .primary-more-container .current-menu-item::before {
-            @apply hidden;
-        }
+.primary-menu-container .primary-menu nav {
+    @apply h-full;
+}
 
-        .current-menu-item:not(.primary-more .current-menu-item)::before {
-            content: ' ';
-            @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
-        }
+.primary-menu-container .primary-menu nav ul{
+    @apply flex items-center flex-nowrap h-full;
+}
 
-        .primary-more-btn {
-            @apply relative hidden items-center h-full;
-        }
+.primary-menu-container .primary-menu nav ul li{
+    @apply shrink-0 h-full;
+}
 
-        .primary-live {
-            @apply flex items-center gap-1 h-full text-redscale-40;
-        }
-        .primary-live:hover {
-            @apply bg-redscale-40 text-lightscale-20;
-        }
-        .primary-live-mobile {
-            @apply stablet:hidden;
-        }
-        .primary-live-tablet {
-            @apply hidden;
-            @apply stablet:block;
-        }
-    }
+.primary-menu-container .primary-menu nav ul li a{
+    @apply flex items-center h-full px-[14px];
+}
 
-    .primary-more-container {
-        @apply relative flex;
-        .primary-more {
-            @apply absolute top-[67px] hidden flex-col invisible w-max shadow-box-shadow py-3;
-            @apply tablet:flex;
-            & li {
-                @apply inline self-start shrink-0 w-full;
-                &.current-menu-item {
-                    @apply bg-transparent;
-                    & a {
-                        @apply text-black font-semibold;
-                    }
-                }
-                & a {
-                    @apply block w-full px-[26px] py-[9px] font-normal;
-                }
-            }
-            & li:hover {
-                @apply bg-gray-solid;
-            }
-        }
-    }
-    .primary-menu-mobile {
-        @apply hidden font-Source font-normal text-darkscale-80;
-        & nav {
-            @apply w-full;
-            & ul {
-                @apply py-4;
-                & li {
-                    @apply px-[26px] py-[9px];
-                }
-                & li:hover {
-                    @apply bg-gray-solid;
-                }
-            }
-        }
-    }
-    .primary-menu-mobile-active {
-        @apply flex;
-        @apply tablet:hidden;
-    }
+.primary-menu-container .primary-menu .primary-live,
+.primary-menu-container .primary-menu .primary-navigator,
+.primary-menu-container .primary-menu .primary-more-btn {
+    @apply self-center whitespace-nowrap px-[14px];
+}
+
+.primary-menu-container .primary-menu .primary-live,
+.primary-menu-container .primary-menu .primary-navigator {
+    @apply font-semibold;
+}
+
+.primary-menu-container .primary-menu .primary-navigator {
+    @apply flex items-center h-full border-x-black-transparent border-x;
+    @apply tablet:border-x-0;
+}
+
+.primary-menu-container .primary-menu .primary-more-btn:hover,
+.primary-menu-container .primary-menu .header li a:hover,
+.primary-menu-container .primary-menu .current-menu-item {
+    @apply bg-darkscale-80 text-lightscale-20 relative;
+}
+
+.primary-menu-container .primary-menu .primary-more-container .current-menu-item::before {
+    @apply hidden;
+}
+
+.primary-menu-container .primary-menu .current-menu-item:not(.primary-more .current-menu-item)::before {
+    content: ' ';
+    @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
+}
+
+.primary-menu-container .primary-menu .primary-more-btn {
+    @apply relative hidden items-center h-full;
+}
+
+.primary-menu-container .primary-menu .primary-live {
+    @apply flex items-center gap-1 h-full text-redscale-40;
+}
+
+.primary-menu-container .primary-menu .primary-live:hover {
+    @apply bg-redscale-40 text-lightscale-20;
+}
+
+.primary-menu-container .primary-menu .primary-live-mobile {
+    @apply stablet:hidden;
+}
+
+.primary-menu-container .primary-menu .primary-live-tablet {
+    @apply hidden;
+    @apply stablet:block;
+}
+
+.primary-menu-container .primary-more-container {
+    @apply relative flex;
+}
+
+.primary-menu-container .primary-more-container .primary-more {
+    @apply absolute top-[67px] hidden flex-col invisible w-max shadow-box-shadow py-3;
+    @apply tablet:flex;
+}
+
+.primary-menu-container .primary-more-container .primary-more li {
+    @apply inline self-start shrink-0 w-full;
+}
+
+.primary-menu-container .primary-more-container .primary-more li.current-menu-item {
+    @apply bg-transparent;
+}
+
+.primary-menu-container .primary-more-container .primary-more li.current-menu-item a {
+    @apply text-black font-semibold;
+}
+
+.primary-menu-container .primary-more-container .primary-more li a {
+    @apply block w-full px-[26px] py-[9px] font-normal;
+}
+
+.primary-menu-container .primary-more-container .primary-more li:hover {
+    @apply bg-gray-solid;
+}
+
+.primary-menu-container .primary-menu-mobile {
+    @apply hidden font-Source font-normal text-darkscale-80;
+}
+
+.primary-menu-container .primary-menu-mobile nav {
+    @apply w-full;
+}
+
+.primary-menu-container .primary-menu-mobile nav ul {
+    @apply py-4;
+}
+
+.primary-menu-container .primary-menu-mobile nav ul li {
+    @apply px-[26px] py-[9px];
+}
+
+.primary-menu-container .primary-menu-mobile nav ul li:hover {
+    @apply bg-gray-solid;
+}
+
+.primary-menu-container .primary-menu-mobile-active {
+    @apply flex;
+    @apply tablet:hidden;
 }
 
 .primary-menu-more-first-item-duplicate {
