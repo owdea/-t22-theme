@@ -90,8 +90,8 @@
 }
 
 .header-top .secondary-menu-container {
-    @apply right-0 fixed h-full p-0 bg-shadow-dark z-50;
-    @apply smd:h-auto smd:p-4 smd:bg-transparent;
+    @apply right-0 fixed h-full p-0 bg-shadow-dark z-50 w-full;
+    @apply smd:h-auto smd:p-4 smd:bg-transparent smd:w-auto;
 }
 
 .header-top .secondary-menu-container .secondary-menu.secondary-menu-active {
@@ -100,7 +100,7 @@
 
 .header-top .secondary-menu-container .secondary-menu {
     @apply top-[115px] invisible hidden opacity-0 max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded transition-custom;
-    @apply smd:max-w-[320px] smd:w-auto;
+    @apply smd:w-[320px];
 }
 
 .header-top .secondary-menu-container .secondary-menu div {
@@ -124,7 +124,7 @@
 }
 
 .header-top .secondary-menu-container .secondary-menu .secondary-menu-icons a img {
-    @apply h-[21px];
+    @apply h-[21px] object-contain;
 }
 
 .header-top .secondary-menu-container .secondary-menu .secondary-menu-icons a:first-child {
