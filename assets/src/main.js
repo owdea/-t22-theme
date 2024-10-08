@@ -1,9 +1,8 @@
-// TODO: Hiding menu when changing res from mobile to wider.
-// TODO: Hide "Další..." button if there are not enough element to hide them
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of the secondary menu (top part of the header).
     const menuButton = document.querySelector('.secondary-menu-btn');
     const secondaryMenu = document.querySelector('.secondary-menu');
+    const secondaryMenuContainer = document.querySelector('.secondary-menu-container');
 
     if (menuButton && secondaryMenu) {
         menuButton.addEventListener('click', function () {
@@ -16,13 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         secondaryMenu.style.display = 'none';
                     }
                     secondaryMenu.removeEventListener('transitionend', hideMenu);
+                    secondaryMenuContainer.style.display = 'none';
                 });
             } else { //Sets display block and runs transition after click
+                secondaryMenuContainer.style.display = 'block';
                 secondaryMenu.style.display = 'block';
                 secondaryMenu.offsetHeight; // Necessary to force a reflow before the animation (so the browser registers the `display` change)
                 secondaryMenu.classList.add('secondary-menu-active');
             }
-
+            secondaryMenuContainer.classList.toggle('secondary-container-active');
             menuButton.classList.toggle('bg-shadow-light-active');
         });
 
@@ -37,8 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             secondaryMenu.style.display = 'none';
                         }
                         secondaryMenu.removeEventListener('transitionend', hideMenu);
+                        secondaryMenuContainer.style.display = 'none';
                     });
-
+                    if(secondaryMenuContainer.classList.contains('secondary-container-active')) secondaryMenuContainer.classList.remove('secondary-container-active')
                     menuButton.classList.remove('bg-shadow-light-active');
                 }
             }
@@ -163,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById("primary-button").style.display = "flex";
                 for (let i = 0; i < primaryArray.length; i++) {
                     if (navigatorWidth + liveStreamWidth + buttonPrimaryWidth + widthSum + primaryArray[i].offsetWidth > primaryMenuWidthCounted) {
-                        console.log({navigatorWidth: navigatorWidth, liveStreamWidth: liveStreamWidth})
                         primaryMoreArray.append(primaryArray[i]);
                         for (let j = i + 1; j < primaryArray.length; j++) {
                             primaryMoreArray.append(primaryArray[j]);
@@ -210,14 +211,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     const originalElement = primaryMoreLiArray[0];
                     const primaryButton = document.getElementById('primary-button');
                     if (primaryMoreLiArray[0]) {
-                        console.log("Běží")
                         let duplicateElement = originalElement.cloneNode(true);
                         duplicateElement.className = '';
                         duplicateElement.classList.add('primary-menu-more-first-item-duplicate');
                         document.body.appendChild(duplicateElement);
-                        const currentItemInMoreMenu = document.querySelector('#primary-more .current-menu-item');
+                        const currentMenuItemInMoreMenu = document.querySelector('#primary-more .current-menu-item');
                         // If there is an item with class 'current-menu-item', add the class to the button
-                        if (currentItemInMoreMenu) {
+                        if (currentMenuItemInMoreMenu) {
                             primaryButton.classList.add('current-menu-item');
                         } else {
                             primaryButton.classList.remove('current-menu-item');
@@ -239,6 +239,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (navigatorWidth + liveStreamWidth + widthSum + buttonPrimaryWidth > width) {
                         primaryMoreArray.prepend(primaryArray[primaryArray.length - 1]);
                         primaryButton.style.display = "flex";
+                        primaryMoreLiArray = Array.from(document.querySelectorAll('#primary-more li'));
+                        if (primaryMoreLiArray[0].classList.contains('current-menu-item')) primaryButton.classList.add('current-menu-item');
                         //(bothMenuWidthSum + navigatorWidth + liveStreamWidth && primaryMoreLiArray[0]) ||
                     } else if (
                         primaryMoreLiArray[0] &&
@@ -247,8 +249,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         widthSum +
                         (primaryMoreLiArray.length === 1 ? 0 : buttonPrimaryWidth) +
                         document.querySelector('.primary-menu-more-first-item-duplicate').offsetWidth <= width) {
+                            if (primaryMoreLiArray.length === 1) primaryButton.style.display = "none";
+                            if (primaryMoreLiArray[0].classList.contains('current-menu-item')) primaryButton.classList.remove('current-menu-item');
                             primaryHTMLElement.append(primaryMoreLiArray[0]);
-                            primaryButton.style.display = "none";
                     }
             });
 

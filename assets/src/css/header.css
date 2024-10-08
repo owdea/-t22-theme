@@ -90,8 +90,13 @@
 }
 
 .header-top .secondary-menu-container {
-    @apply right-0 fixed h-full p-0 bg-shadow-dark z-50 w-full;
+    @apply right-0 fixed h-full p-0 z-50 w-full hidden;
     @apply smd:h-auto smd:p-4 smd:bg-transparent smd:w-auto;
+}
+
+.header-top .secondary-menu-container.secondary-container-active {
+    @apply bg-shadow-dark;
+    @apply smd:bg-transparent;
 }
 
 .header-top .secondary-menu-container .secondary-menu.secondary-menu-active {
@@ -230,6 +235,15 @@
     @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
 }
 
+.primary-menu-container .primary-menu .primary-more-container {
+    @apply relative;
+}
+
+.primary-menu-container .primary-menu .primary-more-container:has(.current-menu-item)::before {
+    content: ' ';
+    @apply absolute left-1/2 bottom-[-6px] w-0 h-0 border-t-[6px] border-t-[#041e42] border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent ml-[-6px];
+}
+
 .primary-menu-container .primary-menu .primary-more-btn {
     @apply relative hidden items-center h-full;
 }
@@ -268,7 +282,8 @@
     @apply bg-transparent;
 }
 
-.primary-menu-container .primary-more-container .primary-more li.current-menu-item a {
+.primary-menu-container .primary-more-container .primary-more li.current-menu-item a,
+.primary-menu-container .primary-menu-mobile li.current-menu-item {
     @apply text-black font-semibold;
 }
 
@@ -292,12 +307,12 @@
     @apply py-4;
 }
 
-.primary-menu-container .primary-menu-mobile nav ul li {
-    @apply px-[26px] py-[9px];
-}
-
 .primary-menu-container .primary-menu-mobile nav ul li:hover {
     @apply bg-gray-solid;
+}
+
+.primary-menu-container .primary-menu-mobile nav ul li a {
+    @apply block w-full px-[26px] py-[9px];
 }
 
 .primary-menu-container .primary-menu-mobile-active {
