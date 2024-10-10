@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_67069cd31bda4",
+    "title": "Patička",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Patička",
+    "menu_slug": "footer",
+    "parent_slug": "none",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-generic"
+    },
+    "update_button": "Aktualizace",
+    "updated_message": "Nastavení aktualizováno",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1728486644
+}

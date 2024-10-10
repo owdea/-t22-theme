@@ -264,3 +264,29 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    //Handling hovers on socials LI for showing active imgs
+    document.querySelectorAll('.footer-socials li').forEach(function(item) {
+        item.addEventListener('mouseover', function() {
+            const iconHover = item.querySelector('#socials-icon-hover');
+            const icon = item.querySelector('#socials-icon');
+
+            if (iconHover && icon) {
+                iconHover.style.display = 'block';
+                icon.style.display = 'none';
+            }
+        });
+
+        item.addEventListener('mouseout', function() {
+            const iconHover = item.querySelector('#socials-icon-hover');
+            const icon = item.querySelector('#socials-icon');
+
+            if (iconHover && icon) {
+                iconHover.style.display = 'none';
+                icon.style.display = 'block';
+            }
+        });
+    });
+});
+
+

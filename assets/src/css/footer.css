@@ -1,2 +1,109 @@
-.footer {
+.footer-container {
+    @apply font-Source px-4 pt-8 pb-6 grid;
+}
+
+.footer-container hr {
+    @apply mb-5;
+}
+
+.footer-container .footer-logo{
+    @apply mb-6;
+}
+
+.footer-container .footer-logo img{
+    @apply h-6 max-w-full;
+}
+
+.footer-container .footer-contact {
+    @apply mb-4;
+}
+
+.footer-container .footer-contact .footer-contact-center {
+    @apply text-darkscale-40 mb-4;
+}
+
+.footer-container .footer-contact .footer-contact-center span {
+
+}
+
+.footer-container .footer-contact .footer-contact-contacts-list {
+    @apply flex flex-col justify-center gap-[18px];
+}
+
+.footer-container .footer-contact .footer-contact-contacts-list a {
+    @apply flex text-darkscale-80;
+}
+
+.footer-container .footer-contact .footer-contact-contacts-list a:hover {
+    @apply underline;
+}
+
+.footer-container .footer-contact .footer-contact-contacts-list a img {
+    @apply w-6 mr-[10px];
+}
+
+.footer-container nav {
+
+}
+
+.footer-container nav ul {
+    @apply flex gap-y-[18px] flex-wrap mb-5;
+}
+
+.footer-container nav ul li {
+    @apply flex-shrink-0 flex-grow-0 basis-[45%] text-darkscale-80;
+}
+
+.footer-container nav ul li:hover {
+    @apply underline;
+}
+
+.footer-container .footer-socials {
+    @apply flex items-center justify-center mb-4 text-3xs text-darkscale-40;
+}
+
+.footer-container .footer-socials li {
+    @apply w-[52px] mx-1;
+    @apply sm:w-16;
+}
+
+.footer-container .footer-socials li:first-child {
+    @apply ml-0;
+}
+
+.footer-container .footer-socials li:last-child {
+    @apply mr-0;
+}
+
+.footer-container .footer-socials li:hover {
+    @apply underline;
+}
+
+.footer-container .footer-socials li span {
+    @apply block w-full text-center;
+}
+
+.footer-container .footer-socials img{
+    @apply w-9 h-9 m-auto;
+}
+
+.footer-container .footer-subfooter {
+    @apply text-2xs;
+}
+
+.footer-container .footer-subfooter a:hover{
+    @apply underline;
+}
+
+.footer-container .footer-subfooter .separator{
+    @apply mx-[7px];
+}
+
+.footer-container .footer-logos {
+    @apply hidden;
+    @apply tablet:flex;
+}
+
+.footer-container {
+
 }
