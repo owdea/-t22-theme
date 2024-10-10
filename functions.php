@@ -70,3 +70,16 @@ function change_category_labels_to_rubriky() {
     }
 }
 add_action('init', 'change_category_labels_to_rubriky');
+
+function theme_update_checker() {
+    include 'plugin-update-checker/plugin-update-checker.php';
+    $my_update_checker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+        'https://github.com/owdea/ct22-theme',
+        __FILE__,
+        'ct22-theme'
+    );
+
+    $my_update_checker->setBranch( 'main' );
+}
+
+add_action( 'after_setup_theme', 'theme_update_checker' );
