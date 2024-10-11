@@ -90,6 +90,12 @@ module.exports = {
                 ...colors,
                 'navigator-green': "#228900"
             },
+            gridTemplateColumns: {
+                '2-auto': 'repeat(2, auto)',
+            },
+            gridTemplateRows: {
+                '6-auto': 'repeat(6, auto)',
+            },
         },
     },
     plugins: [

@@ -1,13 +1,18 @@
 .footer-container {
     @apply font-Source px-4 pt-8 pb-6 grid;
+    @apply tablet:grid-cols-2-auto tablet:grid-rows-6-auto;
 }
 
 .footer-container hr {
     @apply mb-5;
+    @apply tablet:hidden;
 }
 
 .footer-container .footer-logo{
     @apply mb-6;
+    @media (min-width: 768px) { /*Tablet breakpoint*/
+        grid-area: 1 / 1 / 2 / 2;
+    }
 }
 
 .footer-container .footer-logo img{
@@ -16,6 +21,9 @@
 
 .footer-container .footer-contact {
     @apply mb-4;
+    @media (min-width: 768px) {
+        grid-area: 4 / 1 / 4 / 3;
+    }
 }
 
 .footer-container .footer-contact .footer-contact-center {
@@ -48,6 +56,9 @@
 
 .footer-container nav ul {
     @apply flex gap-y-[18px] flex-wrap mb-5;
+    @media (min-width: 768px) { /*Tablet breakpoint*/
+        grid-column: 1 / 3;
+    }
 }
 
 .footer-container nav ul li {
@@ -60,6 +71,9 @@
 
 .footer-container .footer-socials {
     @apply flex items-center justify-center mb-4 text-3xs text-darkscale-40;
+    @media (min-width: 768px) { /*Tablet breakpoint*/
+        grid-area: 1 / 2 / 1 / 3;
+    }
 }
 
 .footer-container .footer-socials li {
@@ -89,6 +103,9 @@
 
 .footer-container .footer-subfooter {
     @apply text-2xs;
+    @media (min-width: 768px) { /*Tablet breakpoint*/
+        grid-area: 6 / 1 / 6 / 3;
+    }
 }
 
 .footer-container .footer-subfooter a:hover{
@@ -102,6 +119,9 @@
 .footer-container .footer-logos {
     @apply hidden;
     @apply tablet:flex;
+    @media (min-width: 768px) {/*Tablet breakpoint*/
+        grid-area: 3 / 1 / 3 / 3;
+    }
 }
 
 .footer-container {
