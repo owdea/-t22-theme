@@ -13,6 +13,7 @@ footer {
 
 .footer-container .footer-logo{
     @apply mb-6;
+    @apply tablet:mb-10;
     @apply xl:mb-[56px];
     @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-area: 1 / 1 / 2 / 2;

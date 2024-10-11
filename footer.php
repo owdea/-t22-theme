@@ -1,7 +1,8 @@
 <footer>
     <div class="footer-container">
         <a class="footer-logo">
-            <img src="<?php echo esc_url( get_field('footer_main_logo', 'options')); ?>" alt="Logo České Televize">
+            <?php $main_logo = get_field('footer_main_logo', 'options');?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/acf/<?php echo $main_logo; ?>.svg" alt="Logo České Televize">
         </a>
         <div class="footer-contact">
             <div class="footer-contact-center">
@@ -76,12 +77,12 @@
         <?php if( have_rows('footer_logos', 'option') ): ?>
         <ul class="footer-logos">
             <?php while( have_rows('footer_logos', 'option') ): the_row();
-                $image = get_sub_field('footer_tv_logo');
+                $icon = get_sub_field('footer_tv_logo');
                 $link = get_sub_field('footer_tv_link');
                 ?>
                 <li>
                     <a href="<?php $link ?>">
-                        <img src="<?php echo $image; ?>" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/acf/<?php echo $icon; ?>.svg" alt="">
                     </a>
                 </li>
             <?php endwhile; ?>

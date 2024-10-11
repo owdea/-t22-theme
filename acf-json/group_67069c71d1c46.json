@@ -7,7 +7,7 @@
             "label": "Footer hlavní logo",
             "name": "footer_main_logo",
             "aria-label": "",
-            "type": "image",
+            "type": "svg_icon_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,17 +16,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "allow_in_bindings": 1,
+            "initial_value": ""
         },
         {
             "key": "field_6706a05ca3b10",
@@ -258,7 +249,7 @@
                     "label": "Footer logo",
                     "name": "footer_tv_logo",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "svg_icon_picker",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -267,17 +258,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium",
+                    "allow_in_bindings": 1,
+                    "initial_value": "",
                     "parent_repeater": "field_6706b48157ed9"
                 },
                 {
@@ -323,5 +305,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728657318
+    "modified": 1728658424
 }
