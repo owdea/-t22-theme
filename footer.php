@@ -5,9 +5,9 @@
         </a>
         <div class="footer-contact">
             <div class="footer-contact-center">
-                <span class="font-semibold text-black mb-2"><?php echo get_field('footer_contact', 'options')['footer_contact_title']; ?></span>
-                <br>
-                <span><?php echo get_field('footer_contact', 'options')['footer_contact_open_hours']; ?></span>
+                <span class="font-semibold text-black mb-2 tablet:mb-0"><?php echo get_field('footer_contact', 'options')['footer_contact_title']; ?></span>
+                <br class="tablet:hidden">
+                <span class="tablet:mt-2"><?php echo get_field('footer_contact', 'options')['footer_contact_open_hours']; ?></span>
             </div>
             <div class="footer-contact-contacts-list">
                 <?php
@@ -24,7 +24,7 @@
                 </a>
             </div>
         </div>
-        <hr>
+        <hr class="tablet:hidden">
         <?php
           wp_nav_menu(
                array(
@@ -34,32 +34,44 @@
                )
            );
         ?>
-        <hr>
+        <hr class="tablet:hidden">
         <?php if( have_rows('footer_socials', 'option') ): ?>
-        <ul class="footer-socials">
-            <?php while( have_rows('footer_socials', 'option') ): the_row();
-                $image = get_sub_field('social_network_image');
-                $image_hover = get_sub_field('social_network_image_hover');
-                $name = get_sub_field('social_network_name');
-                $link = get_sub_field('social_network_link');
-                ?>
-                <li>
-                    <a href="<?php echo $link ?>">
-                        <img id="socials-icon" src="<?php echo $image; ?>" alt="<?php $name = get_sub_field('social_network_name'); ?> ikona">
-                        <img id="socials-icon-hover" class="hidden" src="<?php echo $image_hover; ?>" alt="<?php $name = get_sub_field('social_network_name'); ?> aktivní ikona">
-                        <span><?php echo $name ?></span>
-                    </a>
-                </li>
-            <?php endwhile; ?>
-        </ul>
+        <div class="footer-socials">
+            <div>
+                <span>Česká televize na sociálních sítích:</span>
+            </div>
+            <ul>
+                <?php while( have_rows('footer_socials', 'option') ): the_row();
+                    $image = get_sub_field('social_network_image');
+                    $image_hover = get_sub_field('social_network_image_hover');
+                    $name = get_sub_field('social_network_name');
+                    $link = get_sub_field('social_network_link');
+                    ?>
+                    <li>
+                        <a href="<?php echo $link ?>">
+                            <img id="socials-icon" src="<?php echo $image; ?>" alt="<?php $name = get_sub_field('social_network_name'); ?> ikona">
+                            <img id="socials-icon-hover" class="hidden" src="<?php echo $image_hover; ?>" alt="<?php $name = get_sub_field('social_network_name'); ?> aktivní ikona">
+                            <span><?php echo $name ?></span>
+                        </a>
+                    </li>
+                <?php endwhile; ?>
+            </ul>
+        </div>
         <?php endif; ?>
-        <hr>
+        <hr class="footer-subfooter-hr">
         <div class="footer-subfooter">
-            <span class="text-darkscale-40 block sm:inline ">© Česká televize</span>
-            <span class="separator hidden sm:inline">•</span>
-            <a href="">English version</a>
-            <span class="separator">•</span>
-            <a href="">Ochrana soukromí</a>
+            <div>
+                <span class="text-darkscale-40 block sm:inline ">© Česká televize</span>
+                <span class="separator hidden sm:inline">•</span>
+                <a href="">English version</a>
+                <span class="separator">•</span>
+                <a href="">Ochrana soukromí</a>
+            </div>
+            <div>
+                <a>Mapa stránek</a>
+                <span class="separator">•</span>
+                <a>RSS</a>
+            </div>
         </div>
         <?php if( have_rows('footer_logos', 'option') ): ?>
         <ul class="footer-logos">

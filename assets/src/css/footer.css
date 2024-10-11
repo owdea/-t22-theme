@@ -5,29 +5,31 @@
 
 .footer-container hr {
     @apply mb-5;
-    @apply tablet:hidden;
 }
 
 .footer-container .footer-logo{
     @apply mb-6;
-    @media (min-width: 768px) { /*Tablet breakpoint*/
+    @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-area: 1 / 1 / 2 / 2;
     }
 }
 
 .footer-container .footer-logo img{
     @apply h-6 max-w-full;
+    @apply h-8;
 }
 
 .footer-container .footer-contact {
     @apply mb-4;
-    @media (min-width: 768px) {
+    @apply tablet:flex tablet:justify-center tablet:flex-col;
+    @media (min-width: 767px) {
         grid-area: 4 / 1 / 4 / 3;
     }
 }
 
 .footer-container .footer-contact .footer-contact-center {
     @apply text-darkscale-40 mb-4;
+    @apply tablet:flex tablet:flex-col tablet:items-center;
 }
 
 .footer-container .footer-contact .footer-contact-center span {
@@ -36,10 +38,12 @@
 
 .footer-container .footer-contact .footer-contact-contacts-list {
     @apply flex flex-col justify-center gap-[18px];
+    @apply tablet:flex-row
 }
 
 .footer-container .footer-contact .footer-contact-contacts-list a {
     @apply flex text-darkscale-80;
+    @apply leading-[22px];
 }
 
 .footer-container .footer-contact .footer-contact-contacts-list a:hover {
@@ -47,22 +51,24 @@
 }
 
 .footer-container .footer-contact .footer-contact-contacts-list a img {
-    @apply w-6 mr-[10px];
+    @apply w-6 mr-2.5;
+    @apply tablet:w-5;
 }
 
 .footer-container nav {
-
-}
-
-.footer-container nav ul {
-    @apply flex gap-y-[18px] flex-wrap mb-5;
-    @media (min-width: 768px) { /*Tablet breakpoint*/
+    @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-column: 1 / 3;
     }
 }
 
+.footer-container nav ul {
+    @apply flex gap-y-[18px] flex-wrap mb-5;
+    @apply tablet:mb-10;
+}
+
 .footer-container nav ul li {
     @apply flex-shrink-0 flex-grow-0 basis-[45%] text-darkscale-80;
+    @apply tablet:basis-1/3;
 }
 
 .footer-container nav ul li:hover {
@@ -70,42 +76,67 @@
 }
 
 .footer-container .footer-socials {
-    @apply flex items-center justify-center mb-4 text-3xs text-darkscale-40;
-    @media (min-width: 768px) { /*Tablet breakpoint*/
+    @apply tablet:flex tablet:justify-end tablet:items-center tablet:h-fit;
+    @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-area: 1 / 2 / 1 / 3;
     }
 }
 
-.footer-container .footer-socials li {
-    @apply w-[52px] mx-1;
-    @apply sm:w-16;
+.footer-container .footer-socials div span {
+    @apply hidden text-darkscale-40;
+    @apply tablet:block;
 }
 
-.footer-container .footer-socials li:first-child {
+.footer-container .footer-socials ul {
+    @apply flex items-center justify-center mb-4 text-3xs;
+    @apply tablet:mb-0 tablet:ml-[15px];
+}
+
+.footer-container .footer-socials ul li {
+    @apply w-[52px] mx-1;
+    @apply sm:w-16;
+    @apply tablet:w-8;
+}
+
+.footer-container .footer-socials ul li:first-child {
     @apply ml-0;
 }
 
-.footer-container .footer-socials li:last-child {
+.footer-container .footer-socials ul li:last-child {
     @apply mr-0;
 }
 
-.footer-container .footer-socials li:hover {
+.footer-container .footer-socials ul li:hover {
     @apply underline;
 }
 
-.footer-container .footer-socials li span {
+.footer-container .footer-socials ul li span {
     @apply block w-full text-center;
+    @apply tablet:hidden;
 }
 
-.footer-container .footer-socials img{
+.footer-container .footer-socials ul img{
     @apply w-9 h-9 m-auto;
+    @apply tablet:w-8 tablet:h-8 tablet:m-0;
+}
+
+.footer-container .footer-subfooter-hr {
+    @media (min-width: 767px) {
+        grid-area: 5 / 1 / 5 / 3;
+    }
 }
 
 .footer-container .footer-subfooter {
     @apply text-2xs;
-    @media (min-width: 768px) { /*Tablet breakpoint*/
+    @apply tablet:flex justify-between;
+    @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-area: 6 / 1 / 6 / 3;
     }
+}
+
+.footer-container .footer-subfooter div:last-child {
+    @apply hidden;
+    @apply tablet:block;
 }
 
 .footer-container .footer-subfooter a:hover{
@@ -116,12 +147,24 @@
     @apply mx-[7px];
 }
 
-.footer-container .footer-logos {
+.footer-container .footer-logos{
     @apply hidden;
-    @apply tablet:flex;
-    @media (min-width: 768px) {/*Tablet breakpoint*/
+    @apply tablet:flex w-full;
+    @media (min-width: 767px) {/*Tablet breakpoint*/
         grid-area: 3 / 1 / 3 / 3;
     }
+}
+
+.footer-container .footer-logos li{
+    @apply flex-1 mb-10;
+}
+
+.footer-container .footer-logos li a {
+    @apply flex justify-center;
+}
+
+.footer-container .footer-logos li img {
+    @apply h-5;
 }
 
 .footer-container {
