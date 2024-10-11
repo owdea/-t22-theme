@@ -42,15 +42,15 @@
             </div>
             <ul>
                 <?php while( have_rows('footer_socials', 'option') ): the_row();
-                    $image = get_sub_field('social_network_image');
-                    $image_hover = get_sub_field('social_network_image_hover');
+                    $icon = get_sub_field('social_network_icon');
+                    $icon_hover = get_sub_field('social_network_active_icon');
                     $name = get_sub_field('social_network_name');
                     $link = get_sub_field('social_network_link');
                     ?>
                     <li>
                         <a href="<?php echo $link ?>">
-                            <img id="socials-icon" src="<?php echo $image; ?>" alt="<?php $name = get_sub_field('social_network_name'); ?> ikona">
-                            <img id="socials-icon-hover" class="hidden" src="<?php echo $image_hover; ?>" alt="<?php $name = get_sub_field('social_network_name'); ?> aktivní ikona">
+                            <img id="socials-icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/acf/<?php echo $icon; ?>.svg" alt="<?php $name = get_sub_field('social_network_name'); ?> ikona">
+                            <img id="socials-icon-hover" class="hidden" src="<?php echo get_template_directory_uri(); ?>/assets/img/acf/<?php echo $icon_hover; ?>.svg" alt="<?php $name = get_sub_field('social_network_name'); ?> aktivní ikona">
                             <span><?php echo $name ?></span>
                         </a>
                     </li>

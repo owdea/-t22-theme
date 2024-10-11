@@ -194,11 +194,11 @@
                     "parent_repeater": "field_6706a43077b29"
                 },
                 {
-                    "key": "field_6706a49177b2b",
-                    "label": "Logo sociální sítě",
-                    "name": "social_network_image",
+                    "key": "field_67093463fd9b7",
+                    "label": "Ikona sociální sítě",
+                    "name": "social_network_icon",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "svg_icon_picker",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -207,25 +207,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium",
+                    "initial_value": "",
                     "parent_repeater": "field_6706a43077b29"
                 },
                 {
-                    "key": "field_6706a4af77b2c",
-                    "label": "Logo sociální sítě aktivní",
-                    "name": "social_network_image_hover",
+                    "key": "field_67093493fd9b8",
+                    "label": "Aktivní ikona sociální sítě",
+                    "name": "social_network_active_icon",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "svg_icon_picker",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -234,17 +225,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium",
+                    "initial_value": "",
                     "parent_repeater": "field_6706a43077b29"
                 }
             ]
@@ -341,5 +323,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728493241
+    "modified": 1728657318
 }

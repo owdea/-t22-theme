@@ -125,7 +125,7 @@ footer {
 }
 
 .footer-container .footer-socials ul li span {
-    @apply block w-full text-center;
+    @apply block w-full text-center text-darkscale-40;
     @apply tablet:hidden;
 }
 
