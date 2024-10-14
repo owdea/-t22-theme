@@ -83,3 +83,29 @@ function theme_update_checker() {
 }
 
 add_action( 'after_setup_theme', 'theme_update_checker' );
+
+function ct22_register_acf_blocks(): void {
+    if ( function_exists( 'acf_register_block_type' ) ) {
+        register_block_type( __DIR__ . '/blocks/link' );
+        register_block_type( __DIR__ . '/utils/blocks/link' );
+        /*
+        acf_register_block_type(
+            array(
+                'name'            => 'odkaz',
+                'title'           => __( 'Odkaz ČT' ),
+                'description'     => __( 'Blok odkazu' ),
+                'render_template' => get_template_directory() . '/utils/blocks/link/link.php',
+                'category'        => 'ct22-blocks',
+                'keywords'        => array( 'Link' ),
+                'example'         => array(
+                    'attributes' => array(
+                        'mode'    => 'preview',
+                        'preview' => true
+                    ),
+                ),
+            )
+        );*/
+    }
+}
+
+add_action( 'init', 'ct22_register_acf_blocks' );

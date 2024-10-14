@@ -1,0 +1,16 @@
+{
+  "name": "acf/testimonial",
+  "title": "Blok odkazu",
+  "description": "Custom blok na sdílení odkazu",
+  "style": [ "file:../../../../assets/dist/main.min.css" ],
+  "category": "design",
+  "icon": "admin-comments",
+  "keywords": ["link", "odkaz"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "link.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
