@@ -4,7 +4,7 @@ footer {
 
 .footer-container {
     @apply grid max-w-[1216px] px-4 pt-8 pb-6 m-auto font-Source;
-    @apply tablet:grid-cols-2-auto tablet:grid-rows-6-auto pb-8 pt-12;
+    @apply tablet:grid-cols-2-auto tablet:grid-rows-6-auto tablet:pb-8 tablet:pt-12 tablet:px-6;
 }
 
 .footer-container hr {

@@ -69,9 +69,9 @@
                 <a href="">Ochrana soukromí</a>
             </div>
             <div>
-                <a>Mapa stránek</a>
+                <a href="">Mapa stránek</a>
                 <span class="separator">•</span>
-                <a>RSS</a>
+                <a href="">RSS</a>
             </div>
         </div>
         <?php if( have_rows('footer_logos', 'option') ): ?>
