@@ -4,18 +4,25 @@
  *
  * @package ct22
  */
+
 $page_link = get_field('block_link_page');
-$custom_title = get_field('block_link_title');
-$custom_link = get_field('block_link_link');
-$custom_img = get_field('block_link_image');
+if ($page_link || (get_field('block_link_title') && get_field('block_link_link') && get_field('block_link_image'))) {
 
-echo '<pre>';
-var_dump($page_link);
-var_dump($custom_title);
-var_dump($custom_link);
-var_dump($custom_img);
-echo '</pre>';
+$title = get_field('block_link_title') ? get_field('block_link_title') : get_the_title($page_link->ID);
+$link = get_field('block_link_link') ? get_field('block_link_link') : get_permalink($page_link->ID);;
+$img = get_field('block_link_image') ? get_field('block_link_image') : get_the_post_thumbnail_url($page_link->ID, 'full');
+
 ?>
-e
-PIČO NAZDAR
+<a href="<?php echo $link?>">
+    <div>
+        <span>ODKAZ</span>
+        <br>
+        <span><?php echo $title ?></span>
+    </div>
+    <div>
+        <img src="<?php echo $img ?>">
+    </div>
+</a>
 
+<?php
+}

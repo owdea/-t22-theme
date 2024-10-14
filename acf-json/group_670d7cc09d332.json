@@ -36,7 +36,7 @@
             "name": "block_link_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "V případě zadání tento nadpis přepíše název vybrané stránky",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -114,5 +114,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728938221
+    "modified": 1728940180
 }
