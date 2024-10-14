@@ -1,3 +1,4 @@
+</main>
 <footer>
     <div class="footer-container">
         <a class="footer-logo">

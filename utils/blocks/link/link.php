@@ -13,16 +13,18 @@ $link = get_field('block_link_link') ? get_field('block_link_link') : get_permal
 $img = get_field('block_link_image') ? get_field('block_link_image') : get_the_post_thumbnail_url($page_link->ID, 'full');
 
 ?>
-<a href="<?php echo $link?>">
-    <div>
-        <span>ODKAZ</span>
-        <br>
-        <span><?php echo $title ?></span>
-    </div>
-    <div>
-        <img src="<?php echo $img ?>">
-    </div>
-</a>
+<div class="block-link-component">
+    <a href="<?php echo $link?>">
+        <div>
+            <span>ODKAZ</span>
+            <br>
+            <h3><?php echo $title ?></h3>
+        </div>
+        <div class="block-link-img-container">
+            <img src="<?php echo $img ?>">
+        </div>
+    </a>
+</div>
 
 <?php
 }

@@ -32,6 +32,7 @@ module.exports = {
         },
         colors: {
             lightscale: {
+                10: '#E1E8FB',
                 20: '#ffffff',
                 40: '#f4f4f4',
                 60: '#E0E0E0',
@@ -39,8 +40,10 @@ module.exports = {
             },
             bluescale: {
                 60: "#007aff",
+                70: "#043CDC",
                 80: "#00288c",
                 100: "#003366",
+
             },
             darkscale: {
                 40: "#6f6f6f",
@@ -70,6 +73,7 @@ module.exports = {
                 'sm': '414px',
                 'smd': '427px',
                 'md': '522px',
+                'lmd': '610px',
                 'stablet': '640px',
                 'tablet': '767px',
                 'lg': '992px',

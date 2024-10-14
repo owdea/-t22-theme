@@ -1,6 +1,9 @@
 @import 'css/header.css';
 @import 'css/footer.css';
 
+/*Blocks*/
+@import 'css/blocks/link.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

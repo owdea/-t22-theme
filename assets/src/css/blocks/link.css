@@ -1,0 +1,27 @@
+.block-link-component {
+    @apply bg-white max-w-[696px] mb-6 border-lightscale-10 border rounded-sm;
+}
+
+.block-link-component a {
+    @apply flex flex-row justify-between gap-6 w-full p-6;
+}
+
+.block-link-component span {
+    @apply text-bluescale-70 font-Source font-medium text-3xs;
+    @apply lmd:text-2xs;
+}
+
+.block-link-component h3 {
+    @apply text-xs font-TV font-semibold;
+    @apply lmd:text-md;
+}
+
+.block-link-component .block-link-img-container {
+    @apply max-w-[96px] w-full aspect-video overflow-hidden;
+    @apply lmd:max-w-[170px];
+}
+
+.block-link-component .block-link-img-container img {
+    @apply w-full;
+}
+
