@@ -22,8 +22,15 @@ BROWSER_SYNC_PROXY=your_local_url
 ### Project Structure
 
 - **`assets`** - styles, scripts, images, fonts
+  - **`dist`** - builded css and js
+  - **`fonts`** - fonts folder
+  - **`icons`** - SVG icons for using in the code
+  - **`img`** - folder for acf images
+    - **`acf`** - SVG icons for using them in ACF SVG picker
+  - **`src`** - CSS and JS files
+    - **`css`** - CSS files
+  - **`template-parts`** - template parts
 - **`node_modules`** - Dependencies installed via yarn (gitignore)
-- **`template-parts`** - templates
 - **`functions.php`**
 - **`index.php`** - default content file
 - **`header.php`** - header file
