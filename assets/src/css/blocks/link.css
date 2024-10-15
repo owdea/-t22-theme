@@ -17,7 +17,7 @@
 }
 
 .block-link-component .block-link-img-container {
-    @apply max-w-[96px] w-full aspect-video overflow-hidden;
+    @apply max-w-[96px] w-full aspect-video overflow-hidden h-fit shrink-0;
     @apply lmd:max-w-[170px];
 }
 
