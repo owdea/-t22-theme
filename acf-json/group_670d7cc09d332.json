@@ -3,14 +3,43 @@
     "title": "Block - odkaz",
     "fields": [
         {
+            "key": "field_670e82dcb0d08",
+            "label": "Vložení vlastního odkazu",
+            "name": "block_link_custom",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Zapněte pro vložení vlastního odkazu",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_670d7cc19904f",
             "label": "Objekt stránky",
             "name": "block_link_page",
             "aria-label": "",
             "type": "post_object",
             "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_670e82dcb0d08",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -29,6 +58,32 @@
             "bidirectional": 0,
             "ui": 1,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_670d7dc999050",
+            "label": "Externí odkaz",
+            "name": "block_link_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Zadejte odkaz na externí stránku (studie, výzkum apod.)",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_670e82dcb0d08",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
         },
         {
             "key": "field_670d7f2c1303c",
@@ -50,24 +105,6 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_670d7dc999050",
-            "label": "Externí odkaz",
-            "name": "block_link_link",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "V případě zadání tento odkaz přepíše odkaz vybrané stránky",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "placeholder": ""
         },
         {
             "key": "field_670d7df799051",
@@ -114,5 +151,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728940180
+    "modified": 1729009054
 }
