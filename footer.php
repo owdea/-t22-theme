@@ -17,12 +17,12 @@
                     $mail_address = get_field('footer_contact', 'options')['footer_contact_email'];
                 ?>
                 <a href="tel:<?php echo $phone_number;?>">
-                    <img src="<?php get_site_url();?>/wp-content/themes/ct22-theme/assets/icons/phone.svg">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/phone.svg">
                     <span><?php echo $phone_number; ?></span>
                 </a>
                 <a href="mailto:<?php echo $mail_address;?>">
-                    <img src="<?php get_site_url();?>/wp-content/themes/ct22-theme/assets/icons/mail.svg">
-                    <span><?php echo get_field('footer_contact', 'options')['footer_contact_email']; ?></span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/mail.svg">
+                    <span><?php echo $mail_address; ?></span>
                 </a>
             </div>
         </div>

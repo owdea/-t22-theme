@@ -20,16 +20,16 @@
 <header>
     <div class="header-top">
         <a id="header-logo" href="<?php echo get_site_url(); ?>">
-            <img class="header-logo" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/ct22-logo-white.svg" alt="Logo ČT22">
+            <img class="header-logo" src="<?php echo get_template_directory_uri(); ?>/assets/icons/ct22-logo-white.svg" alt="Logo ČT22">
         </a>
         <div class="header-top-right">
             <button id="mobile-search-bar-button">
-                <img id="mobile-search-magnifier" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/magnifier.svg" alt="Ikona lupy">
-                <img id="mobile-search-exit" class="hidden" src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/exit-icon.svg" alt="Zavírací ikona">
+                <img id="mobile-search-magnifier" src="<?php echo get_template_directory_uri(); ?>/assets/icons/magnifier.svg" alt="Ikona lupy">
+                <img id="mobile-search-exit" class="hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/exit-icon.svg" alt="Zavírací ikona">
             </button>
             <?php get_search_form(); ?>
             <button class="secondary-menu-btn">
-                <img src="<?php echo get_site_url(); ?>/wp-content/themes/ct22-theme/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/secondary-menu.svg" alt="Ikona sekundárního menu">
                 <span>ČT</span>
             </button>
             <div class="secondary-menu-container transition-custom">
