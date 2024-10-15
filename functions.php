@@ -10,6 +10,13 @@ function enqueue_custom_scripts_and_styles() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts_and_styles');
 
+function enqueue_block_editor_styles() {
+    // Enqueue CSS for Gutenberg editor
+    wp_enqueue_style('editor-styles', get_template_directory_uri() . '/assets/dist/main.min.css');
+}
+
+add_action('enqueue_block_editor_assets', 'enqueue_block_editor_styles');
+
 register_nav_menus(
     array(
         'primary' => __( 'Primary Menu' ),
