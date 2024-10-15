@@ -139,7 +139,7 @@ endif;
         </button>
         <div class="primary-menu-desktop">
             <?php
-                echo $primary_menu;
+                echo $primary_menu ?: '';
             ?>
             <div class="primary-more-container">
                 <button id="primary-button" class="primary-more-btn">Další...</button>
@@ -178,7 +178,7 @@ endif;
     </div>
     <div class="primary-menu-mobile">
         <?php
-                echo $primary_menu;
+        echo $primary_menu ?: '';
             ?>
     </div>
 </div>
