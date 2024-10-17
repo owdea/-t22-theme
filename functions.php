@@ -99,3 +99,17 @@ function ct22_register_acf_blocks(): void {
 }
 
 add_action( 'init', 'ct22_register_acf_blocks' );
+
+function register_ct22_block_category( $categories, $post ) {
+    return array_merge(
+        array(
+            array(
+                'slug'  => 'ct22-blocks',
+                'title' => __( 'ČT22 bloky', 'text-domain' ),
+                'icon'  => null,
+            ),
+        ),
+        $categories
+    );
+}
+add_filter( 'block_categories_all', 'register_ct22_block_category', 10, 2 );

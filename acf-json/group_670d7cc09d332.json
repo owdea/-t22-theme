@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Zapněte pro vložení vlastního odkazu",
+            "message": "Vložení vlastního odkazu",
             "default_value": 0,
             "allow_in_bindings": 1,
             "ui": 0,
@@ -151,5 +151,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729009054
+    "modified": 1729182945
 }

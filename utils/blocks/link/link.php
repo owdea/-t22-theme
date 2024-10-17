@@ -15,7 +15,6 @@ if ($page_link || (get_field('block_link_title') && get_field('block_link_link')
         <a href="<?php echo $link?>">
             <div>
                 <span>ODKAZ</span>
-                <br>
                 <h3><?php echo $title ?></h3>
             </div>
             <div class="block-link-img-container">
