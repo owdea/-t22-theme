@@ -10,9 +10,8 @@
                 <?php
                     if (get_field('footer_contact', 'options')['footer_contact_title'] && get_field('footer_contact', 'options')['footer_contact_open_hours']) :
                 ?>
-                <span class="font-semibold text-black mb-2 tablet:mb-0"><?php echo get_field('footer_contact', 'options')['footer_contact_title']; ?></span>
-                <br class="tablet:hidden">
-                <span class="tablet:mt-2"><?php echo get_field('footer_contact', 'options')['footer_contact_open_hours']; ?></span>
+                <span class="footer-contact-center-title"><?php echo get_field('footer_contact', 'options')['footer_contact_title']; ?></span>
+                <span><?php echo get_field('footer_contact', 'options')['footer_contact_open_hours']; ?></span>
                 <?php
                 endif;
                 ?>
@@ -38,7 +37,7 @@
                 <?php endif; ?>
             </div>
         </div>
-        <hr class="tablet:hidden">
+        <hr>
         <?php
           wp_nav_menu(
                array(
@@ -48,7 +47,7 @@
                )
            );
         ?>
-        <hr class="tablet:hidden">
+        <hr>
         <?php if( have_rows('footer_socials', 'option') ): ?>
         <div class="footer-socials">
             <div>
@@ -79,8 +78,8 @@
         <hr class="footer-subfooter-hr">
         <div class="footer-subfooter">
             <div>
-                <span class="text-darkscale-40 block sm:inline ">© Česká televize</span>
-                <span class="separator hidden sm:inline">•</span>
+                <span class="footer-subfooter-name">© Česká televize</span>
+                <span class="separator separator-hidden">•</span>
                 <a href="">English version</a>
                 <span class="separator">•</span>
                 <a href="">Ochrana soukromí</a>

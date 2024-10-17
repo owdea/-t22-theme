@@ -8,7 +8,7 @@ footer {
 }
 
 .footer-container hr {
-    @apply mb-5;
+    @apply mb-5 tablet:hidden;
 }
 
 .footer-container .footer-logo{
@@ -40,11 +40,15 @@ footer {
 .footer-container .footer-contact .footer-contact-center {
     @apply text-darkscale-40 mb-4;
     @apply tablet:flex tablet:flex-col tablet:items-center;
-    @apply tablet:items-start;
+    @apply xl:items-start;
+}
+
+.footer-container .footer-contact .footer-contact-center .footer-contact-center-title {
+    @apply font-semibold text-black mb-2;
 }
 
 .footer-container .footer-contact .footer-contact-center span {
-
+    @apply block;
 }
 
 .footer-container .footer-contact .footer-contact-contacts-list {
@@ -88,6 +92,10 @@ footer {
 
 .footer-container nav ul li:hover {
     @apply underline;
+}
+
+.footer-container nav ul li a {
+    @apply block;
 }
 
 .footer-container .footer-socials {
@@ -139,6 +147,7 @@ footer {
     @media (min-width: 767px) {
         grid-area: 5 / 1 / 5 / 3;
     }
+    @apply block;
 }
 
 .footer-container .footer-subfooter {
@@ -147,6 +156,10 @@ footer {
     @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-area: 6 / 1 / 6 / 3;
     }
+}
+
+.footer-container .footer-subfooter .footer-subfooter-name {
+    @apply text-darkscale-40 block sm:inline;
 }
 
 .footer-container .footer-subfooter div:last-child {
@@ -160,6 +173,10 @@ footer {
 
 .footer-container .footer-subfooter .separator{
     @apply mx-[7px];
+}
+
+.footer-container .footer-subfooter .separator.separator-hidden {
+    @apply hidden sm:inline;
 }
 
 .footer-container .footer-logos{
