@@ -4,6 +4,14 @@
  *
  * @package ct22
  */
-?>
 
-<h1>TEST</h1>
+$gallery_array = get_field('block_gallery_repeater');
+if (count($gallery_array) === 1):
+?>
+<div>
+    <button>
+        <img src="<?php echo $gallery_array[0]["block_gallery_img"]?>" alt="<?php echo $gallery_array[0]["block_gallery_desc"]?>">
+    </button>
+</div>
+<?php
+endif;
