@@ -1,0 +1,13 @@
+.photo-gallery {
+    @apply mx-[-16px];
+    @apply lg:mx-0;
+}
+
+.photo-gallery .photo-main {
+    @apply flex flex-col;
+}
+
+.photo-gallery .photo-main img {
+    @apply w-[992px] max-w-full px-[-16px];
+}
+

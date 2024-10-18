@@ -1,0 +1,3 @@
+.article-main {
+    @apply px-4 lg:max-w-[904px];
+}

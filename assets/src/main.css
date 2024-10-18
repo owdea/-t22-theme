@@ -1,8 +1,10 @@
 @import 'css/header.css';
 @import 'css/footer.css';
+@import 'css/article.css';
 
 /*Blocks*/
 @import 'css/blocks/link.css';
+@import 'css/blocks/photo-gallery.css';
 
 @tailwind base;
 @tailwind components;

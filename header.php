@@ -183,4 +183,4 @@ endif;
     </div>
 </div>
 </header>
-<main id="primary" class="site-main px-4" role="main">
+<main id="primary" class="site-main" role="main">
