@@ -95,6 +95,7 @@ add_action( 'after_setup_theme', 'theme_update_checker' );
 function ct22_register_acf_blocks(): void {
     if ( function_exists( 'acf_register_block_type' ) ) {
         register_block_type( __DIR__ . '/utils/blocks/link' );
+        register_block_type( __DIR__ . '/utils/blocks/photo-gallery' );
     }
 }
 

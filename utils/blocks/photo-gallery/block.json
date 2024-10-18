@@ -1,0 +1,16 @@
+{
+  "name": "acf/ct22-photo-gallery",
+  "title": "Blok galerie",
+  "description": "Custom blok galerie",
+  "style": [ "file:../../../../assets/dist/main.min.css" ],
+  "category": "ct22-blocks",
+  "icon": "format-gallery",
+  "keywords": ["galerie"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "photo-gallery.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
