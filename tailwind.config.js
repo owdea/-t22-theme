@@ -32,6 +32,7 @@ module.exports = {
         },
         colors: {
             lightscale: {
+                5: '#cccdd4',
                 10: '#E1E8FB',
                 20: '#ffffff',
                 40: '#f4f4f4',
@@ -64,6 +65,8 @@ module.exports = {
         extend: {
             backgroundImage: {
                 'blue-gradient': 'linear-gradient(90deg, rgb(1, 156, 225) 0%, rgb(0, 40, 140) 100%)',
+                'black-gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6))',
+                'shadow-gradient': 'linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8))',
             },
             boxShadow: {
                 'box-shadow': '0px 1px 3px rgba(0, 0, 0, 0.2), 0px 12px 24px -8px rgba(0, 0, 0, 0.15)',
@@ -72,6 +75,7 @@ module.exports = {
             screens: {
                 'sm': '414px',
                 'smd': '427px',
+                '480': '480px',
                 'md': '522px',
                 'lmd': '610px',
                 'stablet': '640px',

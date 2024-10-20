@@ -1,13 +1,84 @@
 .photo-gallery {
-    @apply mx-[-16px];
+    @apply mx-[-16px] font-Source mb-6;
+    @apply tablet:mb-8;
     @apply lg:mx-0;
 }
 
+.photo-gallery .photo-description {
+    @apply flex flex-col gap-1 items-start text-2xs text-darkscale-80 mt-2 px-4;
+}
+
+.photo-gallery .photo-description .photo-sources {
+    @apply text-3xs text-darkscale-60;
+}
+
 .photo-gallery .photo-main {
-    @apply flex flex-col;
+    @apply relative flex flex-col;
 }
 
 .photo-gallery .photo-main img {
-    @apply w-[992px] max-w-full px-[-16px];
+    @apply w-[992px] max-w-full px-[-16px] aspect-[992/558] object-cover;
 }
 
+.photo-gallery .photo-main .photo-overlay-description {
+    @apply absolute left-0 right-0 bottom-0 flex flex-col items-start gap-1 px-4 py-2 bg-shadow-gradient text-white text-2xs;
+    @apply 480:pt-12 480:pb-4 480:px-6
+}
+
+.photo-gallery .photo-main .photo-overlay-description .photo-overlay-sources {
+    @apply text-lightscale-5 text-3xs;
+}
+
+.photo-gallery .photo-row {
+    @apply flex gap-2 mt-2;
+}
+
+.photo-gallery .photo-row button {
+    @apply relative aspect-video;
+}
+
+.photo-gallery .photo-row .photo-row-button-class-2 {
+    @apply w-1/2;
+}
+
+.photo-gallery .photo-row .photo-row-button-class-3 {
+    @apply w-1/3;
+}
+
+.photo-gallery .photo-row .photo-row-button-class-4 {
+    @apply w-1/3;
+    @apply 480:w-1/4;
+}
+
+.photo-gallery .photo-row button img {
+    @apply object-cover w-full aspect-[360/202.5];
+}
+
+.photo-gallery .photo-row .photo-more {
+    @apply absolute top-0 bottom-0 right-0 left-0 flex flex-col content-center items-center justify-center bg-black-gradient;
+}
+
+.photo-gallery .photo-row .photo-more span {
+    @apply text-white leading-6;
+}
+
+.photo-gallery .photo-row .photo-more img {
+    @apply h-6 w-[30px];
+}
+
+.photo-gallery .photo-row .photo-more.photo-more-first {
+    @apply hidden 480:flex;
+}
+
+.photo-gallery .photo-row .photo-more.photo-more-second {
+    @apply 480:hidden;
+}
+
+.photo-gallery .photo-row button:has(div.photo-more.photo-more-first) {
+    @apply hidden 480:block;
+}
+
+.photo-gallery .photo-row button:nth-child(4) {
+    @apply hidden;
+    @apply 480:block;
+}
