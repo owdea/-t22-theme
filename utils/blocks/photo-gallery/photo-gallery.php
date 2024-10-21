@@ -56,7 +56,7 @@ if (count($gallery_array) > 1):
                     ?>
                     <div class="photo-more photo-more-second">
                         <img src="<?php echo get_template_directory_uri()?>/assets/icons/camera.svg" alt="ikona kamery">
-                        <span>+ <span><?php echo count($gallery_array) - 3 ?></span> dalších</span>
+                        <span>+ <?php echo count($gallery_array) - 3 ?> dalších</span>
                     </div>
                     <?php
                         endif;
@@ -66,7 +66,7 @@ if (count($gallery_array) > 1):
                     ?>
                     <div class="photo-more photo-more-first">
                         <img src="<?php echo get_template_directory_uri()?>/assets/icons/camera.svg" alt="ikona kamery">
-                        <span>+ <span><?php echo count($gallery_array) - 4 ?></span> dalších</span>
+                        <span>+ <?php echo count($gallery_array) - 4 ?> dalších</span>
                     </div>
                     <?php
                         break;
