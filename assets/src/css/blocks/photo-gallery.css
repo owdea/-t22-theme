@@ -4,6 +4,10 @@
     @apply lg:mx-0;
 }
 
+.photo-gallery img{
+    @apply pointer-events-none;
+}
+
 .photo-gallery .photo-description {
     @apply flex flex-col gap-1 items-start text-2xs text-darkscale-80 mt-2 px-4;
 }
@@ -67,11 +71,11 @@
 }
 
 .photo-gallery .photo-row .photo-more.photo-more-first {
-    @apply hidden 480:flex;
+    @apply hidden 480:flex pointer-events-none;
 }
 
 .photo-gallery .photo-row .photo-more.photo-more-second {
-    @apply 480:hidden;
+    @apply 480:hidden pointer-events-none;
 }
 
 .photo-gallery .photo-row button:has(div.photo-more.photo-more-first) {
@@ -81,4 +85,26 @@
 .photo-gallery .photo-row button:nth-child(4) {
     @apply hidden;
     @apply 480:block;
+}
+
+.photo-gallery .photo-gallery-modal {
+    @apply /*fixed*/ z-10 w-full h-full overflow-auto /*bg-darkscale-120*/;
+}
+
+.photo-gallery .photo-gallery-modal .modal-mobile {
+    @apply tablet:hidden;
+}
+
+.photo-gallery .photo-gallery-modal .modal-desktop{
+    @apply hidden;
+    @apply tablet:block;
+}
+
+.test {
+    @apply relative;
+}
+
+.swiper {
+    width: 600px;
+    height: 300px;
 }

@@ -1,3 +1,8 @@
+
+//Custom Blocks
+import './js/photo-gallery';
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of the secondary menu (top part of the header).
     const menuButton = document.querySelector('.secondary-menu-btn');

@@ -8,7 +8,7 @@
 $gallery_array = get_field('block_gallery_repeater');
 ?>
 <div class="photo-gallery">
-    <button class="photo-main">
+    <button class="photo-main" id="gallery-photo-0">
         <img src="<?php echo $gallery_array[0]["block_gallery_img"] ?: get_template_directory_uri() . '/assets/img/placeholder.webp'; ?>" alt="<?php echo $gallery_array[0]["block_gallery_desc"]?>">
         <?php
         if (count($gallery_array) > 1):
@@ -49,7 +49,7 @@ if (count($gallery_array) > 1):
         endswitch;
         for($i = 1; $i < count($gallery_array); $i++):
             ?>
-                <button class="<?php echo $photo_row_button_class?>">
+                <button id=<?php echo "gallery-photo-" . $i ?> class="<?php echo $photo_row_button_class?>">
                     <img src="<?php echo $gallery_array[$i]["block_gallery_img"] ?: get_template_directory_uri() . '/assets/img/placeholder.webp'; ?>" alt="<?php echo $gallery_array[$i]["block_gallery_desc"]?>">
                     <?php
                         if ($i === 3 && count($gallery_array) > 4):
@@ -78,4 +78,33 @@ if (count($gallery_array) > 1):
     ?>
     </div>
 <?php endif; ?>
+    <div class="photo-gallery-modal">
+        <div class="modal-mobile">
+
+        </div>
+        <div class="modal-desktop">
+
+        </div>
+    </div>
+</div>
+<div class="test">
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <script>
+
+    </script>
 </div>

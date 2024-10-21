@@ -5,6 +5,8 @@ function enqueue_custom_scripts_and_styles() {
     // Enqueue CSS
     wp_enqueue_style('custom-css', get_template_directory_uri() . '/assets/dist/main.min.css');
 
+    wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), null, true );
+
     // Enqueue JavaScript
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/dist/main.min.js');
 }
