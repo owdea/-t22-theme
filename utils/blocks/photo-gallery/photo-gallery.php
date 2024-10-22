@@ -78,33 +78,63 @@ if (count($gallery_array) > 1):
     ?>
     </div>
 <?php endif; ?>
-    <div class="photo-gallery-modal">
-        <div class="modal-mobile">
-
-        </div>
-        <div class="modal-desktop">
-
-        </div>
-    </div>
 </div>
-<div class="test">
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            ...
+
+<div class="photo-gallery-modal">
+    <div class="modal-header">
+        <div class="modal-header-logo">
+            <img src="<?php echo get_template_directory_uri() . "/assets/icons/ct22-logo-white.svg"?>" alt="ČT22 logo">
         </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="modal-header-article-content">
+            <div class="modal-header-title">
+                <h2>
+                    <?php
+                    $title = get_the_title();
+                    echo "ojadso j oasjdosja dsoija sdoijds oadija osidjod sijoask doasdj iaois dajo disajosdi jsdoij a";
+                    ?>
+                </h2>
+            </div>
+            <div class="modal-header-article-content-right">
+                <div class="swiper-pagination"></div>
+                <button class="modal-header-library-button">
+                    <img src="<?php echo get_template_directory_uri() . "/assets/icons/gallery.svg"?>" alt="Otevřít galerii">
+                    <span>zobrazit galerii</span>
+                </button>
+            </div>
+        </div>
+        <button class="modal-header-close-button">
+            <img src="<?php echo get_template_directory_uri() . "/assets/icons/exit-icon-modal.svg"?>" alt="Zavřít modální okno">
+        </button>
     </div>
-    <script>
+    <div class="modal-mobile">
 
-    </script>
+    </div>
+    <div class="modal-desktop">
+
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <?php
+                for ($i = 0; $i < count($gallery_array); $i++):
+                ?>
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="<?php echo $gallery_array[$i]["block_gallery_img"] ?: get_template_directory_uri() . '/assets/img/placeholder.webp'; ?>" alt="<?php echo $gallery_array[0]["block_gallery_desc"]?>">
+                    <div>
+                        <?php if($gallery_array[0]["block_gallery_desc"])?><span><?php echo $gallery_array[0]["block_gallery_desc"];?></span>
+                        <?php if($gallery_array[0]["block_gallery_source"])?><span class="photo-sources">Zdroj: <?php echo $gallery_array[0]["block_gallery_source"];?></span>
+                    </div>
+                </div>
+                <?php
+                endfor;
+                ?>
+            </div>
+            <!-- If we need pagination -->
+
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
 </div>

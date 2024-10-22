@@ -87,21 +87,85 @@
     @apply 480:block;
 }
 
-.photo-gallery .photo-gallery-modal {
-    @apply /*fixed*/ z-10 w-full h-full overflow-auto /*bg-darkscale-120*/;
+.photo-gallery-modal {
+    @apply fixed /*hidden*/ flex flex-col z-10 w-full h-full top-0 left-0 overflow-auto bg-darkscale-120;
 }
 
-.photo-gallery .photo-gallery-modal .modal-mobile {
+.photo-gallery-modal .modal-header {
+    @apply flex bg-blue-gradient text-white;
+}
+
+.photo-gallery-modal .modal-header img {
+    @apply h-4 w-4;
+}
+
+.photo-gallery-modal .modal-header .modal-header-logo {
+    @apply flex shrink-0 px-6 py-5 border-r border-r-white-transparent;
+}
+
+.photo-gallery-modal .modal-header .modal-header-logo img {
+    @apply w-[77px] h-[24px];
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content {
+    @apply flex justify-between items-center w-full px-2.5 text-ellipsis overflow-hidden whitespace-nowrap;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .modal-header-article-content-right {
+    @apply flex items-center gap-6;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .swiper-pagination {
+    @apply static hidden text-white h-fit w-auto text-xs font-medium;
+    @apply tablet:block;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .swiper-pagination span {
+    @apply text-xs font-medium;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .modal-header-library-button {
+    @apply hidden justify-center whitespace-nowrap h-fit mr-4;
+    @apply tablet:flex;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .modal-header-library-button img {
+    @apply mr-1;
+}
+
+
+.photo-gallery-modal .modal-header .modal-header-article-content img {
+    @apply w-4 h-4;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .modal-header-title {
+    @apply text-ellipsis overflow-hidden whitespace-nowrap;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content .modal-header-title h2 {
+    @apply text-sm font-semibold font-TV text-ellipsis overflow-hidden whitespace-nowrap;
+}
+
+.photo-gallery-modal .modal-header .modal-header-article-content span {
+    @apply text-3xs;
+}
+
+.photo-gallery-modal .modal-header .modal-header-close-button {
+    @apply flex items-center p-6 border-l border-l-white-transparent;
+}
+
+
+.photo-gallery-modal .modal-mobile {
     @apply tablet:hidden;
 }
 
-.photo-gallery .photo-gallery-modal .modal-desktop{
+.photo-gallery-modal .modal-desktop{
     @apply hidden;
     @apply tablet:block;
 }
 
-.test {
-    @apply relative;
+.photo-gallery-modal .swiper-pagination {
+    @apply text-lightscale-10;
 }
 
 .swiper {
