@@ -94,6 +94,9 @@ if (count($gallery_array) > 1):
                     ?>
                 </h2>
             </div>
+            <?php
+                if (count($gallery_array) > 1):
+            ?>
             <div class="modal-header-article-content-right">
                 <div class="swiper-pagination"></div>
                 <button class="modal-header-library-button">
@@ -101,13 +104,28 @@ if (count($gallery_array) > 1):
                     <span>zobrazit galerii</span>
                 </button>
             </div>
+            <?php endif; ?>
         </div>
         <button class="modal-header-close-button">
             <img src="<?php echo get_template_directory_uri() . "/assets/icons/exit-icon-modal.svg"?>" alt="Zavřít modální okno">
         </button>
     </div>
-    <div class="modal-mobile">
-
+    <div class="modal-gallery">
+        <?php
+        for ($i = 0; $i < count($gallery_array); $i++):
+        ?>
+        <div class="modal-gallery-image-container">
+        <button id=<?php echo "modal-gallery-img-" . $i ?>>
+            <img src="<?php echo $gallery_array[$i]["block_gallery_img"] ?: get_template_directory_uri() . '/assets/img/placeholder.webp'; ?>" alt="<?php echo $gallery_array[$i]["block_gallery_desc"] ?: "Obrázek"?>">
+        </button>
+            <div class="modal-photo-description">
+                <?php if ($gallery_array[$i]["block_gallery_desc"])?> <span><?php echo $gallery_array[$i]["block_gallery_desc"];?></span>
+                <?php if ($gallery_array[$i]["block_gallery_source"])?> <span class="photo-overlay-sources">Zdroj: <?php echo $gallery_array[0]["block_gallery_source"];?></span>
+            </div>
+        </div>
+        <?php
+        endfor;
+        ?>
     </div>
     <div class="modal-desktop">
 
@@ -129,9 +147,6 @@ if (count($gallery_array) > 1):
                 endfor;
                 ?>
             </div>
-            <!-- If we need pagination -->
-
-
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>

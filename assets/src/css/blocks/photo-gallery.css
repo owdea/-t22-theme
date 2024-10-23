@@ -25,7 +25,7 @@
 }
 
 .photo-gallery .photo-main .photo-overlay-description {
-    @apply absolute left-0 right-0 bottom-0 flex flex-col items-start gap-1 px-4 py-2 bg-shadow-gradient text-white text-2xs;
+    @apply absolute left-0 right-0 bottom-0 flex flex-col items-start gap-1 px-4 py-2 bg-shadow-gradient text-white text-2xs pointer-events-none;
     @apply 480:pt-12 480:pb-4 480:px-6
 }
 
@@ -88,7 +88,7 @@
 }
 
 .photo-gallery-modal {
-    @apply fixed /*hidden*/ flex flex-col z-10 w-full h-full top-0 left-0 overflow-auto bg-darkscale-120;
+    @apply fixed hidden flex-col z-10 w-full h-full top-0 left-0 overflow-auto bg-darkscale-120;
 }
 
 .photo-gallery-modal .modal-header {
@@ -155,8 +155,36 @@
 }
 
 
-.photo-gallery-modal .modal-mobile {
+.photo-gallery-modal .modal-gallery {
+    @apply flex flex-wrap;
+    @apply tablet:hidden tablet:max-w-[75%];
+}
+
+.photo-gallery-modal .modal-gallery .modal-photo-description {
+
+}
+
+.photo-gallery-modal .modal-gallery .modal-gallery-image-container {
+    @apply w-full;
+}
+
+.photo-gallery-modal .modal-gallery .modal-gallery-image-container button {
+    @apply w-full pointer-events-none;
+    @apply tablet:pointer-events-auto;
+}
+
+.photo-gallery-modal .modal-gallery .modal-gallery-image-container button img {
+    @apply w-full pointer-events-none;
+    @apply tablet:w-[220px] tablet:max-h-[120px] tablet:aspect-[220/123.75] tablet:object-cover;
+}
+
+.photo-gallery-modal .modal-gallery .modal-gallery-image-container .modal-photo-description {
+    @apply flex flex-col px-4 py-2 mb-4 text-white text-2xs;
     @apply tablet:hidden;
+}
+
+.photo-gallery-modal .modal-gallery .modal-gallery-image-container .modal-photo-description {
+
 }
 
 .photo-gallery-modal .modal-desktop{
