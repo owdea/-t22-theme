@@ -8,18 +8,22 @@
         <div class="footer-contact">
             <div class="footer-contact-center">
                 <?php
-                    if (get_field('footer_contact', 'options')['footer_contact_title'] && get_field('footer_contact', 'options')['footer_contact_open_hours']) :
+                    if (is_array(get_field('footer_contact', 'options'))):
+                        if (get_field('footer_contact', 'options')['footer_contact_title'] && get_field('footer_contact', 'options')['footer_contact_open_hours']) :
                 ?>
                 <span class="footer-contact-center-title"><?php echo get_field('footer_contact', 'options')['footer_contact_title']; ?></span>
                 <span><?php echo get_field('footer_contact', 'options')['footer_contact_open_hours']; ?></span>
                 <?php
-                endif;
+                        endif;
+                    endif;
                 ?>
             </div>
             <div class="footer-contact-contacts-list">
                 <?php
-                    $phone_number = get_field('footer_contact', 'options')['footer_contact_phone_number'];
-                    $mail_address = get_field('footer_contact', 'options')['footer_contact_email'];
+                    if (is_array(get_field('footer_contact', 'options'))) {
+                        $phone_number = get_field('footer_contact', 'options')['footer_contact_phone_number'];
+                        $mail_address = get_field('footer_contact', 'options')['footer_contact_email'];
+                    }
                     if ($phone_number):
                 ?>
                 <a href="tel:<?php echo $phone_number;?>">
