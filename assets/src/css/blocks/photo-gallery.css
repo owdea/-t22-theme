@@ -25,8 +25,12 @@
 }
 
 .photo-gallery .photo-main .photo-overlay-description {
-    @apply absolute left-0 right-0 bottom-0 flex flex-col items-start gap-1 px-4 py-2 bg-shadow-gradient text-white text-2xs pointer-events-none;
+    @apply absolute left-0 right-0 bottom-0 flex flex-col items-start gap-1 px-4 py-2 bg-shadow-gradient pointer-events-none;
     @apply 480:pt-12 480:pb-4 480:px-6
+}
+
+.photo-gallery .photo-main .photo-overlay-description span {
+    @apply text-white text-2xs;
 }
 
 .photo-gallery .photo-main .photo-overlay-description .photo-overlay-sources {
@@ -92,7 +96,7 @@
 }
 
 .photo-gallery-modal .modal-header {
-    @apply flex bg-blue-gradient text-white;
+    @apply fixed flex w-full bg-blue-gradient text-white;
 }
 
 .photo-gallery-modal .modal-header img {
@@ -157,15 +161,20 @@
 
 .photo-gallery-modal .modal-gallery {
     @apply flex flex-wrap;
-    @apply tablet:hidden tablet:max-w-[75%];
+    @apply tablet:hidden tablet:max-w-[75%] tablet:gap-4 tablet:mx-auto py-4;
 }
 
-.photo-gallery-modal .modal-gallery .modal-photo-description {
+.photo-gallery-modal .modal-gallery .modal-photo-description span {
+    @apply text-xs text-white;
+}
 
+.photo-gallery-modal .modal-gallery .modal-photo-description .photo-overlay-sources {
+    @apply text-2xs text-lightscale-5;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container {
     @apply w-full;
+    @apply tablet:w-fit;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container button {
@@ -187,10 +196,61 @@
 
 }
 
-.photo-gallery-modal .modal-desktop{
-    @apply hidden;
+.photo-gallery-modal .modal-desktop {
+    @apply hidden h-[calc(100svh_-_96px_-_24px_-_64px)];
     @apply tablet:block;
 }
+
+
+
+.photo-gallery-modal .modal-desktop .swiper {
+    @apply w-full h-full;
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-next,
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-prev {
+    @apply w-14 h-14 bg-gray-dark rounded-[50%];
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-next::after,
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-prev::after {
+    @apply content-none;
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-next img,
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-prev img {
+    @apply w-4 h-4;
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-next img {
+    @apply rotate-[-90deg];
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-button-prev img {
+    @apply rotate-90
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-wrapper {
+
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide {
+    @apply flex justify-center items-center flex-col;
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide .swiper-slide-description {
+    @apply flex flex-col items-start text-white text-xs w-full px-20 py-4;
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide .swiper-slide-description .photo-sources {
+    @apply text-lightscale-5 text-3xs font-medium;
+}
+
+.photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide img {
+    @apply h-full w-auto object-contain px-20;
+}
+
+
 
 .photo-gallery-modal .swiper-pagination {
     @apply text-lightscale-10;

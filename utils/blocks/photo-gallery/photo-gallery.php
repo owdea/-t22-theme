@@ -138,9 +138,9 @@ if (count($gallery_array) > 1):
                 <!-- Slides -->
                 <div class="swiper-slide">
                     <img src="<?php echo $gallery_array[$i]["block_gallery_img"] ?: get_template_directory_uri() . '/assets/img/placeholder.webp'; ?>" alt="<?php echo $gallery_array[0]["block_gallery_desc"]?>">
-                    <div>
-                        <?php if($gallery_array[0]["block_gallery_desc"])?><span><?php echo $gallery_array[0]["block_gallery_desc"];?></span>
-                        <?php if($gallery_array[0]["block_gallery_source"])?><span class="photo-sources">Zdroj: <?php echo $gallery_array[0]["block_gallery_source"];?></span>
+                    <div class="swiper-slide-description">
+                        <?php if($gallery_array[$i]["block_gallery_desc"]){?><span><?php echo $gallery_array[$i]["block_gallery_desc"];?></span><?php } ?>
+                        <?php if($gallery_array[$i]["block_gallery_source"]){?><span class="photo-sources">Zdroj: <?php echo $gallery_array[$i]["block_gallery_source"];?></span><?php } ?>
                     </div>
                 </div>
                 <?php
@@ -148,8 +148,12 @@ if (count($gallery_array) > 1):
                 ?>
             </div>
             <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev after:content-none">
+                <img src=<?php echo get_template_directory_uri() . "/assets/icons/swiper-arrow.svg"?>>
+            </div>
+            <div class="swiper-button-next">
+                <img src=<?php echo get_template_directory_uri() . "/assets/icons/swiper-arrow.svg"?>>
+            </div>
         </div>
     </div>
 </div>

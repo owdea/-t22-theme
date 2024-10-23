@@ -112,18 +112,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+//Adding dynamic margins
 document.addEventListener('DOMContentLoaded', function () {
-    let adminBar = document.getElementById('wpadminbar');
+    const adminBar = document.getElementById('wpadminbar');
+    const modalHeader = document.querySelector('.modal-header');
+    const desktopModalSwiper = document.querySelector('.modal-desktop');
+    const modalGallery = document.querySelector('.modal-gallery');
 
     let adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
     document.querySelector('.photo-gallery-modal').style.marginTop = adminBarHeight + 'px';
 
-    let resizeObserver = new ResizeObserver(() => {
+    let adminBarResizeObserver = new ResizeObserver(() => {
         let adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
         document.querySelector('.photo-gallery-modal').style.marginTop = adminBarHeight + 'px';
     });
 
     if (adminBar) {
-        resizeObserver.observe(adminBar);
+        adminBarResizeObserver.observe(adminBar);
+    }
+
+    let headerResizeObserver = new ResizeObserver(() => {
+        const headerHeight = modalHeader ? modalHeader.offsetHeight : 0;
+        desktopModalSwiper.style.marginTop = headerHeight + 'px';
+        modalGallery.style.marginTop = headerHeight + 'px';
+    })
+
+    if (modalHeader) {
+        headerResizeObserver.observe(modalHeader);
     }
 });
