@@ -15,15 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
         let modalWidth = modalHeader ? modalHeader.offsetWidth : 0
         if (modalWidth < 767 ) {
             desktopModalSwiper.style.display = "none";
-            modalGallery.style.display = "flex"
-            openLibraryButton.style.display = "none";
-            swiperPagination.style.display = "none";
+            modalGallery.style.display = "flex";
+            if (openLibraryButton) openLibraryButton.style.display = "none";
+            if (swiperPagination) swiperPagination.style.display = "none";
         } else if (modalWidth >= 767 && wasModalSwiperActive) {
-            console.log(wasModalSwiperActive)
             desktopModalSwiper.style.display = "block";
-            modalGallery.style.display = "none"
-            openLibraryButton.style.display = "flex";
-            swiperPagination.style.display = "block";
+            modalGallery.style.display = "none";
+            if (openLibraryButton) openLibraryButton.style.display = "flex";
+            if (swiperPagination) swiperPagination.style.display = "block";
         }
     })
 
@@ -41,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
         openLibraryButton.addEventListener('click', function(event) {
             modalGallery.style.display = "flex";
             desktopModalSwiper.style.display = "none";
-            openLibraryButton.style.display = "none";
-            swiperPagination.style.display = "none";
+            if (openLibraryButton) openLibraryButton.style.display = "none";
+            if (swiperPagination) swiperPagination.style.display = "none";
             wasModalSwiperActive = false
         })
     }
@@ -65,15 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (modalPhotoRow) {
         modalPhotoRow.addEventListener('click', function(event) {
             if (event.target.tagName.toLowerCase() === 'button') {
-                console.log("hehe")
                 const pickedImg = event.target.id.match(/\d+$/)[0];
 
                 swiper.slideTo(parseInt(pickedImg), 0);
                 desktopModalSwiper.style.display = "flex";
                 modalGallery.style.display = "none";
-                openLibraryButton.style.display = "flex";
-                swiperPagination.style.display = "block";
-                console.log("měním proměnnou na tru")
+                if (openLibraryButton) openLibraryButton.style.display = "flex";
+                if (swiperPagination) swiperPagination.style.display = "block";
                 wasModalSwiperActive = true
             }
         })
@@ -91,13 +88,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (openLibrary) {
                     modalGallery.style.display = "flex";
                     desktopModalSwiper.style.display = "none";
-                    openLibraryButton.style.display = "none";
-                    swiperPagination.style.display = "none";
+                    if (openLibraryButton) openLibraryButton.style.display = "none";
+                    if (swiperPagination) swiperPagination.style.display = "none";
                 } else {
                     modalGallery.style.display = "none"
                     desktopModalSwiper.style.display = "block";
-                    openLibraryButton.style.display = "flex";
-                    swiperPagination.style.display = "block";
+                    if (openLibraryButton) openLibraryButton.style.display = "flex";
+                    if (swiperPagination) swiperPagination.style.display = "block";
                     wasModalSwiperActive = true
                 }
 
@@ -118,13 +115,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalHeader = document.querySelector('.modal-header');
     const desktopModalSwiper = document.querySelector('.modal-desktop');
     const modalGallery = document.querySelector('.modal-gallery');
+    const modalContainer = document.querySelector('.photo-gallery-modal');
 
-    let adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
-    document.querySelector('.photo-gallery-modal').style.marginTop = adminBarHeight + 'px';
+    // Getting height of the visible part of the adminBar
+    const getVisibleHeight = (element) => {
+        const rect = element.getBoundingClientRect();
+        return Math.max(0, rect.bottom) - Math.max(0, rect.top);
+    };
+
+    let adminBarHeight = adminBar ? getVisibleHeight(adminBar) : 0;
+    modalContainer.style.marginTop = adminBarHeight + 'px';
 
     let adminBarResizeObserver = new ResizeObserver(() => {
-        let adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
-        document.querySelector('.photo-gallery-modal').style.marginTop = adminBarHeight + 'px';
+        let adminBarHeight = adminBar ? getVisibleHeight(adminBar) : 0;
+        modalContainer.style.marginTop = adminBarHeight + 'px';
     });
 
     if (adminBar) {
@@ -140,4 +144,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (modalHeader) {
         headerResizeObserver.observe(modalHeader);
     }
+
+    // Update marginTop while strolling
+    window.addEventListener('scroll', () => {
+        let adminBarHeight = adminBar ? getVisibleHeight(adminBar) : 0;
+        modalContainer.style.marginTop = adminBarHeight + 'px';
+    });
 });

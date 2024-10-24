@@ -90,7 +90,7 @@ if (count($gallery_array) > 1):
                 <h2>
                     <?php
                     $title = get_the_title();
-                    echo "ojadso j oasjdosja dsoija sdoijds oadija osidjod sijoask doasdj iaois dajo disajosdi jsdoij a";
+                    echo $title;
                     ?>
                 </h2>
             </div>
