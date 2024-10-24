@@ -162,7 +162,7 @@
 }
 
 .primary-menu-container .primary-menu {
-    @apply flex justify-between max-w-[1264px] h-[57px] font-Source text-darkscale-80;
+    @apply flex justify-between max-w-[1216px] h-[57px] font-Source text-darkscale-80;
     @apply mx-auto border-b-[1px] border-b-black-transparent font-semibold;
 }
 
