@@ -41,3 +41,7 @@
 body {
     @apply m-0;
 }
+
+p {
+    @apply font-Source;
+}

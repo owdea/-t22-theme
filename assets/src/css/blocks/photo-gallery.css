@@ -151,7 +151,7 @@
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content span {
-    @apply text-3xs;
+    @apply leading-normal text-3xs;
 }
 
 .photo-gallery-modal .modal-header .modal-header-close-button {

@@ -17,18 +17,20 @@ if ($page_link || (get_field('block_link_title') && get_field('block_link_link')
         $img = get_template_directory_uri() . '/assets/img/placeholder.webp';
     }
     ?>
-    <div class="block-link-component">
-        <a href="<?php echo $link?>">
-            <div>
-                <span>ODKAZ</span>
-                <h3><?php echo $title ?></h3>
-            </div>
-            <?php if($img): ?>
-            <div class="block-link-img-container">
-                <img src="<?php echo $img ?>" alt="obrázek týkající se <?php echo $title ?>">
-            </div>
-            <?php endif; ?>
-        </a>
+    <div>
+        <div class="block-link-component">
+            <a href="<?php echo $link?>">
+                <div>
+                    <span>ODKAZ</span>
+                    <h3><?php echo $title ?></h3>
+                </div>
+                <?php if($img): ?>
+                <div class="block-link-img-container">
+                    <img src="<?php echo $img ?>" alt="obrázek týkající se <?php echo $title ?>">
+                </div>
+                <?php endif; ?>
+            </a>
+        </div>
     </div>
 
     <?php

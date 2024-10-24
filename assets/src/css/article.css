@@ -1,3 +1,25 @@
-.article-main {
-    @apply px-4 lg:max-w-[904px];
+.article-container {
+    @apply mx-auto;
+    @apply lg:max-w-[960px];
+    @apply 2xl:max-w-[1140px];
+    @apply 1400:max-w-[1248px];
+}
+
+.article-container .article-main {
+    @apply px-4;
+    @apply tablet:mt-1.5;
+    @apply lg:max-w-[904px];
+}
+
+.article-container .article-main > *:not(.photo-gallery) {
+    @apply lg:pl-8 lg:ml-[8.333%];
+}
+
+.article-container .article-main p{
+    @apply max-w-[696px] mb-6 text-base;
+    @apply lg:max-w-[728px]
+}
+
+.article-container .article-main p:first-of-type {
+    @apply mb-8 font-bold;
 }

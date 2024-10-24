@@ -84,6 +84,7 @@ module.exports = {
                 'lg': '992px',
                 'xl': '1024px',
                 '2xl': '1200px',
+                '1400': '1400px'
             },
             backgroundColor: {
                 ...colors,
