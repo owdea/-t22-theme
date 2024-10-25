@@ -116,3 +116,21 @@ function register_ct22_block_category( $categories, $post ) {
     );
 }
 add_filter( 'block_categories_all', 'register_ct22_block_category', 10, 2 );
+
+function load_authors_choices( $field ) {
+    // Inicializujte pole s možnostmi
+    $field['choices'] = [];
+
+    // Načtěte data z repeateru na Options Page
+    if ( have_rows( 'authors_list', 'option' ) ) {
+        while ( have_rows( 'authors_list', 'option' ) ) {
+            the_row();
+            $author_name = get_sub_field( 'author_name' );
+            $author_id = get_sub_field( 'author_id' );
+            $field['choices'][ $author_id ] = $author_name;
+        }
+    }
+
+    return $field;
+}
+add_filter( 'acf/load_field/name=authors_select', 'load_authors_choices' );

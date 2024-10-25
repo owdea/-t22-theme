@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_671b796042161",
+    "title": "Autoři",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Autoři",
+    "menu_slug": "article-authors",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-users"
+    },
+    "update_button": "Aktualizace",
+    "updated_message": "Nastavení aktualizováno",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1729853929
+}
