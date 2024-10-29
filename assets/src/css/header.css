@@ -4,7 +4,7 @@
 
 .header-top .header-logo {
     @apply mx-6 my-[15.5px];
-    @apply tablet:my-5
+    @apply 767:my-5
 }
 
 .header-top .header-top-right {
@@ -12,8 +12,8 @@
 }
 
 .header-top .header-top-right form {
-    @apply hidden h-full border-x-0 px-5 tablet:border-x border-white-transparent;
-    @apply tablet:flex;
+    @apply hidden h-full border-x-0 px-5 border-white-transparent;
+    @apply 767:flex 767:border-x;
 }
 
 .header-top .header-top-right label {
@@ -25,21 +25,21 @@
 }
 
 .header-top .header-top-right #mobile-search-bar-button {
-    @apply tablet:hidden;
+    @apply 767:hidden;
 }
 
 .header-top .header-top-right .secondary-menu-btn {
     @apply flex items-center h-full p-2.5 bg-transparent text-white;
-    @apply tablet:px-5;
+    @apply 767:px-5;
 }
 
 .header-top .header-top-right .secondary-menu-btn img {
-    @apply tablet:mr-2;
+    @apply 767:mr-2;
 }
 
 .header-top .header-top-right .secondary-menu-btn span {
     @apply hidden;
-    @apply tablet:block;
+    @apply 767:block;
 }
 
 .header-top .header-top-right .secondary-menu-btn:hover,
@@ -91,12 +91,12 @@
 
 .header-top .secondary-menu-container {
     @apply right-0 fixed h-full p-0 z-50 w-full hidden;
-    @apply smd:h-auto smd:p-4 smd:bg-transparent smd:w-auto;
+    @apply 427:h-auto 427:p-4 427:bg-transparent 427:w-auto;
 }
 
 .header-top .secondary-menu-container.secondary-container-active {
     @apply bg-shadow-dark;
-    @apply smd:bg-transparent;
+    @apply 427:bg-transparent;
 }
 
 .header-top .secondary-menu-container .secondary-menu.secondary-menu-active {
@@ -105,7 +105,7 @@
 
 .header-top .secondary-menu-container .secondary-menu {
     @apply top-[115px] invisible hidden opacity-0 max-w-full w-full bg-lightscale-20 shadow-box-shadow rounded transition-custom;
-    @apply smd:w-[320px];
+    @apply 427:w-[320px];
 }
 
 .header-top .secondary-menu-container .secondary-menu div {
@@ -158,7 +158,7 @@
 
 .primary-menu-container {
     @apply my-0;
-    @apply tablet:px-6;
+    @apply 767:px-6;
 }
 
 .primary-menu-container .primary-menu {
@@ -172,12 +172,12 @@
 
 .primary-menu-container .primary-menu .primary-menu-mobile-icon {
     @apply relative flex items-center gap-1 w-full px-4 font-normal;
-    @apply tablet:hidden;
+    @apply 767:hidden;
 }
 
 .primary-menu-container .primary-menu .primary-menu-desktop {
     @apply absolute invisible;
-    @apply tablet:static tablet:visible;
+    @apply 767:static 767:visible;
 }
 
 .primary-menu-container .primary-menu .primary-menu-desktop .primary-button-active {
@@ -217,7 +217,7 @@
 
 .primary-menu-container .primary-menu .primary-navigator {
     @apply flex items-center h-full border-x-black-transparent border-x;
-    @apply tablet:border-x-0;
+    @apply 767:border-x-0;
 }
 
 .primary-menu-container .primary-menu .primary-more-btn:hover,
@@ -255,12 +255,12 @@
 }
 
 .primary-menu-container .primary-menu .primary-live-mobile {
-    @apply stablet:hidden;
+    @apply 640:hidden;
 }
 
 .primary-menu-container .primary-menu .primary-live-tablet {
     @apply hidden;
-    @apply stablet:block;
+    @apply 640:block;
 }
 
 .primary-menu-container .primary-more-container {
@@ -269,7 +269,7 @@
 
 .primary-menu-container .primary-more-container .primary-more {
     @apply absolute top-[67px] hidden flex-col invisible w-max shadow-box-shadow py-3;
-    @apply tablet:flex;
+    @apply 767:flex;
 }
 
 .primary-menu-container .primary-more-container .primary-more li {
@@ -315,7 +315,7 @@
 
 .primary-menu-container .primary-menu-mobile-active {
     @apply flex;
-    @apply tablet:hidden;
+    @apply 767:hidden;
 }
 
 .primary-menu-more-first-item-duplicate {

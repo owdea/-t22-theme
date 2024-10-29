@@ -1,6 +1,6 @@
 .photo-gallery {
     @apply mx-[-16px] font-Source mb-6;
-    @apply tablet:mb-8;
+    @apply 767:mb-8;
     @apply lg:mx-0;
 }
 
@@ -121,7 +121,7 @@
 
 .photo-gallery-modal .modal-header .modal-header-article-content .swiper-pagination {
     @apply static hidden text-white h-fit w-auto text-xs font-medium;
-    @apply tablet:block;
+    @apply 767:block;
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .swiper-pagination span {
@@ -130,7 +130,7 @@
 
 .photo-gallery-modal .modal-header .modal-header-article-content .modal-header-library-button {
     @apply hidden justify-center whitespace-nowrap h-fit mr-4;
-    @apply tablet:flex;
+    @apply 767:flex;
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .modal-header-library-button img {
@@ -161,7 +161,7 @@
 
 .photo-gallery-modal .modal-gallery {
     @apply flex flex-wrap;
-    @apply tablet:hidden tablet:max-w-[75%] tablet:gap-4 tablet:mx-auto py-4;
+    @apply 767:hidden 767:max-w-[75%] 767:gap-4 767:mx-auto py-4;
 }
 
 .photo-gallery-modal .modal-gallery .modal-photo-description span {
@@ -174,22 +174,22 @@
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container {
     @apply w-full;
-    @apply tablet:w-fit;
+    @apply 767:w-fit;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container button {
     @apply w-full pointer-events-none;
-    @apply tablet:pointer-events-auto;
+    @apply 767:pointer-events-auto;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container button img {
     @apply w-full pointer-events-none;
-    @apply tablet:w-[220px] tablet:max-h-[120px] tablet:aspect-[220/123.75] tablet:object-cover;
+    @apply 767:w-[220px] 767:max-h-[120px] 767:aspect-[220/123.75] 767:object-cover;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container .modal-photo-description {
     @apply flex flex-col px-4 py-2 mb-4 text-white text-2xs;
-    @apply tablet:hidden;
+    @apply 767:hidden;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container .modal-photo-description {
@@ -198,7 +198,7 @@
 
 .photo-gallery-modal .modal-desktop {
     @apply hidden h-[calc(100svh_-_96px_-_24px_-_64px)];
-    @apply tablet:block;
+    @apply 767:block;
 }
 
 

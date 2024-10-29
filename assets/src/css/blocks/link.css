@@ -8,17 +8,17 @@
 
 .block-link-component span {
     @apply text-bluescale-70 font-Source font-medium text-3xs;
-    @apply lmd:text-2xs;
+    @apply 610:text-2xs;
 }
 
 .block-link-component h3 {
     @apply text-xs font-TV font-semibold;
-    @apply lmd:text-md;
+    @apply 610:text-md;
 }
 
 .block-link-component .block-link-img-container {
     @apply max-w-[96px] w-full aspect-video overflow-hidden h-fit shrink-0;
-    @apply lmd:max-w-[170px];
+    @apply 610:max-w-[170px];
 }
 
 .block-link-component .block-link-img-container img {

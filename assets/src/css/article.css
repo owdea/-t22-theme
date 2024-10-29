@@ -1,28 +1,28 @@
 .article-container {
     @apply mx-auto;
-    @apply lg:max-w-[960px];
-    @apply 2xl:max-w-[1140px];
+    @apply 992:max-w-[960px];
+    @apply 1200:max-w-[1140px];
     @apply 1400:max-w-[1248px];
 }
 
 .article-container .article-main {
     @apply px-4;
-    @apply tablet:mt-1.5;
-    @apply lg:max-w-[904px];
+    @apply 767:mt-1.5;
+    @apply 992:max-w-[904px];
 }
 
 .article-container .article-main h1.article-title {
     @apply ml-0 pl-0 text-xl font-medium;
-    @apply tablet:text-4xl;
+    @apply 767:text-4xl;
 }
 
 .article-container .article-main > *:not(.photo-gallery) {
-    @apply lg:pl-8 lg:ml-[8.333%];
+    @apply 992:pl-8 992:ml-[8.333%];
 }
 
 .article-container .article-main p{
     @apply max-w-[696px] mb-6 text-base;
-    @apply lg:max-w-[728px]
+    @apply 992:max-w-[728px]
 }
 
 .article-container .article-main p:first-of-type {
@@ -34,7 +34,7 @@
 
 .article-container .article-main .metadata-container .metadata-authors {
     @apply flex text-3xs font-bold text-bluescale-70;
-    @apply tablet:text-2xs;
+    @apply 767:text-2xs;
 }
 
 .article-container .article-main .metadata-container .metadata-authors a:hover {
@@ -43,7 +43,7 @@
 
 .article-container .article-main .metadata-container .metadata-info-row {
     @apply flex flex-wrap items-center text-3xs text-darkscale-60 font-normal;
-    @apply tablet:text-2xs;
+    @apply 767:text-2xs;
 }
 
 .article-container .article-main .metadata-container .metadata-info-row img {
