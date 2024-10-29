@@ -36,6 +36,7 @@ function change_tag_labels_to_tema() {
             'popular_items'              => 'Populární témata',
             'all_items'                  => 'Všechna témata',
             'edit_item'                  => 'Upravit téma',
+            'view_item'                  => 'Zobrazit téma',
             'update_item'                => 'Aktualizovat téma',
             'add_new_item'               => 'Přidat nové téma',
             'new_item_name'              => 'Nové téma',
@@ -50,6 +51,8 @@ function change_tag_labels_to_tema() {
             'desc_field_description'     => 'Popis tohoto tématu',
             'items_list'                 => 'Seznam témat',
             'items_list_navigation'      => 'Navigace seznamem témat',
+            'no_terms'                   => 'Žádná témata',
+            'filter_by_item'             => 'Filtrovat',
         );
     }
 }
@@ -66,6 +69,7 @@ function change_category_labels_to_rubriky() {
             'parent_item'                => 'Nadřazená rubrika',
             'parent_item_colon'          => 'Nadřazená rubrika:',
             'edit_item'                  => 'Upravit rubriku',
+            'view_item'                  => 'Zobrazit rubriku',
             'update_item'                => 'Aktualizovat rubriku',
             'add_new_item'               => 'Přidat novou rubriku',
             'new_item_name'              => 'Název nové rubriky',
@@ -98,6 +102,7 @@ function ct22_register_acf_blocks(): void {
     if ( function_exists( 'acf_register_block_type' ) ) {
         register_block_type( __DIR__ . '/utils/blocks/link' );
         register_block_type( __DIR__ . '/utils/blocks/photo-gallery' );
+        register_block_type( __DIR__ . '/utils/blocks/themes' );
     }
 }
 
@@ -118,10 +123,8 @@ function register_ct22_block_category( $categories, $post ) {
 add_filter( 'block_categories_all', 'register_ct22_block_category', 10, 2 );
 
 function load_authors_choices( $field ) {
-    // Inicializujte pole s možnostmi
     $field['choices'] = [];
 
-    // Načtěte data z repeateru na Options Page
     if ( have_rows( 'authors_list', 'option' ) ) {
         while ( have_rows( 'authors_list', 'option' ) ) {
             the_row();
@@ -134,3 +137,34 @@ function load_authors_choices( $field ) {
     return $field;
 }
 add_filter( 'acf/load_field/name=authors_select', 'load_authors_choices' );
+
+//Filter for Post Objects on taxonomy page.
+function filter_acf_post_object_by_taxonomy( $args ) {
+
+    $url = wp_get_referer();
+
+    // Get ID a type of the taxonomy (category or post_tag) from url
+    if ( preg_match( '/tag_ID=([0-9]+)/', $url, $matches ) && preg_match( '/taxonomy=([a-z_]+)/', $url, $taxonomy_matches ) ) {
+        $term_id = intval( $matches[1] ); // ID of taxonomy
+        $taxonomy = $taxonomy_matches[1]; // Name of taxonomy
+    }
+
+    // Applying filter when having info
+    if ( $term_id && in_array( $taxonomy, ['category', 'post_tag'], true ) ) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => $taxonomy,
+                'field'    => 'term_id',
+                'terms'    => $term_id,
+            ),
+        );
+    }
+
+    return $args;
+}
+add_filter('acf/fields/post_object/query/name=taxonomy-pinned-post', 'filter_acf_post_object_by_taxonomy', 10, 3);
+
+
+
+
+
