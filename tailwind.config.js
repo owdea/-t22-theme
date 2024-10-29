@@ -75,16 +75,16 @@ module.exports = {
             },
             // 414px, 522px (velikosti nadpisu náhledu článků), 767px, 992px (změna velikostí fotek), 1024px, 1200px
             screens: {
-                'sm': '414px',
-                'smd': '427px',
+                '414': '414px',
+                '427': '427px',
                 '480': '480px',
-                'md': '522px',
-                'lmd': '610px',
-                'stablet': '640px',
-                'tablet': '767px',
-                'lg': '992px',
-                'xl': '1024px',
-                '2xl': '1200px',
+                '522': '522px',
+                '610': '610px',
+                '640': '640px',
+                '767': '767px',
+                '992': '992px',
+                '1024': '1024px',
+                '1200': '1200px',
                 '1400': '1400px'
             },
             backgroundColor: {
