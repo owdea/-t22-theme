@@ -133,3 +133,7 @@ Article list
 .taxonomy-page .post-list a div div span:nth-of-type(1) {
     @apply font-semibold;
 }
+
+.taxonomy-page .post-list a div div .time-container {
+    @apply font-semibold;
+}
