@@ -2,6 +2,7 @@
 @import 'css/header.css';
 @import 'css/footer.css';
 @import 'css/article.css';
+@import 'css/archive.css';
 
 /*Blocks*/
 @import 'css/blocks/link.css';

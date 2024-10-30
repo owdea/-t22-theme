@@ -1,0 +1,55 @@
+.taxonomy-page {
+
+}
+
+.taxonomy-page .pinned-post {
+    @apply w-fit mx-auto;
+    @apply 767:mt-1.5;
+    @apply 992:mt-8;
+}
+
+.taxonomy-page .pinned-post a{
+    @apply flex flex-col max-w-[1248px] w-full mb-8 px-4;
+    @apply 992:flex-row 992:gap-8;
+}
+
+.taxonomy-page .pinned-post .pinned-post-img {
+    @apply mx-[-16px] mb-4;
+    @apply 992:mx-0 992:mb-0;
+}
+
+.taxonomy-page .pinned-post .pinned-post-img img {
+    @apply aspect-[592/333] w-full overflow-clip;
+    @apply 992:w-auto
+}
+
+.taxonomy-page .pinned-post .pinned-post-info {
+    @apply flex flex-col;
+}
+
+.taxonomy-page .pinned-post .pinned-post-info h2 {
+    @apply text-md text-darkscale-100 font-semibold font-TV;
+    @apply 576:text-xl 576:leading-[2rem];
+    @apply 767:text-2xl 767:leading-[2.5rem];
+    @apply 1400:text-3xl 1400:leading-[3.125rem];
+}
+
+.taxonomy-page .pinned-post .pinned-post-info span {
+    @apply mt-1 text-darkscale-60 font-normal font-Source;
+    @apply 576:mt-2;
+    @apply 992:mt-3;
+}
+
+.taxonomy-page .pinned-post .pinned-post-info > span:first-of-type {
+    @apply hidden text-xs ;
+    @apply 767:line-clamp-3;
+}
+
+.taxonomy-page .pinned-post .pinned-post-info > span:last-of-type {
+    @apply text-3xs;
+    @apply 767:text-2xs;
+}
+
+.taxonomy-page .pinned-post a:hover h2 {
+    @apply text-bluescale-70;
+}
