@@ -40,39 +40,7 @@ get_header();
             </div>
             <div class="metadata-info-row">
                 <?php
-                $publish_time = get_the_time('U');
-                $modified_time = get_the_modified_time('U');
-
-                $current_time = current_time('timestamp');
-
-                $time_diff_publish = $current_time - $publish_time;
-                $time_diff_modify = $current_time - $modified_time;
-
-                // Time since publish
-                if ($time_diff_publish >= 60 * 60 * 24) {
-                    echo '<span class="published-date">' . get_the_date('j. m. Y') . '</span>';
-                } elseif ($time_diff_publish >= 60 * 60) {
-                    $hours = floor($time_diff_publish / (60 * 60)) == 1 ? "hodinou" : "hodinami";
-                    echo '<span class="published-date">před ' . floor($time_diff_publish / (60 * 60)) .' '. $hours .'</span>';
-                } else {
-                    $minutes = floor($time_diff_publish / (60)) == 1 ? "minutou" : "minutami";
-                    echo '<span class="published-date">před ' . floor($time_diff_publish / 60) .' '. $minutes .'</span>';
-                }
-
-                // Time since last update (if there was any)
-                if ($modified_time != $publish_time) {
-                    echo '<img src="' . get_template_directory_uri() .'/assets/icons/update.svg" alt="aktualizováno">';
-
-                    if ($time_diff_modify >= 60 * 60 * 24) {
-                        echo '<span>' . get_the_modified_date('j. m. Y') . '</span>';
-                    } elseif ($time_diff_modify >= 60 * 60) {
-                        $hours = floor($time_diff_modify / (60 * 60)) == 1 ? "hodinou" : "hodinami";
-                        echo '<span>před ' . floor($time_diff_modify / (60 * 60)) .' '. $hours .'</span>';
-                    } else {
-                        $minutes = floor($time_diff_modify / 60) == 1 ? "minutou" : "minutami";
-                        echo '<span>před ' . floor($time_diff_modify / 60) .' '. $minutes .'</span>';
-                    }
-                }
+                echo display_post_time_info(get_the_ID())
                 ?>
                 <span class="metadata-divider">|</span>
                 <span class="metadata-sources">Zdroj: <?php echo get_field('article_sources');?></span>

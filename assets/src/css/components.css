@@ -1,0 +1,11 @@
+main.site-main .time-container {
+    @apply flex w-fit items-center gap-1;
+}
+
+main.site-main .time-container img {
+    @apply w-3 h-3;
+}
+
+main.site-main .time-container span {
+    @apply font-semibold;
+}

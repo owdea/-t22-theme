@@ -50,7 +50,7 @@
 
                 ?>
                 <a id="post-<?php the_ID(); ?>" href="<?php the_permalink();?>">
-                    <img src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
+                    <img class="post-thumbnail" src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
                     <div>
                         <h3><?php the_title() ?></h3>
                         <span><?php echo get_field('article_sources'); ?></span>
@@ -75,7 +75,7 @@
 
                 ?>
                 <a id="post-<?php the_ID(); ?>" href="<?php the_permalink();?>">
-                    <img src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
+                    <img class="post-thumbnail" src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
                     <div>
                         <h3><?php the_title() ?></h3>
                         <span><?php echo get_field('article_sources'); ?></span>
@@ -97,12 +97,12 @@
                 if (in_array(get_the_ID(), $displayed_posts)) continue;
                 ?>
                 <a id="post-<?php the_ID(); ?>" href="<?php the_permalink();?>">
-                    <img src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
+                    <img class="post-thumbnail" src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
                     <div>
                         <h3><?php the_title() ?></h3>
                         <span><?php the_excerpt(); ?></span>
                         <div>
-                            <span><?php the_modified_date("j. m. Y") ?></span>
+                            <?php echo display_post_time_info(get_the_ID()) ?>
                             <span>|</span>
                             <span><?php echo get_field('article_sources'); ?></span>
                         </div>

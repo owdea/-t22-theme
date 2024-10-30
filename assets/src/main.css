@@ -3,6 +3,7 @@
 @import 'css/footer.css';
 @import 'css/article.css';
 @import 'css/archive.css';
+@import 'css/components.css';
 
 /*Blocks*/
 @import 'css/blocks/link.css';
