@@ -2,6 +2,10 @@
 
 }
 
+/*
+Pinned post
+*/
+
 .taxonomy-page .pinned-post {
     @apply w-fit mx-auto;
     @apply 767:mt-1.5;
@@ -52,4 +56,87 @@
 
 .taxonomy-page .pinned-post a:hover h2 {
     @apply text-bluescale-70;
+}
+
+/*
+Article table
+*/
+
+.taxonomy-page .post-table {
+    @apply max-w-[1248px] m-auto;
+    @apply 767:flex 767:columns-2 767:flex-wrap 767:gap-y-[32px];
+}
+
+.taxonomy-page .post-table a {
+    @apply flex mb-6 px-4;
+    @apply 767:w-1/2;
+}
+
+.taxonomy-page .post-table a img {
+    @apply w-[108px] h-[72px] aspect-[228/152] mr-3 object-cover;
+    @apply 576:w-[144px] 576:h-[96px];
+    @apply 767:w-[108px] 767:h-[72px];
+    @apply 1184:w-[144px] 1184:h-[96px];
+}
+
+.taxonomy-page .post-table a h3 {
+    @apply text-darkscale-100 font-semibold font-TV text-xs leading-[1.25rem] mb-1;
+    @apply 544:text-sm 544:leading-[1.5rem];
+    @apply 767:text-xs 767:leading-[1.25rem];
+    @apply 1184:text-sm 1184:leading-[1.5rem];
+
+
+}
+
+.taxonomy-page .post-table a span {
+    @apply text-3xs text-darkscale-60 leading-[1rem];
+}
+
+/*
+Article list
+*/
+
+.taxonomy-page .post-list {
+    @apply max-w-[1248px] mx-auto;
+}
+
+.taxonomy-page .post-list a {
+    @apply flex mb-6 max-w-[800px];
+}
+
+.taxonomy-page .post-list a img {
+    @apply w-[108px] h-[72px] aspect-[228/152] mr-3 object-cover;
+    @apply 576:w-[144px] 576:h-[96px];
+    @apply 767:w-[228px] 767:h-[152px];
+}
+
+.taxonomy-page .post-list a div {
+
+}
+
+.taxonomy-page .post-list a div h3 {
+    @apply text-darkscale-100 font-semibold font-TV text-xs leading-[1.25rem] mb-1;
+    @apply 544:text-sm 544:leading-[1.5rem];
+    @apply 767:text-md 767:leading-[1.625rem];
+}
+
+.taxonomy-page .post-list a div span p {
+    @apply hidden mb-2 text-xs text-darkscale-60 font-Source;
+    @apply 767:line-clamp-3;
+}
+
+.taxonomy-page .post-list a div div span {
+    @apply text-2xs text-darkscale-60 font-Source;
+}
+
+.taxonomy-page .post-list a div div span:nth-of-type(1) {
+    @apply font-semibold;
+}
+
+.taxonomy-page .post-list a div div span:nth-of-type(2) {
+
+}
+
+.taxonomy-page .post-list a div div span:nth-of-type(3) {
+
 }
