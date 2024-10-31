@@ -55,7 +55,9 @@ Pinned post
     @apply 767:text-2xs;
 }
 
-.taxonomy-page .pinned-post a:hover h2 {
+.taxonomy-page .pinned-post a:hover h2,
+.taxonomy-page .post-table a:hover h3,
+.taxonomy-page .post-list a:hover h3{
     @apply text-bluescale-70;
 }
 
