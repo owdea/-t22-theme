@@ -1,8 +1,23 @@
-<?php get_header(); ?>
+<?php get_header();
+    $youtube_links = [];
 
-<?php if ( have_posts() ) : ?>
+    if (have_posts()) :
+        while (have_posts()) : the_post();
+            $youtube_link = get_field('article_youtube_embed');
+            echo $youtube_link;
+            if ($youtube_link) {
+                $youtube_links[] = getYoutubeEmbedUrl($youtube_link);
+            }
+        endwhile;
+        rewind_posts();
+    endif;
+
+    if ( have_posts() ) : ?>
     <div class="taxonomy-page">
+        <iframe width="560" height="315" src="<?php echo $youtube_links[0] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="<?php echo $youtube_links[1] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <?php
+        print_r($youtube_links);
         $displayed_posts = [];
 
         // First article

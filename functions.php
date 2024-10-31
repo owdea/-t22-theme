@@ -166,24 +166,19 @@ add_filter('acf/fields/post_object/query/name=taxonomy-pinned-post', 'filter_acf
 
 // Vlož do functions.php
 function display_post_time_info($post_id = null) {
-    // Pokud není zadán $post_id, použije se aktuální příspěvek
     if (!$post_id) {
         $post_id = get_the_ID();
     }
 
-    // Načtení časů publikace a poslední aktualizace
     $publish_time = get_the_time('U', $post_id);
     $modified_time = get_the_modified_time('U', $post_id);
     $current_time = current_time('timestamp');
 
-    // Výpočet rozdílu času od publikace a aktualizace
     $time_diff_publish = $current_time - $publish_time;
     $time_diff_modify = $current_time - $modified_time;
 
-    // Výstup HTML
     $output = '';
 
-    // Čas od publikace
     $output .= '<div class="time-container">';
     if ($time_diff_publish >= 60 * 60 * 24) {
         $output .= '<span class="published-date">' . get_the_date('j. m. Y', $post_id) . '</span>';
@@ -195,7 +190,6 @@ function display_post_time_info($post_id = null) {
         $output .= '<span class="published-date">před ' . floor($time_diff_publish / 60) .' '. $minutes .'</span>';
     }
 
-    // Čas od poslední aktualizace (pokud došlo k úpravám)
     if ($modified_time != $publish_time) {
         $output .= '<img src="' . esc_url(get_template_directory_uri() .'/assets/icons/update.svg') . '" alt="aktualizováno" class="update-icon">';
 
@@ -211,10 +205,23 @@ function display_post_time_info($post_id = null) {
     }
     $output .= '</div>';
 
-    // Vrácení HTML výstupu
     return $output;
 }
 
+// Get Youtube embed Url from normal url
+function getYoutubeEmbedUrl($input)
+{
+    $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+    $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($longUrlRegex, $input, $matches) || preg_match($shortUrlRegex, $input, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    } else {
+        $youtube_id = $input;
+    }
+
+    return 'https://www.youtube.com/embed/' . $youtube_id;
+}
 
 
 
