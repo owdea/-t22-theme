@@ -147,7 +147,7 @@
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .modal-header-title h2 {
-    @apply text-sm font-semibold font-TV text-ellipsis overflow-hidden whitespace-nowrap;
+    @apply my-0 text-sm font-semibold font-TV text-ellipsis overflow-hidden whitespace-nowrap;
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content span {

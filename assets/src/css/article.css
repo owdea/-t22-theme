@@ -16,7 +16,7 @@
     @apply 767:text-4xl;
 }
 
-.article-container .article-main > *:not(.photo-gallery) {
+.article-container .article-main > *:not(.photo-gallery):not(.photo-gallery-modal) {
     @apply 992:pl-8 992:ml-[8.333%];
 }
 
