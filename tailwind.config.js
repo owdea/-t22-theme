@@ -70,6 +70,8 @@ module.exports = {
                 'black-gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6))',
                 'shadow-gradient': 'linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8))',
                 'blue-gradient-transparent': 'linear-gradient(270deg, rgba(1, 156, 225, .85) 0%, rgba(0, 40, 140, .85) 100%)',
+                'blue-gradient-transparent-solid': 'linear-gradient(270deg, rgba(1, 156, 225, 1) 0%, rgba(0, 40, 140, 1) 100%)',
+
             },
             boxShadow: {
                 'box-shadow': '0px 1px 3px rgba(0, 0, 0, 0.2), 0px 12px 24px -8px rgba(0, 0, 0, 0.15)',
@@ -94,6 +96,7 @@ module.exports = {
             },
             backgroundColor: {
                 ...colors,
+                'shadow-black': 'rgba(0, 0, 0, .25);',
                 'shadow-dark': 'rgba(0, 0, 0, 0.3);',
                 'shadow-light': 'rgba(255, 255, 255, 0.08);',
                 'gray-solid': 'rgba(244, 244, 244, 1);',
@@ -122,6 +125,9 @@ module.exports = {
                 '.transition-custom': {
                     transition: 'transform 10ms cubic-bezier(0, 0, 0.3, 1) 300ms, visibility 200ms cubic-bezier(0, 0, 0.3, 1), opacity 200ms cubic-bezier(0, 0, 0.3, 1)',
                 },
+                '.transition-background': {
+                    transition: 'background .2s linear;'
+                }
             });
         },
     ],

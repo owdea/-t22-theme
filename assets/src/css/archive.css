@@ -206,3 +206,11 @@ Themes blocks
 .themes-container .theme-container a .theme-text-container img {
     @apply w-[18px] h-[18px];
 }
+
+.themes-container .theme-container a:hover {
+    @apply bg-shadow-black transition-background;
+}
+
+.themes-container .theme-container a:hover div {
+    @apply bg-blue-gradient-transparent-solid;
+}
