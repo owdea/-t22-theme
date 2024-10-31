@@ -100,7 +100,8 @@ module.exports = {
                 'shadow-dark': 'rgba(0, 0, 0, 0.3);',
                 'shadow-light': 'rgba(255, 255, 255, 0.08);',
                 'gray-solid': 'rgba(244, 244, 244, 1);',
-                'gray-dark': 'rgba(255, 255, 255, 0.33);'
+                'gray-dark': 'rgba(255, 255, 255, 0.33);',
+                'gray-light': 'rgba(240, 243, 253, 1);'
             },
             borderColor: {
                 'white-transparent': 'rgba(255, 255, 255, 0.2)',

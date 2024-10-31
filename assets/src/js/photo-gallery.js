@@ -1,4 +1,3 @@
-//Todo: Po rozkliknutí obrázku to uvést do původního stavu (pro případ, že se galerie otevře, potom zavře a zase otevře)
 document.addEventListener('DOMContentLoaded', function () {
     const photoRow = document.querySelector('.photo-gallery');
     const modalPhotoRow = document.querySelector('.modal-gallery')
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Swiper init
-    const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.swiper-gallery', {
         direction: 'horizontal',
         loop: true,
         pagination: {

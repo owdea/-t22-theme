@@ -294,4 +294,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".carouselSwiper", {
+        slidesPerView: "auto",
+        centeredSlides: false,
+        spaceBetween: 30,
+        pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+});
 

@@ -129,7 +129,7 @@ if (count($gallery_array) > 1):
     </div>
     <div class="modal-desktop">
 
-        <div class="swiper">
+        <div class="swiper swiper-gallery">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <?php
@@ -148,7 +148,7 @@ if (count($gallery_array) > 1):
                 ?>
             </div>
             <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev after:content-none">
+            <div class="swiper-button-prev">
                 <img src=<?php echo get_template_directory_uri() . "/assets/icons/swiper-arrow.svg"?>>
             </div>
             <div class="swiper-button-next">

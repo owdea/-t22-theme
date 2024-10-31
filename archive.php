@@ -81,11 +81,33 @@
 
 
 
-
-        <div>
-            <h2>Carousel placeholder</h2>
+        <?php
+        if ($youtube_links):
+        ?>
+        <div #swiperRef="" class="swiper carouselSwiper">
+            <div class="swiper-wrapper">
+                <?php
+                    $index = 0;
+                    foreach ($youtube_links as $youtube_link) {
+                        ?>
+                        <div class="swiper-slide">
+                            <iframe src="<?php echo $youtube_links[$index] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                            <?php
+                        $index++;
+                    }
+                ?>
+            </div>
+            <div class="swiper-button-next">
+                <img src=<?php echo get_template_directory_uri() . "/assets/icons/swiper-arrow-black.svg"?>>
+            </div>
+            <div class="swiper-button-prev">
+                <img src=<?php echo get_template_directory_uri() . "/assets/icons/swiper-arrow-black.svg"?>>
+            </div>
         </div>
-
+        <?php
+        endif;
+        ?>
 
 
 
