@@ -19,7 +19,7 @@ Pinned post
 
 .taxonomy-page .pinned-post .pinned-post-img {
     @apply mx-[-16px] mb-4;
-    @apply 992:mx-0 992:mb-0;
+    @apply 992:mx-0 992:mb-0 992:max-w-[50%] 992:w-full;
 }
 
 .taxonomy-page .pinned-post .pinned-post-img img {
@@ -29,6 +29,7 @@ Pinned post
 
 .taxonomy-page .pinned-post .pinned-post-info {
     @apply flex flex-col;
+    @apply 992:max-w-[50%] 992:w-full;
 }
 
 .taxonomy-page .pinned-post .pinned-post-info h2 {
@@ -46,7 +47,7 @@ Pinned post
 
 .taxonomy-page .pinned-post .pinned-post-info > span:first-of-type {
     @apply hidden text-xs ;
-    @apply 767:line-clamp-3;
+    @apply 767:line-clamp-2;
 }
 
 .taxonomy-page .pinned-post .pinned-post-info > span:last-of-type {
@@ -136,4 +137,12 @@ Article list
 
 .taxonomy-page .post-list a div div .time-container {
     @apply font-semibold;
+}
+
+/*
+Themes blocks
+*/
+
+.themes-container {
+
 }
