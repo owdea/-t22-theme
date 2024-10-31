@@ -47,3 +47,20 @@ body {
 p {
     @apply font-Source;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-TV font-semibold;
+}
+
+h1 {
+    @apply text-xl leading-[2rem] mb-4;
+    @apply 767:text-4xl leading-[3.5rem];
+
+}
+
+h2 {
+    @apply text-md leading-[1.625rem] mt-6 mb-2;
+    @apply 767:text-xl leading-[2rem] 767:mb-4;
+
+
+}
