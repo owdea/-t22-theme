@@ -59,6 +59,9 @@ Pinned post
     @apply text-bluescale-70;
 }
 
+
+
+
 /*
 Article table
 */
@@ -92,6 +95,9 @@ Article table
 .taxonomy-page .post-table a span {
     @apply text-3xs text-darkscale-60 leading-[1rem];
 }
+
+
+
 
 /*
 Article list
@@ -139,10 +145,62 @@ Article list
     @apply font-semibold;
 }
 
+
+
+
 /*
 Themes blocks
 */
 
 .themes-container {
+    @apply flex flex-col gap-4 max-w-[1248px] px-4 m-auto mb-8;
+    @apply 610:flex-wrap 610:columns-2 610:flex-row;
+}
 
+.themes-container .theme-container {
+    @apply aspect-[3/2] bg-contain;
+}
+
+.themes-container .theme-container.theme-count-0 {
+    @apply hidden;
+}
+
+.themes-container .theme-container.theme-count-1 {
+    @apply w-full/*max-w-[25%] w-full*/;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(50%-.7575757576rem)];
+    @apply 1232:w-[calc(50%-.8rem)]
+}
+
+.themes-container .theme-container.theme-count-2 {
+    @apply w-full/*max-w-[25%] w-full*/;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(50%-.7575757576rem)];
+    @apply 1232:w-[calc(50%-.8rem)]
+}
+
+.themes-container .theme-container.theme-count-3 {
+    @apply w-full/*max-w-[25%] w-full*/;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(33.3333333333%-.7575757576rem)];
+}
+
+.themes-container .theme-container.theme-count-4 {
+    @apply w-full/*max-w-[25%] w-full*/;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(33.3333333333%-.7575757576rem)];
+    @apply 1232:w-[calc(25%-.8rem)]
+}
+
+
+.themes-container .theme-container a {
+    @apply p-4 w-full h-full flex flex-col justify-end;
+}
+
+.themes-container .theme-container a .theme-text-container {
+    @apply flex justify-between items-center p-2 pl-4 bg-blue-gradient-transparent rounded-sm text-xs text-white font-semibold font-TV ;
+}
+
+.themes-container .theme-container a .theme-text-container img {
+    @apply w-[18px] h-[18px];
 }

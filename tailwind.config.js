@@ -69,6 +69,7 @@ module.exports = {
                 'blue-gradient': 'linear-gradient(90deg, rgb(1, 156, 225) 0%, rgb(0, 40, 140) 100%)',
                 'black-gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6))',
                 'shadow-gradient': 'linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8))',
+                'blue-gradient-transparent': 'linear-gradient(270deg, rgba(1, 156, 225, .85) 0%, rgba(0, 40, 140, .85) 100%)',
             },
             boxShadow: {
                 'box-shadow': '0px 1px 3px rgba(0, 0, 0, 0.2), 0px 12px 24px -8px rgba(0, 0, 0, 0.15)',
@@ -88,6 +89,7 @@ module.exports = {
                 '1024': '1024px',
                 '1184': '1184px',
                 '1200': '1200px',
+                '1232': '1232px',
                 '1400': '1400px'
             },
             backgroundColor: {
