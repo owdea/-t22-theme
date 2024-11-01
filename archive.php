@@ -10,14 +10,23 @@
         endwhile;
         rewind_posts();
     endif;
+    $term = get_queried_object();
+    $taxonomy = get_queried_object()->taxonomy;
+    $taxonomy_name = $term->name;
 
     if ( have_posts() ) : ?>
     <div class="taxonomy-page">
         <?php
+            if ($taxonomy == 'post_tag'):
+        ?>
+        <div class="taxonomy-title">
+            <h2><?php echo $taxonomy_name ?></h2>
+        </div>
+        <?php
+        endif;
         $displayed_posts = [];
 
         // First article
-        $term = get_queried_object();
         $term_id = $term->term_id;
         if (get_field('taxonomy-pinned-post', 'term_' . $term_id)) {
             $pinned_post = get_field('taxonomy-pinned-post', 'term_' . $term_id);
@@ -82,14 +91,13 @@
             $taxonomy = get_queried_object()->taxonomy;
             $taxonomy_name = $term->name;
             if ($taxonomy == 'category') {
-                $title = "Videa z rubriky " . $taxonomy_name;
-            } else if ($taxonomy == 'tag') {
-                $title = "Videa z téma " . $taxonomy_name;
+                $carousel_title = "Videa z rubriky " . $taxonomy_name;
+            } else if ($taxonomy == 'post_tag') {
+                $carousel_title = "Videa z téma " . $taxonomy_name;
             }
-
         ?>
         <div #swiperRef="" class="swiper carouselSwiper">
-            <h2><?php echo $title?></h2>
+            <h2><?php echo $carousel_title?></h2>
             <div class="swiper-wrapper">
                 <?php
                     $index = 0;

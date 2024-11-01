@@ -1,5 +1,10 @@
-.taxonomy-page {
+.taxonomy-page .taxonomy-title {
+    @apply max-w-[1248px] m-auto my-8;
+}
 
+.taxonomy-page .taxonomy-title h2 {
+    @apply  px-4 text-center text-xlg font-bold;
+    @apply 800:text-2xl;
 }
 
 /*
