@@ -223,6 +223,22 @@ function getYoutubeEmbedUrl($input)
     return 'https://www.youtube.com/embed/' . $youtube_id;
 }
 
+function custom_search_orderby($query) {
+    if ($query->is_search() && $query->is_main_query()) {
+        $orderby = get_query_var('orderby');
+
+        if ($orderby === 'date') {
+            $query->set('orderby', 'date');
+            $query->set('order', 'DESC'); // Řazení od nejnovějšího
+        } elseif ($orderby === 'relevance') {
+            // Řazení dle relevance (použije základní řazení WordPressu podle shody)
+            $query->set('orderby', 'relevance'); // Pro relevance, pokud používáš plugin jako Relevanssi
+        }
+    }
+}
+add_action('pre_get_posts', 'custom_search_orderby');
+
+
 
 
 
