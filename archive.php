@@ -83,8 +83,17 @@
 
         <?php
         if ($youtube_links):
+            $taxonomy = get_queried_object()->taxonomy;
+            $taxonomy_name = $term->name;
+            if ($taxonomy == 'category') {
+                $title = "Videa z rubriky " . $taxonomy_name;
+            } else if ($taxonomy == 'tag') {
+                $title = "Videa z téma " . $taxonomy_name;
+            }
+
         ?>
         <div #swiperRef="" class="swiper carouselSwiper">
+            <h2><?php echo $title?></h2>
             <div class="swiper-wrapper">
                 <?php
                     $index = 0;

@@ -15,7 +15,7 @@ Carousel
 */
 
 body main .carouselSwiper {
-    @apply max-w-[1248px] w-full h-fit px-4 py-10 mb-8 bg-gray-light;
+    @apply max-w-[1248px] w-full h-fit px-4 pb-10 mb-8 bg-gray-light;
 }
 
 body main .carouselSwiper .swiper-wrapper {
@@ -56,9 +56,11 @@ body main .carouselSwiper .swiper-button-prev.swiper-button-disabled img {
 }
 
 body main .carouselSwiper .swiper-wrapper .swiper-slide {
-    @apply w-[360px] aspect-[320/202.5] pr-4 h-fit;
+    @apply w-[242px] aspect-[320/202.5] pr-4 h-fit;
+    @apply 767:w-[360px];
 }
 
 body main .carouselSwiper .swiper-wrapper .swiper-slide iframe {
-    @apply w-[360px] aspect-[320/202.5];
+    @apply w-[242px] aspect-[320/202.5];
+    @apply 767:w-[360px];
 }
