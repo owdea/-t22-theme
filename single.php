@@ -49,6 +49,24 @@ get_header();
 <?php
 the_content();
 ?>
+        <?php
+        $tags = get_the_tags();
+
+        if ($tags) {
+            echo '<div>';
+            echo '<div class="article-tags">';
+                echo '<h2>ŠTÍTKY</h2>';
+                echo '<ul class="article-tags-list">';
+                foreach ($tags as $tag) {
+                    echo '<li>';
+                        echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="post-tag">' . esc_html($tag->name) . '</a> ';
+                    echo '</li>';
+                }
+                echo '</ul>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
     <div>
 <div>
 <?php

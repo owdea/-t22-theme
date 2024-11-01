@@ -36,9 +36,11 @@ module.exports = {
             lightscale: {
                 5: '#cccdd4',
                 10: '#E1E8FB',
+                15: '#f0f3fd',
                 20: '#ffffff',
                 40: '#f4f4f4',
                 60: '#E0E0E0',
+                70: '#fbfbfd',
 
             },
             bluescale: {
@@ -128,6 +130,9 @@ module.exports = {
                 },
                 '.transition-background': {
                     transition: 'background .2s linear;'
+                },
+                '.transition-tags-hover': {
+                    transition: 'all .25s ease-in-out;'
                 }
             });
         },

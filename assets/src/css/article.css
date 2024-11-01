@@ -53,3 +53,32 @@
 .article-container .article-main .metadata-container .metadata-info-row .metadata-divider {
     @apply mx-2;
 }
+
+/*
+Tags
+*/
+
+.article-container .article-main .article-tags {
+    @apply max-w-[728px] mb-12 pt-4 border-t-lightscale-10 border-t;
+}
+
+.article-container .article-main .article-tags h2 {
+    @apply mt-0 text-2xs text-bluescale-70;
+}
+
+.article-container .article-main .article-tags .article-tags-list {
+    @apply flex flex-wrap gap-2;
+}
+
+.article-container .article-main .article-tags .article-tags-list li {
+    @apply inline-flex;
+}
+
+.article-container .article-main .article-tags .article-tags-list li a {
+    @apply px-4 py-2 text-darkscale-60 text-2xs bg-white border-lightscale-10 border rounded-[1px] transition-tags-hover;
+}
+
+.article-container .article-main .article-tags .article-tags-list li a:hover {
+    @apply bg-lightscale-15 text-bluescale-70;
+}
+
