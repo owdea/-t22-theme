@@ -3,8 +3,8 @@
 }
 
 .taxonomy-page .taxonomy-title h2 {
-    @apply  px-4 text-center text-xlg font-bold;
-    @apply 800:text-2xl;
+    @apply  px-4 text-center text-24px font-bold;
+    @apply 800:text-36px;
 }
 
 /*
@@ -38,10 +38,10 @@ Pinned post
 }
 
 .taxonomy-page .pinned-post .pinned-post-info h2 {
-    @apply text-md text-darkscale-100 font-semibold font-TV;
-    @apply 576:text-xl 576:leading-[2rem];
-    @apply 767:text-2xl 767:leading-[2.5rem];
-    @apply 1400:text-3xl 1400:leading-[3.125rem];
+    @apply text-21px text-darkscale-100 font-semibold font-TV;
+    @apply 576:text-28px 576:leading-[2rem];
+    @apply 767:text-36px 767:leading-[2.5rem];
+    @apply 1400:text-42px 1400:leading-[3.125rem];
 }
 
 .taxonomy-page .pinned-post .pinned-post-info span {
@@ -51,13 +51,13 @@ Pinned post
 }
 
 .taxonomy-page .pinned-post .pinned-post-info > span:first-of-type {
-    @apply hidden text-xs ;
+    @apply hidden text-16px ;
     @apply 767:line-clamp-2;
 }
 
 .taxonomy-page .pinned-post .pinned-post-info > span:last-of-type {
-    @apply text-3xs;
-    @apply 767:text-2xs;
+    @apply text-12px;
+    @apply 767:text-14px;
 }
 
 .taxonomy-page .pinned-post a:hover h2,
@@ -91,16 +91,16 @@ Article table
 }
 
 .taxonomy-page .post-table a h3 {
-    @apply text-darkscale-100 font-semibold font-TV text-xs leading-[1.25rem] mb-1;
-    @apply 544:text-sm 544:leading-[1.5rem];
-    @apply 767:text-xs 767:leading-[1.25rem];
-    @apply 1184:text-sm 1184:leading-[1.5rem];
+    @apply text-darkscale-100 font-semibold font-TV text-16px leading-[1.25rem] mb-1;
+    @apply 544:text-18px 544:leading-[1.5rem];
+    @apply 767:text-16px 767:leading-[1.25rem];
+    @apply 1184:text-18px 1184:leading-[1.5rem];
 
 
 }
 
 .taxonomy-page .post-table a span {
-    @apply text-3xs text-darkscale-60 leading-[1rem];
+    @apply text-12px text-darkscale-60 leading-[1rem];
 }
 
 
@@ -126,13 +126,13 @@ Article list
 
 
 .taxonomy-page .post-list a div h3 {
-    @apply text-darkscale-100 font-semibold font-TV text-xs leading-[1.25rem] mb-1;
-    @apply 544:text-sm 544:leading-[1.5rem];
-    @apply 767:text-md 767:leading-[1.625rem];
+    @apply text-darkscale-100 font-semibold font-TV text-16px leading-[1.25rem] mb-1;
+    @apply 544:text-18px 544:leading-[1.5rem];
+    @apply 767:text-21px 767:leading-[1.625rem];
 }
 
 .taxonomy-page .post-list a div span p {
-    @apply hidden mb-2 text-xs text-darkscale-60 font-Source;
+    @apply hidden mb-2 text-16px text-darkscale-60 font-Source;
     @apply 767:line-clamp-3;
 }
 
@@ -141,7 +141,7 @@ Article list
 }
 
 .taxonomy-page .post-list a div div span {
-    @apply text-2xs text-darkscale-60 font-Source;
+    @apply text-14px text-darkscale-60 font-Source;
 }
 
 .taxonomy-page .post-list a div div span:nth-of-type(1) {
@@ -205,7 +205,7 @@ Themes blocks
 }
 
 .themes-container .theme-container a .theme-text-container {
-    @apply flex justify-between items-center p-2 pl-4 bg-blue-gradient-transparent rounded-sm text-xs text-white font-semibold font-TV ;
+    @apply flex justify-between items-center p-2 pl-4 bg-blue-gradient-transparent rounded-sm text-16px text-white font-semibold font-TV ;
 }
 
 .themes-container .theme-container a .theme-text-container img {

@@ -145,7 +145,7 @@
 }
 
 .header-top .secondary-menu-container .secondary-menu-headings a {
-    @apply flex px-10 py-[9px] text-sm font-semibold font-TV;@apply flex px-10 py-[9px] text-sm font-semibold font-TV;
+    @apply flex px-10 py-[9px] text-18px font-semibold font-TV;@apply flex px-10 py-[9px] text-18px font-semibold font-TV;
 }
 
 .header-top .secondary-menu-container .secondary-menu-navigators {

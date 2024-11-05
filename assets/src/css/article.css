@@ -13,15 +13,15 @@
 
 .article-container .article-main h1.article-title {
     @apply ml-0 pl-0;
-    @apply 767:text-4xl;
+    @apply 767:text-48px;
 }
 
-.article-container .article-main > *:not(.photo-gallery):not(.photo-gallery-modal) {
+.article-container .article-main > *:not(.photo-gallery):not(.photo-gallery-modal):not(.article-title):not(.metadata-container) {
     @apply 992:pl-8 992:ml-[8.333%];
 }
 
 .article-container .article-main p{
-    @apply max-w-[696px] mb-6 text-base;
+    @apply max-w-[696px] mb-6 text-20px;
     @apply 992:max-w-[728px]
 }
 
@@ -33,8 +33,8 @@
 }
 
 .article-container .article-main .metadata-container .metadata-authors {
-    @apply flex text-3xs font-bold text-bluescale-70;
-    @apply 767:text-2xs;
+    @apply flex text-12px font-bold text-bluescale-70;
+    @apply 767:text-14px;
 }
 
 .article-container .article-main .metadata-container .metadata-authors a:hover {
@@ -42,8 +42,8 @@
 }
 
 .article-container .article-main .metadata-container .metadata-info-row {
-    @apply flex flex-wrap items-center text-3xs text-darkscale-60 font-normal;
-    @apply 767:text-2xs;
+    @apply flex flex-wrap items-center text-12px text-darkscale-60 font-normal;
+    @apply 767:text-14px;
 }
 
 .article-container .article-main .metadata-container .metadata-info-row img {
@@ -63,7 +63,7 @@ Tags
 }
 
 .article-container .article-main .article-tags h2 {
-    @apply mt-0 text-2xs text-bluescale-70;
+    @apply mt-0 text-14px text-bluescale-70;
 }
 
 .article-container .article-main .article-tags .article-tags-list {
@@ -75,7 +75,7 @@ Tags
 }
 
 .article-container .article-main .article-tags .article-tags-list li a {
-    @apply px-4 py-2 text-darkscale-60 text-2xs bg-white border-lightscale-10 border rounded-[1px] transition-tags-hover;
+    @apply px-4 py-2 text-darkscale-60 text-14px bg-white border-lightscale-10 border rounded-[1px] transition-tags-hover;
 }
 
 .article-container .article-main .article-tags .article-tags-list li a:hover {

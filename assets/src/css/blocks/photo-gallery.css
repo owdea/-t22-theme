@@ -9,11 +9,11 @@
 }
 
 .photo-gallery .photo-description {
-    @apply flex flex-col gap-1 items-start text-2xs text-darkscale-80 mt-2 px-4;
+    @apply flex flex-col gap-1 items-start text-14px text-darkscale-80 mt-2 px-4;
 }
 
 .photo-gallery .photo-description .photo-sources {
-    @apply text-3xs text-darkscale-60;
+    @apply text-12px text-darkscale-60;
 }
 
 .photo-gallery .photo-main {
@@ -30,11 +30,11 @@
 }
 
 .photo-gallery .photo-main .photo-overlay-description span {
-    @apply text-white text-2xs;
+    @apply text-white text-14px;
 }
 
 .photo-gallery .photo-main .photo-overlay-description .photo-overlay-sources {
-    @apply text-lightscale-5 text-3xs;
+    @apply text-lightscale-5 text-12px;
 }
 
 .photo-gallery .photo-row {
@@ -120,12 +120,12 @@
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .swiper-pagination {
-    @apply static hidden text-white h-fit w-auto text-xs font-medium;
+    @apply static hidden text-white h-fit w-auto text-16px font-medium;
     @apply 767:block;
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .swiper-pagination span {
-    @apply text-xs font-medium;
+    @apply text-16px font-medium;
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .modal-header-library-button {
@@ -147,11 +147,11 @@
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content .modal-header-title h2 {
-    @apply my-0 text-sm font-semibold font-TV text-ellipsis overflow-hidden whitespace-nowrap;
+    @apply my-0 text-18px font-semibold font-TV text-ellipsis overflow-hidden whitespace-nowrap;
 }
 
 .photo-gallery-modal .modal-header .modal-header-article-content span {
-    @apply leading-normal text-3xs;
+    @apply leading-normal text-12px;
 }
 
 .photo-gallery-modal .modal-header .modal-header-close-button {
@@ -165,11 +165,11 @@
 }
 
 .photo-gallery-modal .modal-gallery .modal-photo-description span {
-    @apply text-xs text-white;
+    @apply text-16px text-white;
 }
 
 .photo-gallery-modal .modal-gallery .modal-photo-description .photo-overlay-sources {
-    @apply text-2xs text-lightscale-5;
+    @apply text-14px text-lightscale-5;
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container {
@@ -188,7 +188,7 @@
 }
 
 .photo-gallery-modal .modal-gallery .modal-gallery-image-container .modal-photo-description {
-    @apply flex flex-col px-4 py-2 mb-4 text-white text-2xs;
+    @apply flex flex-col px-4 py-2 mb-4 text-white text-14px;
     @apply 767:hidden;
 }
 
@@ -239,11 +239,11 @@
 }
 
 .photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide .swiper-slide-description {
-    @apply flex flex-col items-start text-white text-xs w-full px-20 py-4;
+    @apply flex flex-col items-start text-white text-16px w-full px-20 py-4;
 }
 
 .photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide .swiper-slide-description .photo-sources {
-    @apply text-lightscale-5 text-3xs font-medium;
+    @apply text-lightscale-5 text-12px font-medium;
 }
 
 .photo-gallery-modal .modal-desktop .swiper .swiper-wrapper .swiper-slide img {

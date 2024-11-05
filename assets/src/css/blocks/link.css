@@ -7,13 +7,13 @@
 }
 
 .block-link-component span {
-    @apply text-bluescale-70 font-Source font-medium text-3xs;
-    @apply 610:text-2xs;
+    @apply text-bluescale-70 font-Source font-medium text-12px;
+    @apply 610:text-14px;
 }
 
 .block-link-component h3 {
-    @apply text-xs font-TV font-semibold;
-    @apply 610:text-md;
+    @apply text-16px font-TV font-semibold;
+    @apply 610:text-21px;
 }
 
 .block-link-component .block-link-img-container {

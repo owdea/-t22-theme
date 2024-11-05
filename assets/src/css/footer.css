@@ -111,7 +111,7 @@ footer {
 }
 
 .footer-container .footer-socials ul {
-    @apply flex items-center justify-center mb-4 text-3xs;
+    @apply flex items-center justify-center mb-4 text-12px;
     @apply 767:mb-0 767:ml-[15px];
 }
 
@@ -151,7 +151,7 @@ footer {
 }
 
 .footer-container .footer-subfooter {
-    @apply text-2xs;
+    @apply text-14px;
     @apply 767:flex justify-between;
     @media (min-width: 767px) { /*Tablet breakpoint*/
         grid-area: 6 / 1 / 6 / 3;

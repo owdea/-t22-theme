@@ -19,19 +19,20 @@ module.exports = {
     ],
     theme: {
         fontSize: {
-            "4xs": "0.688rem", //11px
-            "3xs": ".75rem", //12px
-            "2xs": ".875rem", //14px
-            xs: "1rem", //16px
-            sm: "1.125rem", //18px
-            base: "1.25rem", //20px
-            md: "1.313rem", //21px
-            lg: "1.375rem", //22px
-            xlg: '1,5rem', //24px
-            xl: "1.75rem", //28px
-            "2xl": "2.25rem", //36px
-            "3xl": "2.625rem", //42px
-            "4xl": "3rem", //48px
+            "11px": "0.688rem", //11px
+            "12px": ".75rem", //12px
+            "13px": "0.813rem", //13px
+            "14px": ".875rem", //14px
+            "16px": "1rem", //16px
+            "18px": "1.125rem", //18px
+            "20px": "1.25rem", //20px
+            "21px": "1.313rem", //21px
+            "22px": "1.375rem", //22px
+            "24px": '1,5rem', //24px
+            "28px": "1.75rem", //28px
+            "36px": "2.25rem", //36px
+            "42px": "2.625rem", //42px
+            "48px": "3rem", //48px
         },
         colors: {
             lightscale: {
@@ -57,6 +58,7 @@ module.exports = {
             darkscale: {
                 40: "#6f6f6f",
                 60: "#52556d",
+                70: "#676767",
                 80: "#041e42", //rgba(4, 30, 66, 1);
                 100: "#000528",
                 110: "#393939",

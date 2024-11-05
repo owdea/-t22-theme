@@ -7,7 +7,7 @@
 }
 
 .search-results-page h1 {
-    @apply pt-12 text-2xl text-darkscale-110 font-TV max-w-[960px] mx-auto;
+    @apply pt-12 text-36px text-darkscale-110 font-TV max-w-[960px] mx-auto;
 }
 
 .search-results-page .search-bar form {
@@ -31,18 +31,21 @@
 }
 
 .search-results-page .info-row {
-    @apply flex justify-between max-w-[960px] mx-auto;
+    @apply flex justify-between max-w-[960px] mx-auto text-13px;
 }
 
 .search-results-page .info-row select {
-    @apply bg-[whitesmoke] appearance-none relative bg-transparent bg-no-repeat mr-8 border border-lightscale-95 bg-dropdown-arrow pl-2 text-4xs font-bold;
-    background-position-x: 100%;
+    @apply bg-[whitesmoke] appearance-none relative bg-no-repeat mr-8 border border-lightscale-95 bg-dropdown-arrow pl-1 py-1 text-11px font-bold pr-2.5;
+    background-position-x: 95%;
     background-position-y: 50%;
 }
 
+.search-results-page .info-row {
+    @apply pt-6 text-darkscale-70;
+}
 
-.search-results-page .info-row select option {
-    @apply w-fit;
+.search-results-page .search-results {
+    @apply pt-6;
 }
 
 .search-results-page .search-results article {
@@ -56,4 +59,5 @@
 .search-results-page .search-results article div {
 
 }
+
 
