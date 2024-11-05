@@ -44,6 +44,7 @@ module.exports = {
                 70: '#fbfbfd',
                 80: '#f8f8f8',
                 90: '#c6c6c6',
+                95: "#dfdfdf",
 
             },
             bluescale: {
@@ -78,7 +79,7 @@ module.exports = {
                 'shadow-gradient': 'linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8))',
                 'blue-gradient-transparent': 'linear-gradient(270deg, rgba(1, 156, 225, .85) 0%, rgba(0, 40, 140, .85) 100%)',
                 'blue-gradient-transparent-solid': 'linear-gradient(270deg, rgba(1, 156, 225, 1) 0%, rgba(0, 40, 140, 1) 100%)',
-
+                'dropdown-arrow': "url('/wp-content/themes/ct22-theme/assets/icons/dropdown-arrow.png')"
             },
             boxShadow: {
                 'box-shadow': '0px 1px 3px rgba(0, 0, 0, 0.2), 0px 12px 24px -8px rgba(0, 0, 0, 0.15)',

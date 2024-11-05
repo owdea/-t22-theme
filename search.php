@@ -24,7 +24,10 @@ $start_time = microtime(true);
         </div>
     </div>
     <div class="info-row">
-        <p>Přibližný počet výsledků: <?php echo number_format_i18n($total_results); ?> (<?php echo number_format(microtime(true) - $start_time, 2); ?> s)</p>
+<?php
+global $query_time;
+?>
+        <p>Počet výsledků: <?php echo number_format_i18n($total_results); ?> (<?php echo number_format_i18n($query_time, 4)?> s)</p>
 
         <div class="sorting-dropdown">
             <form method="get" action="">
@@ -32,8 +35,8 @@ $start_time = microtime(true);
 
                 <label for="orderby">Řadit podle:</label>
                 <select name="orderby" id="orderby" onchange="this.form.submit()">
-                    <option value="date" <?php selected(get_query_var('orderby'), 'date'); ?>>Data vydání</option>
                     <option value="relevance" <?php selected(get_query_var('orderby'), 'relevance'); ?>>Relevance</option>
+                    <option value="date" <?php selected(get_query_var('orderby'), 'date'); ?>>Data vydání</option>
                 </select>
             </form>
         </div>
@@ -43,7 +46,7 @@ $start_time = microtime(true);
     <div class="search-results">
         <?php while ( have_posts() ) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <h2><a href="<?php the_permalink(); ?>"><?php echo highlight_search_text(get_the_title()); ?></a></h2>
                 <div class="entry-summary">
                     <?php the_excerpt(); ?>
                 </div>

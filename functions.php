@@ -238,8 +238,29 @@ function custom_search_orderby($query) {
 }
 add_action('pre_get_posts', 'custom_search_orderby');
 
+function highlight_search_text($text) {
+    if (is_search()) {
+        $search_query = get_search_query();
+        if ($search_query) {
+            $text = preg_replace('/(' . preg_quote($search_query, '/') . ')/i', '<strong>$1</strong>', $text);
+        }
+    }
+    return $text;
+}
 
 
+//Search time
+function measure_query_time($request) {
+    global $search_start_time;
+    $search_start_time = microtime(true);
+    return $request;
+}
+add_filter('posts_request', 'measure_query_time');
 
+function log_query_time() {
+    global $search_start_time, $query_time;
+    $query_time = microtime(true) - $search_start_time;
+}
+add_action('wp', 'log_query_time');
 
 

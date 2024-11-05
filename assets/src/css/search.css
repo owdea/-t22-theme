@@ -34,6 +34,26 @@
     @apply flex justify-between max-w-[960px] mx-auto;
 }
 
-.search-results-page .info-row .select {
+.search-results-page .info-row select {
+    @apply bg-[whitesmoke] appearance-none relative bg-transparent bg-no-repeat mr-8 border border-lightscale-95 bg-dropdown-arrow pl-2 text-4xs font-bold;
+    background-position-x: 100%;
+    background-position-y: 50%;
+}
+
+
+.search-results-page .info-row select option {
+    @apply w-fit;
+}
+
+.search-results-page .search-results article {
 
 }
+
+.search-results-page .search-results article h2 {
+
+}
+
+.search-results-page .search-results article div {
+
+}
+
