@@ -46,6 +46,7 @@ module.exports = {
                 80: '#f8f8f8',
                 90: '#c6c6c6',
                 95: "#dfdfdf",
+                100: "#f0f0f0",
 
             },
             bluescale: {
@@ -68,6 +69,7 @@ module.exports = {
                 40: "#ED1C1A",
                 50: "#EE1C23",
                 60: "#ed1c24",
+                70: "#C83539"
             }
         },
         fontFamily: {

@@ -36,7 +36,7 @@ global $query_time;
                 <label for="orderby">Řadit podle:</label>
                 <select name="orderby" id="orderby" onchange="this.form.submit()">
                     <option value="relevance" <?php selected(get_query_var('orderby'), 'relevance'); ?>>Relevance</option>
-                    <option value="date" <?php selected(get_query_var('orderby'), 'date'); ?>>Data vydání</option>
+                    <option value="date" <?php selected(get_query_var('orderby'), 'date'); ?>>Datum</option>
                 </select>
             </form>
         </div>
@@ -45,10 +45,18 @@ global $query_time;
 <?php if ( have_posts() ) : ?>
     <div class="search-results">
         <?php while ( have_posts() ) : the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <article class="search-results-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <h2><a href="<?php the_permalink(); ?>"><?php echo highlight_search_text(get_the_title()); ?></a></h2>
-                <div class="entry-summary">
-                    <?php the_excerpt(); ?>
+                <div class="article-info">
+                    <?php
+                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // 'full' je velikost obrázku, lze použít i 'thumbnail', 'medium', 'large' apod.
+                    if ($thumbnail_url) {
+                        echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
+                    }
+                    echo '<p>';
+                    echo highlight_search_text(get_the_excerpt());
+                    echo '</p>';
+                    ?>
                 </div>
             </article>
         <?php endwhile; ?>
@@ -65,6 +73,4 @@ global $query_time;
     <p><?php _e( 'No results found. Please try a different search.', 'textdomain' ); ?></p>
 <?php endif; ?>
 </div>
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
