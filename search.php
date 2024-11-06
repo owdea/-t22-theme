@@ -49,7 +49,7 @@ global $query_time;
                 <h2><a href="<?php the_permalink(); ?>"><?php echo highlight_search_text(get_the_title()); ?></a></h2>
                 <div class="article-info">
                     <?php
-                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // 'full' je velikost obrázku, lze použít i 'thumbnail', 'medium', 'large' apod.
+                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                     if ($thumbnail_url) {
                         echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
                     }
