@@ -25,7 +25,7 @@
 }
 
 .template-part-pinned-post .pinned-post-info h2 {
-    @apply text-21px text-darkscale-100 font-semibold font-TV;
+    @apply my-0 text-21px text-darkscale-100 font-semibold font-TV;
     @apply 576:text-28px 576:leading-[2rem];
     @apply 767:text-36px 767:leading-[2.5rem];
     @apply 1400:text-42px 1400:leading-[3.125rem];
@@ -45,4 +45,8 @@
 .template-part-pinned-post .pinned-post-info > span:last-of-type {
     @apply text-12px;
     @apply 767:text-14px;
+}
+
+.template-part-pinned-post a:hover h2 {
+    @apply text-bluescale-70;
 }

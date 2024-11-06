@@ -7,7 +7,6 @@
     @apply 800:text-36px;
 }
 
-.homepage .template-part-pinned-post a:hover h2,
 .homepage .post-table a:hover h3,
 .homepage .post-list a:hover h3{
     @apply text-bluescale-70;
