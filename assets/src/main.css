@@ -1,15 +1,16 @@
 /*Templates*/
-@import 'css/header.css';
-@import 'css/footer.css';
-@import 'css/article.css';
 @import 'css/archive.css';
+@import 'css/article.css';
 @import 'css/components.css';
-@import 'css/search.css';
+@import 'css/footer.css';
+@import 'css/header.css';
 @import 'css/homepage.css';
+@import 'css/search.css';
 
 /*Template parts*/
 @import 'css/template-parts/carousel.css';
 @import 'css/template-parts/pinned-post.css';
+@import 'css/template-parts/themes-block.css';
 
 /*Blocks*/
 @import 'css/blocks/link.css';

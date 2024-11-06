@@ -1,13 +1,13 @@
 <?php
 /*Template part - Pinned post (on Homepage, Taxonomy page etc)
  *
- * "post_url" =>
- * "post_img" =>
- * "post_title" =>
- * "post_excerpt" =>
- * "post_sources" =>
+ * List of $args
  *
- *
+ * "post_url" => Required
+ * "post_img" => Required
+ * "post_title" => Required
+ * "post_excerpt" => Optional
+ * "post_sources" => Optional
  *
  */
 

@@ -2,6 +2,7 @@
 /*
  * Template part - Carousel
  *
+ * List of $args
  *
  * "youtube_links" => Required (array of youtube links)
  * "title" => Optional (Title of the component, default "Videa")

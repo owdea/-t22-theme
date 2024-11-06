@@ -86,101 +86,17 @@
         </div>
 
 
-
-
         <?php
-            $taxonomy = get_queried_object()->taxonomy;
-            $taxonomy_name = $term->name;
-            if ($taxonomy == 'category') {
-                $carousel_title = "Videa z rubriky " . $taxonomy_name;
-            } else if ($taxonomy == 'post_tag') {
-                $carousel_title = "Videa z téma " . $taxonomy_name;
-            }
-
-            get_template_part(
-                'template-parts/page-content/carousel',
-                null,
-                array(
-                    "youtube_links" =>  $youtube_links,
-                    "title"         =>  $carousel_title,
-                )
-            );
+        get_template_part(
+        'template-parts/page-content/themes-block',
+        null,
+            array(
+                    "page_id"          =>  $term_id,
+                    "is_page_taxonomy" =>  true,
+                    "repeater_name"    =>  "linked_themes_repeater",
+            )
+        );
         ?>
-
-
-
-
-        <div class="post-table">
-            <?php
-            $counter = 0;
-            while ( have_posts() ) : the_post();
-                if (in_array(get_the_ID(), $displayed_posts)) continue; //Skips already displayed post
-                if ($counter >= 4) break;
-
-                ?>
-                <a id="post-<?php the_ID(); ?>" href="<?php the_permalink();?>">
-                    <img class="post-thumbnail" src="<?php echo get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp' ?>">
-                    <div>
-                        <h3><?php the_title() ?></h3>
-                        <span><?php echo get_field('article_sources'); ?></span>
-                    </div>
-                </a>
-                <?php
-                $displayed_posts[] = get_the_ID();
-                $counter++;
-            endwhile;
-            ?>
-        </div>
-
-
-
-
-
-        <div class="themes-container">
-            <?php
-                $repeater_rows = get_field('linked_themes_repeater', 'term_' . $term_id);
-                $row_count = $repeater_rows ? count($repeater_rows) : 0;
-                switch ($row_count) {
-                    case 0:
-                        $theme_class = "theme-count-0";
-                        break;
-                    case 1:
-                    case 2:
-                        $theme_class = "theme-count-2";
-                        break;
-                    case 3:
-                        $theme_class = "theme-count-3";
-                        break;
-                    case 4:
-                        $theme_class = "theme-count-4";
-                        break;
-                    default:
-                        $theme_class = "";
-                        break;
-                }
-
-                if (have_rows('linked_themes_repeater', 'term_' . $term_id)):
-                    while( have_rows('linked_themes_repeater', 'term_' . $term_id) ) : the_row();
-                        $theme = get_sub_field('linked_themes_group');
-                        $theme_id = $theme['taxonomy_theme_object'][0]->term_id;
-                        $theme_img = $theme['taxonomy_theme_custom_img']['url'] ?: get_field('taxonomy_title_img', 'term_' .$theme_id);
-                        $theme_url = get_term_link($theme_id);
-                        $theme_title = $theme['taxonomy_theme_custom_name'] ?: $theme['taxonomy_theme_object'][0]->name;
-                        ?>
-                            <div class="theme-container <?php echo $theme_class;?>" style="background-image: url('<?php echo $theme_img ?>')">
-                                <a href="<?php echo $theme_url ?>">
-                                    <div class="theme-text-container">
-                                        <span><?php echo $theme_title ?></span>
-                                        <img src="<?php echo get_template_directory_uri()?>/assets/icons/arrow.svg" alt="Navštívit stránku">
-                                    </div>
-                                </a>
-                            </div>
-                        <?php
-                    endwhile;
-                endif;
-            ?>
-        </div>
-
 
 
 

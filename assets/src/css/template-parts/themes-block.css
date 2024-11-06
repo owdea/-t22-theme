@@ -1,0 +1,64 @@
+/*
+Themes blocks
+*/
+
+.template-part-themes-container {
+    @apply flex flex-col gap-4 max-w-[1248px] px-4 m-auto mb-8;
+    @apply 610:flex-wrap 610:columns-2 610:flex-row;
+}
+
+.template-part-themes-container .theme-container {
+    @apply aspect-[3/2] bg-cover;
+}
+
+.template-part-themes-container .theme-container.theme-count-0 {
+    @apply hidden;
+}
+
+.template-part-themes-container .theme-container.theme-count-1 {
+    @apply w-full;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(50%-.7575757576rem)];
+    @apply 1232:w-[calc(50%-.8rem)]
+}
+
+.template-part-themes-container .theme-container.theme-count-2 {
+    @apply w-full;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(50%-.7575757576rem)];
+    @apply 1232:w-[calc(50%-.8rem)]
+}
+
+.template-part-themes-container .theme-container.theme-count-3 {
+    @apply w-full/*max-w-[25%] w-full*/;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(33.3333333333%-.7575757576rem)];
+}
+
+.template-part-themes-container .theme-container.theme-count-4 {
+    @apply w-full/*max-w-[25%] w-full*/;
+    @apply 610:w-[calc(50%-0.5rem)];
+    @apply 1024:w-[calc(33.3333333333%-.7575757576rem)];
+    @apply 1232:w-[calc(25%-.8rem)]
+}
+
+
+.template-part-themes-container .theme-container a {
+    @apply p-4 w-full h-full flex flex-col justify-end;
+}
+
+.template-part-themes-container .theme-container a .theme-text-container {
+    @apply flex justify-between items-center p-2 pl-4 bg-blue-gradient-transparent rounded-sm text-16px text-white font-semibold font-TV ;
+}
+
+.template-part-themes-container .theme-container a .theme-text-container img {
+    @apply w-[18px] h-[18px];
+}
+
+.template-part-themes-container .theme-container a:hover {
+    @apply bg-shadow-black transition-background;
+}
+
+.template-part-themes-container .theme-container a:hover div {
+    @apply bg-blue-gradient-transparent-solid;
+}
