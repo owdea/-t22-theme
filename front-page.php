@@ -28,9 +28,17 @@ if ($custom_query->have_posts()) : ?>
         <?php
         $displayed_posts = [];
 
-        if ($custom_query->have_posts()) {
-            $custom_query->the_post();
+        if (get_field('homepage-pinned-post', $homepage_id)) {
+            $pinned_post = get_field('homepage-pinned-post', $homepage_id);
+            $pinned_post_title = $pinned_post->post_title;
+            $pinned_post_url = get_permalink($pinned_post->ID);
+            $pinned_post_excerpt = $pinned_post->post_excerpt;
+            $pinned_post_img = get_the_post_thumbnail_url($pinned_post, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp';
+            $pinned_post_sources = get_field('article_sources', $pinned_post->ID);
 
+            $displayed_posts[] = $pinned_post->ID;
+        } else {
+            the_post();
             $pinned_post_title = get_the_title();
             $pinned_post_url = get_permalink();
             $pinned_post_excerpt = get_the_excerpt();
@@ -39,20 +47,20 @@ if ($custom_query->have_posts()) : ?>
 
             $displayed_posts[] = get_the_ID();
         }
-        ?>
 
-        <article class="pinned-post">
-            <a href="<?php echo esc_url($pinned_post_url); ?>">
-                <div class="pinned-post-img">
-                    <img src="<?php echo esc_url($pinned_post_img); ?>" alt="<?php echo esc_attr($pinned_post_title); ?>">
-                </div>
-                <div class="pinned-post-info">
-                    <h2><?php echo esc_html($pinned_post_title); ?></h2>
-                    <span><?php echo esc_html($pinned_post_excerpt); ?></span>
-                    <span><?php echo esc_html($pinned_post_sources); ?></span>
-                </div>
-            </a>
-        </article>
+
+        get_template_part(
+            'template-parts/page-content/pinned-post',
+            null,
+            array(
+                'post_url' => $pinned_post_url,
+                'post_img' => $pinned_post_img,
+                'post_title' => $pinned_post_title,
+                'post_excerpt' => $pinned_post_excerpt,
+                'post_sources' => $pinned_post_sources,
+            )
+        );
+        ?>
 
 
 

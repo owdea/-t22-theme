@@ -7,60 +7,7 @@
     @apply 800:text-36px;
 }
 
-/*
-Pinned post
-*/
-
-.homepage .pinned-post {
-    @apply w-fit mx-auto;
-    @apply 767:mt-1.5;
-    @apply 992:mt-8;
-}
-
-.homepage .pinned-post a{
-    @apply flex flex-col max-w-[1248px] w-full mb-8 px-4;
-    @apply 992:flex-row 992:gap-8;
-}
-
-.homepage .pinned-post .pinned-post-img {
-    @apply mx-[-16px] mb-4;
-    @apply 992:mx-0 992:mb-0 992:max-w-[50%] 992:w-full;
-}
-
-.homepage .pinned-post .pinned-post-img img {
-    @apply aspect-[592/333] w-full overflow-clip;
-    @apply 992:w-auto
-}
-
-.homepage .pinned-post .pinned-post-info {
-    @apply flex flex-col;
-    @apply 992:max-w-[50%] 992:w-full;
-}
-
-.homepage .pinned-post .pinned-post-info h2 {
-    @apply text-21px text-darkscale-100 font-semibold font-TV;
-    @apply 576:text-28px 576:leading-[2rem];
-    @apply 767:text-36px 767:leading-[2.5rem];
-    @apply 1400:text-42px 1400:leading-[3.125rem];
-}
-
-.homepage .pinned-post .pinned-post-info span {
-    @apply mt-1 text-darkscale-60 font-normal font-Source;
-    @apply 576:mt-2;
-    @apply 992:mt-3;
-}
-
-.homepage .pinned-post .pinned-post-info > span:first-of-type {
-    @apply hidden text-16px ;
-    @apply 767:line-clamp-2;
-}
-
-.homepage .pinned-post .pinned-post-info > span:last-of-type {
-    @apply text-12px;
-    @apply 767:text-14px;
-}
-
-.homepage .pinned-post a:hover h2,
+.homepage .template-part-pinned-post a:hover h2,
 .homepage .post-table a:hover h3,
 .homepage .post-list a:hover h3{
     @apply text-bluescale-70;

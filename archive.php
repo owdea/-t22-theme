@@ -47,19 +47,21 @@
 
             $displayed_posts[] = get_the_ID();
         }
+
+
+        get_template_part(
+            'template-parts/page-content/pinned-post',
+            null,
+            array(
+                'post_url' => $pinned_post_url,
+                'post_img' => $pinned_post_img,
+                'post_title' => $pinned_post_title,
+                'post_excerpt' => $pinned_post_excerpt,
+                'post_sources' => $pinned_post_sources,
+            )
+        );
         ?>
-        <article class="pinned-post">
-            <a href="<?php echo $pinned_post_url ?>">
-                <div class="pinned-post-img">
-                    <img src="<?php echo $pinned_post_img ?>" alt="<?php echo $pinned_post_title ?>">
-                </div>
-                <div class="pinned-post-info">
-                    <h2><?php echo $pinned_post_title ?></h2>
-                    <span><?php echo $pinned_post_excerpt ?></span>
-                    <span><?php echo $pinned_post_sources ?></span>
-                </div>
-            </a>
-        </article>
+
 
         <div class="post-table">
             <?php

@@ -117,6 +117,35 @@
                     "parent_repeater": "field_672b36056f2ca"
                 }
             ]
+        },
+        {
+            "key": "field_672b86170c3d8",
+            "label": "Připnutý příspěvek na stránce",
+            "name": "homepage-pinned-post",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -137,5 +166,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730886892
+    "modified": 1730905907
 }

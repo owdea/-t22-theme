@@ -7,6 +7,9 @@
 @import 'css/search.css';
 @import 'css/homepage.css';
 
+/*Template parts*/
+@import 'css/template-parts/pinned-post.css';
+
 /*Blocks*/
 @import 'css/blocks/link.css';
 @import 'css/blocks/photo-gallery.css';
