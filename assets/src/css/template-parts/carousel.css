@@ -1,0 +1,54 @@
+/*
+Carousel
+*/
+
+body main .carouselSwiper {
+    @apply max-w-[1216px] w-full h-fit px-4 pb-10 mb-8 bg-gray-light;
+}
+
+body main .carouselSwiper .swiper-wrapper {
+    @apply h-fit;
+}
+
+body main .carouselSwiper .swiper-button-next::after,
+body main .carouselSwiper .swiper-button-prev::after {
+    @apply content-none;
+}
+
+body main .carouselSwiper .swiper-button-next,
+body main .carouselSwiper .swiper-button-prev {
+    @apply h-10 w-10 rounded-[50%] bg-white;
+}
+
+body main .carouselSwiper .swiper-button-next img,
+body main .carouselSwiper .swiper-button-prev img {
+    @apply h-[9px] w-[16px];
+}
+
+body main .carouselSwiper .swiper-button-prev img {
+    @apply rotate-90
+}
+
+body main .carouselSwiper .swiper-button-next img {
+    @apply rotate-[-90deg]
+}
+
+body main .carouselSwiper .swiper-button-prev.swiper-button-disabled,
+body main .carouselSwiper .swiper-button-next.swiper-button-disabled{
+    @apply opacity-100;
+}
+
+body main .carouselSwiper .swiper-button-next.swiper-button-disabled img,
+body main .carouselSwiper .swiper-button-prev.swiper-button-disabled img {
+    @apply opacity-25;
+}
+
+body main .carouselSwiper .swiper-wrapper .swiper-slide {
+    @apply w-[242px] aspect-[320/202.5] pr-4 h-fit;
+    @apply 767:w-[360px];
+}
+
+body main .carouselSwiper .swiper-wrapper .swiper-slide iframe {
+    @apply w-[242px] aspect-[320/202.5];
+    @apply 767:w-[360px];
+}

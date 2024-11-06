@@ -8,6 +8,7 @@
 @import 'css/homepage.css';
 
 /*Template parts*/
+@import 'css/template-parts/carousel.css';
 @import 'css/template-parts/pinned-post.css';
 
 /*Blocks*/

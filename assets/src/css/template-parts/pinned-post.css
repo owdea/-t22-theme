@@ -1,3 +1,7 @@
+/*
+Pinned post
+*/
+
 .template-part-pinned-post {
     @apply w-fit mx-auto;
     @apply 767:mt-1.5;

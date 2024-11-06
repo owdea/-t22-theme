@@ -20,6 +20,7 @@ $pinned_post_sources = $args['post_sources'];
 ?>
 
 <article class="template-part-pinned-post">
+
     <a href="<?php echo esc_url($pinned_post_url); ?>">
         <div class="pinned-post-img">
             <img src="<?php echo esc_url($pinned_post_img); ?>" alt="<?php echo esc_attr($pinned_post_title); ?>">
