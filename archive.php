@@ -1,6 +1,7 @@
 <?php get_header();
 $youtube_links = [];
 
+// Getting YT links
 if (have_posts()) :
     while (have_posts()) : the_post();
         $youtube_link = get_field('article_youtube_embed');
@@ -10,6 +11,7 @@ if (have_posts()) :
     endwhile;
     rewind_posts();
 endif;
+
 $term = get_queried_object();
 $taxonomy = get_queried_object()->taxonomy;
 $taxonomy_name = $term->name;
@@ -26,7 +28,9 @@ if (have_posts()) : ?>
         endif;
         $displayed_posts = [];
 
-        // First article
+        /*
+         * Pinned post
+         * */
         $term_id = $term->term_id;
         if (get_field('taxonomy-pinned-post', 'term_' . $term_id)) {
             $pinned_post = get_field('taxonomy-pinned-post', 'term_' . $term_id);
@@ -47,8 +51,6 @@ if (have_posts()) : ?>
 
             $displayed_posts[] = get_the_ID();
         }
-
-
         get_template_part(
             'template-parts/page-content/pinned-post',
             null,
@@ -62,6 +64,10 @@ if (have_posts()) : ?>
         );
 
 
+
+        /*
+         * Post table
+         * */
         $posts_data = array();
         $counter = 0;
 
@@ -90,6 +96,10 @@ if (have_posts()) : ?>
         );
 
 
+
+        /*
+         * Carousel
+         * */
         get_template_part(
             'template-parts/page-content/carousel',
             null,
@@ -98,6 +108,11 @@ if (have_posts()) : ?>
             )
         );
 
+
+
+        /*
+         * Post table
+         * */
         $posts_data = array();
         $counter = 0;
 
@@ -126,6 +141,10 @@ if (have_posts()) : ?>
         );
 
 
+
+        /*
+         * Themes block
+         * */
         get_template_part(
             'template-parts/page-content/themes-block',
             null,
@@ -135,11 +154,13 @@ if (have_posts()) : ?>
                 "repeater_name" => "linked_themes_repeater",
             )
         );
-        ?>
 
 
 
-        <?php
+        /*
+         *
+         * Post list
+         * */
         $post_list_data = array();
         while (have_posts()) : the_post();
             if (in_array(get_the_ID(), $displayed_posts)) continue;

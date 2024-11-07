@@ -1,8 +1,14 @@
 <?php
 /*
+ * Template part - Post list
  *
- *
- *
+ * "post_list_data" => Required
+ * including:
+ *          "id"         => Required (String)
+ *          "url"        => Required (url)
+ *          "thumbnail"  => Required (url)
+ *          "title"      => Required (String)
+ *          "source"     => Required (String)
  * */
 
 if (!empty($args['post_list_data'])):
@@ -15,10 +21,10 @@ if (!empty($args['post_list_data'])):
                 <img class="post-thumbnail" src="<?php echo esc_url($post['thumbnail']); ?>" alt="<?php echo esc_attr($post['title']); ?>">
                 <div>
                     <h3><?php echo esc_html($post['title']); ?></h3>
-                    <span><?php echo esc_html($post['excerpt']); ?></span>
+                    <span class="article-excerpt"><?php echo esc_html($post['excerpt']); ?></span>
                     <div>
                         <?php echo display_post_time_info($post['id']) ?>
-                        <span>|</span>
+                        <span class="post-list-divider">|</span>
                         <span><?php echo get_field('article_sources', $post['id']); ?></span>
                     </div>
                 </div>

@@ -26,9 +26,13 @@ Article list
     @apply 767:text-21px 767:leading-[1.625rem];
 }
 
-.template-part-post-list a div span p {
+.template-part-post-list .article-excerpt {
     @apply hidden mb-2 text-16px text-darkscale-60 font-Source;
-    @apply 767:line-clamp-3;
+    @apply 767:line-clamp-2;
+}
+
+.template-part-post-list .post-list-divider {
+    @apply text-lightscale-5;
 }
 
 .template-part-post-list a div div {

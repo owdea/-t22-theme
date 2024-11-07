@@ -7,6 +7,7 @@ $WP_Query_args = array(
     'post_status' => 'publish',
 );
 $custom_query = new WP_Query($WP_Query_args);
+$homepage_id = get_option('page_on_front');
 
 // Getting YT links
 $youtube_links = [];
@@ -20,7 +21,7 @@ if ($custom_query->have_posts()) :
     $custom_query->rewind_posts();
 endif;
 
-$homepage_id = get_option('page_on_front');
+
 
 if ($custom_query->have_posts()) : ?>
     <div class="homepage">
@@ -28,6 +29,11 @@ if ($custom_query->have_posts()) : ?>
         <?php
         $displayed_posts = [];
 
+
+
+        /*
+         * Pinned post
+         * */
         if (get_field('homepage-pinned-post', $homepage_id)) {
             $pinned_post = get_field('homepage-pinned-post', $homepage_id);
             $pinned_post_title = $pinned_post->post_title;
@@ -47,8 +53,6 @@ if ($custom_query->have_posts()) : ?>
 
             $displayed_posts[] = get_the_ID();
         }
-
-
         get_template_part(
             'template-parts/page-content/pinned-post',
             null,
@@ -62,6 +66,10 @@ if ($custom_query->have_posts()) : ?>
         );
 
 
+
+        /*
+         * Post table
+         * */
         $posts_data = array();
         $counter = 0;
 
@@ -90,6 +98,10 @@ if ($custom_query->have_posts()) : ?>
         );
 
 
+
+        /*
+         * Carousel
+         * */
         get_template_part(
             'template-parts/page-content/carousel',
             null,
@@ -99,6 +111,10 @@ if ($custom_query->have_posts()) : ?>
         );
 
 
+
+        /*
+         * Post table
+         * */
         $posts_data = array();
         $counter = 0;
 
@@ -127,6 +143,10 @@ if ($custom_query->have_posts()) : ?>
         );
 
 
+
+        /*
+         * Themes block
+         * */
         get_template_part(
             'template-parts/page-content/themes-block',
             null,
@@ -136,10 +156,12 @@ if ($custom_query->have_posts()) : ?>
                 "repeater_name" => "linked_themes_repeater",
             )
         );
-        ?>
 
 
-        <?php
+
+        /*
+         * Post list
+         * */
         $post_list_data = array();
         while ($custom_query->have_posts()) : $custom_query->the_post();
             if (in_array(get_the_ID(), $displayed_posts)) continue;
@@ -164,10 +186,5 @@ if ($custom_query->have_posts()) : ?>
 
 </div>
 <?php endif; ?>
-
-<?php
-// Reset the global post data to ensure any additional queries are not affected
-wp_reset_postdata();
-?>
 
 <?php get_footer(); ?>
