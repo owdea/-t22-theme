@@ -3,11 +3,11 @@
  *
  * List of $args
  *
- * "post_url" => Required
- * "post_img" => Required
- * "post_title" => Required
- * "post_excerpt" => Optional
- * "post_sources" => Optional
+ * "post_url"       => Required (url)
+ * "post_img"       => Required (url)
+ * "post_title"     => Required (String)
+ * "post_excerpt"   => Optional (String)
+ * "post_sources"   => Optional (String)
  *
  */
 

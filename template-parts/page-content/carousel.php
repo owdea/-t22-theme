@@ -4,7 +4,7 @@
  *
  * List of $args
  *
- * "youtube_links" => Required (array of youtube links)
+ * "youtube_links" => Required (array of urls)
  * "title" => Optional (Title of the component, default "Videa")
  * */
 

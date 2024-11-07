@@ -2,7 +2,15 @@
 /*
  * Template part - post-table;
  *
+ * $args:
  *
+ * "post_data" => Required
+ * including:
+ *          "id"         => Required (String)
+ *          "url"        => Required (url)
+ *          "thumbnail"  => Required (url)
+ *          "title"      => Required (String)
+ *          "source"     => Required (String)
  *
  *
 */

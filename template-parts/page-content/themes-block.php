@@ -3,6 +3,11 @@
  * Template part - Themes block
  *
  *
+ * $args:
+ *
+ * "page_id"            => Required (String)
+ * "is_page_taxonomy"   => Required (Boolean)
+ * "repeater_name"      => Required (String)
  * */
 
 
