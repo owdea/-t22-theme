@@ -1,0 +1,35 @@
+/**/
+
+.template-part-post-table a:hover h3 {
+    @apply text-bluescale-70;
+}
+
+.template-part-post-table {
+    @apply max-w-[1248px] m-auto;
+    @apply 767:flex 767:columns-2 767:flex-wrap;
+}
+
+.template-part-post-table a {
+    @apply flex mb-6 px-4;
+    @apply 767:w-1/2;
+}
+
+.template-part-post-table a img.post-thumbnail {
+    @apply w-[108px] h-[72px] aspect-[228/152] mr-3 object-cover;
+    @apply 576:w-[144px] 576:h-[96px];
+    @apply 767:w-[108px] 767:h-[72px];
+    @apply 1184:w-[144px] 1184:h-[96px];
+}
+
+.template-part-post-table a h3 {
+    @apply text-darkscale-100 font-semibold font-TV text-16px leading-[1.25rem] mb-1;
+    @apply 544:text-18px 544:leading-[1.5rem];
+    @apply 767:text-16px 767:leading-[1.25rem];
+    @apply 1184:text-18px 1184:leading-[1.5rem];
+
+
+}
+
+.template-part-post-table a span {
+    @apply text-12px text-darkscale-60 leading-[1rem];
+}

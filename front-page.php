@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
 <?php
-$args = array(
+$WP_Query_args = array(
     'post_type' => 'post',
     'posts_per_page' => -1, // Load all posts
     'post_status' => 'publish',
 );
-$custom_query = new WP_Query($args);
+$custom_query = new WP_Query($WP_Query_args);
 
 // Getting YT links
 $youtube_links = [];
@@ -60,101 +60,109 @@ if ($custom_query->have_posts()) : ?>
                 'post_sources' => $pinned_post_sources,
             )
         );
-        ?>
 
 
+        $posts_data = array();
+        $counter = 0;
 
-        <div class="post-table">
-            <?php
-            $counter = 0;
-            while ($custom_query->have_posts()) : $custom_query->the_post();
-                if (in_array(get_the_ID(), $displayed_posts)) continue;
-                if ($counter >= 4) break;
-                ?>
-                <a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>">
-                    <img class="post-thumbnail" src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp'); ?>">
-                    <div>
-                        <h3><?php the_title(); ?></h3>
-                        <span><?php echo esc_html(get_field('article_sources')); ?></span>
-                    </div>
-                </a>
-                <?php
-                $displayed_posts[] = get_the_ID();
-                $counter++;
-            endwhile;
-            ?>
-        </div>
+        while (have_posts()) : the_post();
+            if (in_array(get_the_ID(), $displayed_posts)) continue;
+            if ($counter >= 4) break;
+
+            $posts_data[] = array(
+                'id' => get_the_ID(),
+                'url' => get_permalink(),
+                'thumbnail' => get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp',
+                'title' => get_the_title(),
+                'source' => get_field('article_sources'),
+            );
+
+            $displayed_posts[] = get_the_ID();
+            $counter++;
+        endwhile;
+
+        get_template_part(
+            'template-parts/page-content/post-table',
+            null,
+            array(
+                'posts_data' => $posts_data
+            )
+        );
 
 
-
-        <?php
         get_template_part(
             'template-parts/page-content/carousel',
             null,
             array(
-                    "youtube_links" => $youtube_links,
+                "youtube_links" => $youtube_links,
             )
         );
-        ?>
 
 
+        $posts_data = array();
+        $counter = 0;
 
-        <div class="post-table">
-            <?php
-            $counter = 0;
-            while ($custom_query->have_posts()) : $custom_query->the_post();
-                if (in_array(get_the_ID(), $displayed_posts)) continue;
-                if ($counter >= 4) break;
-                ?>
-                <a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>">
-                    <img class="post-thumbnail" src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp'); ?>">
-                    <div>
-                        <h3><?php the_title(); ?></h3>
-                        <span><?php echo esc_html(get_field('article_sources')); ?></span>
-                    </div>
-                </a>
-                <?php
-                $displayed_posts[] = get_the_ID();
-                $counter++;
-            endwhile;
-            ?>
-        </div>
+        while (have_posts()) : the_post();
+            if (in_array(get_the_ID(), $displayed_posts)) continue;
+            if ($counter >= 4) break;
+
+            $posts_data[] = array(
+                'id' => get_the_ID(),
+                'url' => get_permalink(),
+                'thumbnail' => get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp',
+                'title' => get_the_title(),
+                'source' => get_field('article_sources'),
+            );
+
+            $displayed_posts[] = get_the_ID();
+            $counter++;
+        endwhile;
+
+        get_template_part(
+            'template-parts/page-content/post-table',
+            null,
+            array(
+                'posts_data' => $posts_data
+            )
+        );
 
 
-
-        <?php
         get_template_part(
             'template-parts/page-content/themes-block',
             null,
             array(
-                "page_id"          =>   $homepage_id,
-                "is_page_taxonomy" =>   false,
-                "repeater_name"    =>   "linked_themes_repeater",
+                "page_id" => $homepage_id,
+                "is_page_taxonomy" => false,
+                "repeater_name" => "linked_themes_repeater",
             )
         );
         ?>
 
 
+        <?php
+        $post_list_data = array();
+        while ($custom_query->have_posts()) : $custom_query->the_post();
+            if (in_array(get_the_ID(), $displayed_posts)) continue;
+            $post_list_data[] = array(
+                'id' => get_the_ID(),
+                'url' => get_permalink(),
+                'thumbnail' => get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp',
+                'title' => get_the_title(),
+                'excerpt' => get_the_excerpt(),
+                'source' => get_field('article_sources'),
+            );
+            ?>
+        <?php endwhile;
+        get_template_part(
+            'template-parts/page-content/post-list',
+            null,
+            array(
+                "post_list_data" => $post_list_data
+            )
+        )
+        ?>
 
-        <div class="post-list">
-            <?php while ($custom_query->have_posts()) : $custom_query->the_post();
-                if (in_array(get_the_ID(), $displayed_posts)) continue;
-                ?>
-                <a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>">
-                    <img class="post-thumbnail" src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full') ?: get_template_directory_uri() . '/assets/img/placeholder.webp'); ?>">
-                    <div>
-                        <h3><?php the_title(); ?></h3>
-                        <span><?php the_excerpt(); ?></span>
-                        <div>
-                            <?php echo display_post_time_info(get_the_ID()); ?>
-                            <span>|</span>
-                            <span><?php echo esc_html(get_field('article_sources')); ?></span>
-                        </div>
-                    </div>
-                </a>
-            <?php endwhile; ?>
-        </div>
-    </div>
+</div>
 <?php endif; ?>
 
 <?php

@@ -1,0 +1,52 @@
+/*
+Article list
+*/
+
+.template-part-post-list {
+    @apply max-w-[1248px] mx-auto;
+}
+
+.template-part-post-list a {
+    @apply flex mb-6 max-w-[800px] px-4;
+}
+
+.template-part-post-list a img.post-thumbnail {
+    @apply w-[108px] h-[72px] aspect-[228/152] mr-3 object-cover;
+    @apply 576:w-[144px] 576:h-[96px];
+    @apply 767:w-[228px] 767:h-[152px];
+}
+
+.template-part-post-list a div {
+    @apply font-Source;
+}
+
+.template-part-post-list a div h3 {
+    @apply text-darkscale-100 font-semibold font-TV text-16px leading-[1.25rem] mb-1;
+    @apply 544:text-18px 544:leading-[1.5rem];
+    @apply 767:text-21px 767:leading-[1.625rem];
+}
+
+.template-part-post-list a div span p {
+    @apply hidden mb-2 text-16px text-darkscale-60 font-Source;
+    @apply 767:line-clamp-3;
+}
+
+.template-part-post-list a div div {
+    @apply flex flex-wrap gap-2;
+}
+
+.template-part-post-list a div div span {
+    @apply text-14px text-darkscale-60 font-Source;
+}
+
+.template-part-post-list a div div span:nth-of-type(1) {
+    @apply font-semibold;
+}
+
+.template-part-post-list a div div .time-container {
+    @apply font-semibold;
+}
+
+.template-part-post-list a:hover h3{
+    @apply text-bluescale-70;
+}

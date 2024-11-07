@@ -10,7 +10,10 @@
 /*Template parts*/
 @import 'css/template-parts/carousel.css';
 @import 'css/template-parts/pinned-post.css';
+@import 'css/template-parts/post-list.css';
+@import 'css/template-parts/post-table.css';
 @import 'css/template-parts/themes-block.css';
+
 
 /*Blocks*/
 @import 'css/blocks/link.css';
@@ -70,6 +73,4 @@ h1 {
 h2 {
     @apply text-21px leading-[1.625rem] mt-6 mb-2;
     @apply 767:text-28px leading-[2rem] 767:mb-4;
-
-
 }
