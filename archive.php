@@ -28,6 +28,8 @@ if (have_posts()) : ?>
         endif;
         $displayed_posts = [];
 
+
+
         /*
          * Pinned post
          * */

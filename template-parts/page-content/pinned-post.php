@@ -12,11 +12,12 @@
  */
 
 if (!empty($args)):
-$pinned_post_url = $args['post_url'];
-$pinned_post_img = $args['post_img'];
-$pinned_post_title = $args['post_title'];
-$pinned_post_excerpt = $args['post_excerpt'];
-$pinned_post_sources = $args['post_sources'];
+$pinned_post_url = $args['post_url'] ?? null;
+$pinned_post_img = $args['post_img'] ?? null;
+$pinned_post_title = $args['post_title'] ?? null;
+$pinned_post_excerpt = $args['post_excerpt'] ?? null;
+$pinned_post_sources = $args['post_sources'] ?? null;
+if ($pinned_post_url && $pinned_post_img) {}
 ?>
 
 <article class="template-part-pinned-post">
