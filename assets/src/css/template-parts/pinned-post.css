@@ -19,7 +19,7 @@ Pinned post
 }
 
 .template-part-pinned-post .pinned-post-img img {
-    @apply aspect-[592/333] w-full overflow-clip;
+    @apply aspect-[592/333] w-full overflow-clip object-cover;
     @apply 992:w-auto
 }
 
