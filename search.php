@@ -61,16 +61,10 @@ global $query_time;
             </article>
         <?php endwhile; ?>
     </div>
-
-    <?php
-    the_posts_pagination(array(
-        'prev_text' => __('Previous'),
-        'next_text' => __('Next'),
-    ));
     ?>
 
 <?php else : ?>
-    <p><?php _e( 'No results found. Please try a different search.', 'textdomain' ); ?></p>
+    <p class="no-results"><?php _e( 'Nebyly nalezeny zádné výsledky', 'textdomain' ); ?></p>
 <?php endif; ?>
 </div>
 <?php get_footer(); ?>

@@ -2,6 +2,10 @@
     @apply bg-white font-Source;
 }
 
+.search-results-page .no-results {
+    @apply max-w-[910px] mx-auto;
+}
+
 .search-results-page .search-results-page-top {
     @apply pb-5;
 }
@@ -23,7 +27,7 @@
 }
 
 .search-results-page .search-bar form input {
-    @apply h-[38px] outline-0 w-full pl-3 overflow-ellipsis;
+    @apply h-[38px] outline-0 w-full pl-3 overflow-ellipsis rounded-[4px];
 }
 
 .search-results-page .search-bar form input::-webkit-search-cancel-button{
