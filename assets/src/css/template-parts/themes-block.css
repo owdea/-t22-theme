@@ -8,7 +8,7 @@ Themes blocks
 }
 
 .template-part-themes-container .theme-container {
-    @apply aspect-[3/2] bg-cover;
+    @apply aspect-[3/2] bg-cover bg-center;
 }
 
 .template-part-themes-container .theme-container.theme-count-0 {

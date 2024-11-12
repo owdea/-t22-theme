@@ -45,11 +45,11 @@ if (!empty($args)):
         while( have_rows($repeater_name, $term_id) ) : the_row();
             $theme = get_sub_field('linked_themes_group');
             $theme_id = $theme['taxonomy_theme_object'][0]->term_id;
-            $theme_img = $theme['taxonomy_theme_custom_img']['url'] ?: get_field('taxonomy_title_img', 'term_' .$theme_id);
+            $theme_img = $theme['taxonomy_theme_custom_img']['url'] ?? get_field('taxonomy_title_img', 'term_' .$theme_id);
             $theme_url = get_term_link($theme_id);
             $theme_title = $theme['taxonomy_theme_custom_name'] ?: $theme['taxonomy_theme_object'][0]->name;
             ?>
-            <div class="theme-container <?php echo $theme_class;?>" style="background-image: url('<?php echo $theme_img ?>')">
+            <div class="theme-container <?php echo $theme_class;?>" style="background-image: url('<?php echo $theme_img ?: get_template_directory_uri() . "/assets/img/placeholder.webp"?>')">
                 <a href="<?php echo $theme_url ?>">
                     <div class="theme-text-container">
                         <span><?php echo $theme_title ?></span>
