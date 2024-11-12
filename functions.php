@@ -265,7 +265,7 @@ add_action('wp', 'log_query_time');
 
 
 //Getting data from NYTimes endpoint
-function get_nyt_articles_data($query = 'technology') {
+function get_nyt_articles_data($query) {
     $api_key = get_field("nyt_api_key", "option");
     $url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" . urlencode($query) . "&api-key=" . $api_key;
 
