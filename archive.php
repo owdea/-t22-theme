@@ -15,6 +15,7 @@ endif;
 $term = get_queried_object();
 $taxonomy = get_queried_object()->taxonomy;
 $taxonomy_name = $term->name;
+$term_id = $term->term_id;
 
 if (have_posts()) : ?>
     <div class="taxonomy-page">
@@ -33,7 +34,6 @@ if (have_posts()) : ?>
         /*
          * Pinned post
          * */
-        $term_id = $term->term_id;
         if (get_field('taxonomy-pinned-post', 'term_' . $term_id)) {
             $pinned_post = get_field('taxonomy-pinned-post', 'term_' . $term_id);
             $pinned_post_title = $pinned_post->post_title;
@@ -119,7 +119,7 @@ if (have_posts()) : ?>
         $counter = 0;
 
         while (have_posts()) : the_post();
-            if (in_array(get_the_ID(), $displayed_posts)) continue; // Přeskočí zobrazené příspěvky
+            if (in_array(get_the_ID(), $displayed_posts)) continue;
             if ($counter >= 4) break;
 
             $posts_data[] = array(
@@ -182,12 +182,24 @@ if (have_posts()) : ?>
             array(
                 "post_list_data" => $post_list_data
             )
+        );
+        ?>
+
+
+
+<?php endif;
+if (get_field("english_nyt_theme", 'term_' . $term_id)):
+
+    get_template_part(
+        'template-parts/page-content/post-list',
+        null,
+        array(
+            "post_list_data" => get_nyt_articles_data(get_field("english_nyt_theme", 'term_' . $term_id))
         )
-        ?>
-        ?>
+    );
+endif;
+?>
+</div>
 
-
-    </div>
-<?php endif; ?>
 
 <?php get_footer(); ?>

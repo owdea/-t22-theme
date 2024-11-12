@@ -172,6 +172,27 @@
                     "parent_repeater": "field_6720d7ced7e90"
                 }
             ]
+        },
+        {
+            "key": "field_67337b6d57d0b",
+            "label": "Anglický název tématu NYTimes",
+            "name": "english_nyt_theme",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -199,5 +220,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730281815
+    "modified": 1731428271
 }

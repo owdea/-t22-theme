@@ -264,3 +264,44 @@ function log_query_time() {
 add_action('wp', 'log_query_time');
 
 
+//Getting data from NYTimes endpoint
+function get_nyt_articles_data($query = 'technology') {
+    $api_key = get_field("nyt_api_key", "option");
+    $url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" . urlencode($query) . "&api-key=" . $api_key;
+
+    $response = wp_remote_get($url);
+
+    if (is_wp_error($response)) {
+        return [];
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if (!isset($data['response']['docs'])) {
+        return [];
+    }
+
+    $formatted_articles = [];
+    $id = 0;
+
+    foreach ($data['response']['docs'] as $doc) {
+        $publish_time_formatted = !empty($doc['pub_date']) ? date('j. n. Y', strtotime($doc['pub_date'])) : 'Unknown Date';
+        $thumbnail_url = isset($doc['multimedia'][0]['url']) ? 'https://www.nytimes.com/' . $doc['multimedia'][0]['url'] : get_template_directory_uri() . "/assets/img/placeholder.webp";
+
+        $formatted_articles[] = [
+            'id' => $id++,
+            'url' => $doc['web_url'] ?? '',
+            'thumbnail' => $thumbnail_url,
+            'excerpt' => $doc['abstract'] ?? 'N/A',
+            'title' => $doc['headline']['main'] ?? 'No Title',
+            'source' => $doc['source'] ?? 'Unknown Source',
+            'publish_time' => $publish_time_formatted,
+        ];
+    }
+
+    return $formatted_articles;
+}
+
+
+

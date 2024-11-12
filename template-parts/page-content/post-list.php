@@ -4,11 +4,12 @@
  *
  * "post_list_data" => Required
  * including:
- *          "id"         => Required (String)
- *          "url"        => Required (url)
- *          "thumbnail"  => Required (url)
- *          "title"      => Required (String)
- *          "source"     => Required (String)
+ *          "id"            => Required (String)
+ *          "url"           => Required (url)
+ *          "thumbnail"     => Required (url)
+ *          "title"         => Required (String)
+ *          "source"        => Required (String)
+ *          "publish_time"  => Optional (String)
  * */
 
 if (!empty($args['post_list_data'])):
@@ -23,9 +24,15 @@ if (!empty($args['post_list_data'])):
                     <h3><?php echo esc_html($post['title']); ?></h3>
                     <span class="article-excerpt"><?php echo esc_html($post['excerpt']); ?></span>
                     <div>
-                        <?php echo display_post_time_info($post['id']) ?>
+                        <?php
+                        if (isset($post['publish_time'])) {
+                            echo "<span>" . $post['publish_time'] . "</span>";
+                        } else {
+                            echo display_post_time_info($post['id']);
+                        }
+                         ?>
                         <span class="post-list-divider">|</span>
-                        <span><?php echo get_field('article_sources', $post['id']); ?></span>
+                        <span><?php echo $post['source'] ? esc_html( $post['source']) : get_field('article_sources', $post['id']); ?></span>
                     </div>
                 </div>
             </a>
