@@ -1,9 +1,6 @@
 <?php
-/*
-echo '<pre>';
-print_r(json_decode(wp_remote_retrieve_body(wp_remote_get('https://api.open-meteo.com/v1/forecast?latitude=48.9757&longitude=14.4803&current=temperature_2m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max&timezone=Europe%2FBerlin'))));
-echo '</pre>';
-*/
+get_header();
+setlocale(LC_TIME, 'cs_CZ.UTF-8');
 $cities = [
     [
         "city" => "Praha",
@@ -31,7 +28,7 @@ $cities = [
         "longitude" => "15.8312"
     ],
     [
-        "city" => "Ustí_nad_Labem",
+        "city" => "Usti_nad_Labem",
         "latitude" => "50.1109",
         "longitude" => "14.4795"
     ],
@@ -71,15 +68,102 @@ $cities = [
         "longitude" => "17.7036"
     ]
 ];
+$fetched_data = fetch_weather_data($cities);
+$max_temperatures = $fetched_data["avg_max_temperatures"];
+$min_temperatures = $fetched_data["avg_min_temperatures"];
 
-fetch_weather_data ($cities);
+echo '</pre>';
+?>
+<div class="weather-page">
+    <h2>
+        Počasí v České republice
+    </h2>
+    <div class="weather-days-row">
+        <?php
+        for ($i = 0; $i < 7; $i++) {
+            echo '<div class="weather-day" >';
+                echo '<button class="weather-button-'.$i + 1 .'">';
+                    echo '<div class="weather-day-top-row">';
+                        echo '<span>';
+                        if ($i == 0) echo "DNES";
+                        else if ($i == 1) echo "ZÍTRA";
+                        else echo mb_strtoupper(strftime('%A', strtotime("+$i day")), 'UTF-8');
+                        echo '</span>';
+                        echo '<span>';
+                        echo strftime('%e. %m.', strtotime("+$i day"));
+                        echo '</span>';
+                    echo '</div>';
+                    echo '<div class="weather-day-bottom-row">';
+                        echo '<div class="weather-day-temperature">';
+                            echo "<span>" . $max_temperatures[$i] . "°</span>";
+                            echo "<span>/";
+                            echo $min_temperatures[$i] . "°</span>";
+                        echo "</div>";
+                    echo '</div>';
+                echo '</button>';
+            echo '</div>';
+        }
+        ?>
+    </div>
 
-/*
-$data = [
-'current_temperature' => 25,
-'forecast' => [21, 22, 23, 24, 25, 26, 27],
-'sunrise' => '06:30',
-'sunset' => '18:45',
-];
-update_option('weather_data_2024_11_13', $data);
-*/
+    <div class="weather-map">
+        <div class="weather-selected-day-container">
+            <div class="weather-selected-day-day">
+                <div class="weather-selected-day-day-info-col">
+                    <span>DEN</span>
+                </div>
+                <div class="weather-selected-day-day-info-img">
+
+                </div>
+            </div>
+            <div class="weather-selected-day-sun-events">
+
+            </div>
+            <div class="weather-selected-day-night">
+                <div class="weather-selected-day-night-info-col">
+                    <span>NOC</span>
+                    <?php
+
+                    ?>
+                </div>
+                <div class="weather-selected-day-night-info-img">
+
+                </div>
+            </div>
+        </div>
+        <div class="weather-overlay-selected-data">
+            <?php
+            foreach ($cities as $city) {
+                $city_name = $city['city'];
+
+                if (isset($fetched_data['cities_data'][$city_name])) {
+                    $city_data = $fetched_data['cities_data'][$city_name];
+
+                    echo '<div class="city-weather-'.$city_name.'">';
+                        echo "<h3>" . $city_name . "</h3>";
+
+                        for ($i = 1; $i < 8; $i++) {
+                            echo '<div class="weather-data-'.$i .'" style="'. ($i !== 1 ? 'display: none;' : '') .'">';
+                            echo '<span>' . round($city_data->daily->temperature_2m_max[$i]) . '°</span>';
+                            echo '</div>';
+                        }
+
+                        for ($i = 1; $i < 8; $i++) {
+                            echo '<div class="weather-data-'.$i .'" style="'. ($i !== 1 ? 'display: none;' : '') .'">';
+                            echo '<span>' . $city_data->daily->weather_code[$i] . '</span>';
+                            echo '</div>';
+                        }
+                    echo '</div>';
+
+
+                }
+            }
+            ?>
+        </div>
+        </div>
+        <div class="weather-selected-map">
+            <img src="<?php echo get_template_directory_uri()?>/assets/icons/czech-map.svg">
+        </div>
+    </div>
+</div>
+<?php get_footer();

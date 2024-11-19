@@ -18,6 +18,9 @@
 @import 'css/blocks/link.css';
 @import 'css/blocks/photo-gallery.css';
 
+/*Pages*/
+@import 'css/pages/weather.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

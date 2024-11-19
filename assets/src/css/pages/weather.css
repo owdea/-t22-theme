@@ -1,0 +1,15 @@
+.weather-page .weather-days-row {
+    @apply flex;
+}
+
+.weather-page .weather-days-row .weather-day {
+    @apply max-w-[170px] w-full mr-1;
+}
+
+.weather-page .weather-days-row .weather-day button {
+    @apply max-w-[170px] w-full mb-6 py-2 px-3 bg-lightscale-10;
+}
+
+.weather-page .weather-days-row .weather-day button .weather-day-top-row {
+    @apply flex justify-between text-12px font-Source;
+}

@@ -2,6 +2,9 @@
 //Custom Blocks
 import './js/photo-gallery';
 
+//Pages
+import './js/weather-page';
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for toggling visibility of the secondary menu (top part of the header).

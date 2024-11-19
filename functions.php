@@ -320,8 +320,8 @@ function fetch_weather_data($cities) {
 
             $cities_data[$city_name] = $data;
 
-            array_push($max_temperatures, $data->daily->temperature_2m_max);
-            array_push($min_temperatures, $data->daily->temperature_2m_min);
+            $max_temperatures[] = $data->daily->temperature_2m_max;
+            $min_temperatures[] = $data->daily->temperature_2m_min;
         }
     } else {
         foreach ($cities as $city) {
@@ -330,18 +330,18 @@ function fetch_weather_data($cities) {
             $city_name = $city['city'];
             $data = json_decode(wp_remote_retrieve_body(wp_remote_get('https://api.open-meteo.com/v1/forecast?latitude='.$latitude.'&longitude='.$longitude.'&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max&timezone=Europe%2FBerlin')));
             $cities_data[$city_name] = $data;
-            array_push($max_temperatures, $data->daily->temperature_2m_max);
-            array_push($min_temperatures, $data->daily->temperature_2m_min);
+            $max_temperatures[] = $data->daily->temperature_2m_max;
+            $min_temperatures[] = $data->daily->temperature_2m_min;
             update_option($city_name . '_weather_data', $data);
         }
     }
-    echo '<pre>';
-    print_r(calculate_average_daily_temperatures($max_temperatures));
-    print_r(calculate_average_daily_temperatures($min_temperatures));
-    echo '</pre>';
-    echo '<pre>';
-    print_r($cities_data);
-    echo '</pre>';
+    $avg_max_temperatures = calculate_average_daily_temperatures($max_temperatures);
+    $avg_min_temperatures = calculate_average_daily_temperatures($min_temperatures);
+    return [
+        'avg_max_temperatures' => $avg_max_temperatures,
+        'avg_min_temperatures' => $avg_min_temperatures,
+        'cities_data' => $cities_data,
+    ];
 }
 
 
@@ -358,7 +358,7 @@ function calculate_average_daily_temperatures ($temperature_data) {
             $sum += $city_temps[$day];
         }
 
-        $average_temperatures[$day] = $sum / $city_count;
+        $average_temperatures[$day] = round($sum / $city_count);
     }
 
     return $average_temperatures;
