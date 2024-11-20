@@ -142,14 +142,14 @@ echo '</pre>';
                     echo '<div class="city-weather-'.$city_name.'">';
                         echo "<h3>" . $city_name . "</h3>";
 
-                        for ($i = 1; $i < 8; $i++) {
-                            echo '<div class="weather-data-'.$i .'" style="'. ($i !== 1 ? 'display: none;' : '') .'">';
+                        for ($i = 0; $i < 7; $i++) {
+                            echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
                             echo '<span>' . round($city_data->daily->temperature_2m_max[$i]) . '°</span>';
                             echo '</div>';
                         }
 
-                        for ($i = 1; $i < 8; $i++) {
-                            echo '<div class="weather-data-'.$i .'" style="'. ($i !== 1 ? 'display: none;' : '') .'">';
+                        for ($i = 0; $i < 7; $i++) {
+                            echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
                             echo '<span>' . $city_data->daily->weather_code[$i] . '</span>';
                             echo '</div>';
                         }
