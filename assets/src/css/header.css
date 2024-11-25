@@ -1,3 +1,11 @@
+header {
+    @apply w-full top-0;
+}
+
+.header-fixed {
+    @apply fixed;
+}
+
 .header-top {
     @apply flex justify-between bg-blue-gradient font-Source;
 }

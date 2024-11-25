@@ -1,3 +1,7 @@
+.weather-page {
+    @apply max-w-[1248px] px-4 mx-auto;
+}
+
 .weather-page .weather-days-row {
     @apply flex;
 }

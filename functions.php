@@ -308,45 +308,72 @@ function get_nyt_articles_data($query) {
 function fetch_weather_data($cities) {
     $max_temperatures = [];
     $min_temperatures = [];
+    $sunrise_times = [];
+    $sunset_times = [];
+    $weather_codes = [];
     $cities_data = [];
+
     $example_data = get_option('Praha_weather_data');
-    if ($example_data) $api_date = $example_data->daily->time[0];
+    if ($example_data) {
+        $api_date = $example_data->daily->time[0];
+    } else {
+        $api_date = "";
+    }
     $today_date = date('Y-m-d');
 
     if ($api_date === $today_date) {
         foreach ($cities as $city) {
             $city_name = $city['city'];
             $data = get_option($city_name . '_weather_data');
-
             $cities_data[$city_name] = $data;
 
             $max_temperatures[] = $data->daily->temperature_2m_max;
             $min_temperatures[] = $data->daily->temperature_2m_min;
+            $sunrise_times[] = $data->daily->sunrise;
+            $sunset_times[] = $data->daily->sunset;
+            $weather_codes[] = $data->daily->weather_code;
         }
     } else {
         foreach ($cities as $city) {
             $latitude = $city['latitude'];
             $longitude = $city['longitude'];
             $city_name = $city['city'];
-            $data = json_decode(wp_remote_retrieve_body(wp_remote_get('https://api.open-meteo.com/v1/forecast?latitude='.$latitude.'&longitude='.$longitude.'&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max&timezone=Europe%2FBerlin')));
+
+            $data = json_decode(wp_remote_retrieve_body(
+                wp_remote_get('https://api.open-meteo.com/v1/forecast?latitude=' . $latitude .
+                    '&longitude=' . $longitude .
+                    '&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max&timezone=Europe%2FBerlin')
+            ));
+
             $cities_data[$city_name] = $data;
             $max_temperatures[] = $data->daily->temperature_2m_max;
             $min_temperatures[] = $data->daily->temperature_2m_min;
+            $sunrise_times[] = $data->daily->sunrise;
+            $sunset_times[] = $data->daily->sunset;
+            $weather_codes[] = $data->daily->weather_code;
+
             update_option($city_name . '_weather_data', $data);
         }
     }
+
     $avg_max_temperatures = calculate_average_daily_temperatures($max_temperatures);
     $avg_min_temperatures = calculate_average_daily_temperatures($min_temperatures);
+    $avg_sunrise_times = calculate_average_sun_times($sunrise_times);
+    $avg_sunset_times = calculate_average_sun_times($sunset_times);
+    $avg_weather_codes = calculate_average_weather_code($weather_codes);
+
     return [
         'avg_max_temperatures' => $avg_max_temperatures,
         'avg_min_temperatures' => $avg_min_temperatures,
+        'avg_sunrise_times' => $avg_sunrise_times,
+        'avg_sunset_times' => $avg_sunset_times,
+        'avg_weather_codes' => $avg_weather_codes,
         'cities_data' => $cities_data,
     ];
 }
 
 
-//Calculating max and min avg temperatures from all cities temperatures.
-function calculate_average_daily_temperatures ($temperature_data) {
+function calculate_average_daily_temperatures($temperature_data) {
     $day_count = count($temperature_data[0]);
     $average_temperatures = [];
 
@@ -362,4 +389,46 @@ function calculate_average_daily_temperatures ($temperature_data) {
     }
 
     return $average_temperatures;
+}
+
+function calculate_average_sun_times($sun_times_data) {
+    $day_count = count($sun_times_data[0]);
+    $average_sun_times = [];
+
+    for ($day = 0; $day < $day_count; $day++) {
+        $sum_minutes = 0;
+        $city_count = count($sun_times_data);
+
+        foreach ($sun_times_data as $city_sun_times) {
+            $time_part = explode('T', $city_sun_times[$day])[1];
+            list($hours, $minutes) = explode(':', $time_part);
+            $sum_minutes += intval($hours) * 60 + intval($minutes);
+        }
+
+        $avg_minutes = round($sum_minutes / $city_count);
+        $hours = floor($avg_minutes / 60);
+        $minutes = $avg_minutes % 60;
+
+        $average_sun_times[$day] = sprintf('%02d:%02d', $hours, $minutes);
+    }
+
+    return $average_sun_times;
+}
+
+function calculate_average_weather_code($weather_codes) {
+    $day_count = count($weather_codes[0]);
+    $average_weather_codes = [];
+
+    for ($day = 0; $day < $day_count; $day++) {
+        $sum = 0;
+        $city_count = count($weather_codes);
+
+        foreach ($weather_codes as $city_codes) {
+            $sum += $city_codes[$day];
+        }
+
+        $average_weather_codes[$day] = round($sum / $city_count);
+    }
+
+    return $average_weather_codes;
 }

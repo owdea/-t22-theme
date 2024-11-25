@@ -71,8 +71,9 @@ $cities = [
 $fetched_data = fetch_weather_data($cities);
 $max_temperatures = $fetched_data["avg_max_temperatures"];
 $min_temperatures = $fetched_data["avg_min_temperatures"];
-
-echo '</pre>';
+$avg_sunrise_times = $fetched_data["avg_sunrise_times"];
+$avg_sunset_times = $fetched_data["avg_sunset_times"];
+$avg_weather_codes = $fetched_data["avg_weather_codes"];
 ?>
 <div class="weather-page">
     <h2>
@@ -111,19 +112,43 @@ echo '</pre>';
             <div class="weather-selected-day-day">
                 <div class="weather-selected-day-day-info-col">
                     <span>DEN</span>
+                    <?php
+                    for ($i = 0; $i < 7; $i++) {
+                        echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $max_temperatures[$i] .'°</span>';
+                    }
+                    ?>
                 </div>
                 <div class="weather-selected-day-day-info-img">
 
                 </div>
             </div>
             <div class="weather-selected-day-sun-events">
+                <div class="weather-sunrise-time">
+                <?php
+                for ($i = 0; $i < 7; $i++) {
+                    echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $avg_sunrise_times[$i] .'°</span>';
 
+                }
+                ?>
+                    <img src="<?php echo get_template_directory_uri()?>/assets/icons/weather-sunrise.svg">
+                </div>
+                <div class="weather-sunset-time">
+                    <?php
+                    for ($i = 0; $i < 7; $i++) {
+                        echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $avg_sunset_times[$i] .'°</span>';
+
+                    }
+                    ?>
+                    <img src="<?php echo get_template_directory_uri()?>/assets/icons/weather-sunset.svg">
+                </div>
             </div>
             <div class="weather-selected-day-night">
                 <div class="weather-selected-day-night-info-col">
                     <span>NOC</span>
                     <?php
-
+                    for ($i = 0; $i < 7; $i++) {
+                        echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $max_temperatures[$i] .'°</span>';
+                    }
                     ?>
                 </div>
                 <div class="weather-selected-day-night-info-img">
