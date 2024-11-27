@@ -1,5 +1,5 @@
 .weather-page {
-    @apply max-w-[1248px] px-4 mx-auto;
+    @apply max-w-[1248px] px-4 mx-auto font-Source;
 }
 
 .weather-page .weather-days-row {
@@ -16,4 +16,81 @@
 
 .weather-page .weather-days-row .weather-day button .weather-day-top-row {
     @apply flex justify-between text-12px font-Source;
+}
+
+.weather-page .weather-overlay-selected-data {
+    @apply w-full relative;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast {
+    @apply flex flex-col justify-center items-center w-[90px] px-1 py-2 absolute;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Karlovy_Vary {
+    @apply top-[40%] left-[10%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-top img {
+    @apply h-8;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-top {
+    @apply flex items-center justify-between w-full;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-bottom {
+    @apply flex items-center;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-bottom img {
+    @apply h-3;
+}
+
+.weather-page .weather-map {
+    @apply flex;
+}
+
+.weather-page .weather-map .weather-selected-day-container {
+    @apply w-full p-2 pr-0;
+    @apply 767:max-w-[345px] w-full 767:p-4 767:pr-0 767:mr-[72px];
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-day {
+    @apply flex;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-day .weather-selected-day-day-info-col {
+    @apply text-80px leading-none font-semibold font-TV;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-day .weather-selected-day-day-info-col span:first-of-type{
+    @apply text-16px font-Source;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-day .weather-selected-day-day-info-img {
+    @apply w-[160px];
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-night {
+    @apply flex;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-night .weather-selected-day-night-info-img {
+    @apply w-[72px];
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-night .weather-selected-day-night-info-img {
+
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events {
+    @apply flex justify-between;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events .weather-sunrise-time {
+    @apply flex gap-1;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events .weather-sunset-time {
+    @apply flex gap-1;
 }

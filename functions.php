@@ -432,3 +432,21 @@ function calculate_average_weather_code($weather_codes) {
 
     return $average_weather_codes;
 }
+
+function get_weather_category_by_code($wmo_code) {
+    $weather_categories = [
+        'sunny' => [0],
+        'partly-cloudy' => [1, 2, 3],
+        'rainy' => [45, 48, 51, 53, 55, 56, 57],
+        'cloudy' => [61, 63, 65, 66, 67, 71, 73, 75, 77, 80, 81, 82],
+        'rain-with-snow' => [85, 86, 95, 96, 99],
+    ];
+
+    foreach ($weather_categories as $category => $codes) {
+        if (in_array($wmo_code, $codes, true)) {
+            return '/assets/icons/weather-' . $category . '.svg';
+        }
+    }
+
+    return $wmo_code;
+}

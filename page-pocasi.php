@@ -119,27 +119,35 @@ $avg_weather_codes = $fetched_data["avg_weather_codes"];
                     ?>
                 </div>
                 <div class="weather-selected-day-day-info-img">
-
+                    <?php
+                    for ($i = 0; $i < 7; $i++) {
+                        echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
+                        echo '<img src="' . get_template_directory_uri() . get_weather_category_by_code($fetched_data['cities_data']['Praha']->daily->weather_code[$i]) . '">';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
             </div>
             <div class="weather-selected-day-sun-events">
                 <div class="weather-sunrise-time">
+                    <img src="<?php echo get_template_directory_uri()?>/assets/icons/weather-sunrise.svg">
                 <?php
                 for ($i = 0; $i < 7; $i++) {
-                    echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $avg_sunrise_times[$i] .'°</span>';
+                    echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $avg_sunrise_times[$i] .'</span>';
 
                 }
                 ?>
-                    <img src="<?php echo get_template_directory_uri()?>/assets/icons/weather-sunrise.svg">
+                    <span>Východ</span>
                 </div>
                 <div class="weather-sunset-time">
+                    <img src="<?php echo get_template_directory_uri()?>/assets/icons/weather-sunset.svg">
                     <?php
                     for ($i = 0; $i < 7; $i++) {
-                        echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $avg_sunset_times[$i] .'°</span>';
+                        echo '<span class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">'. $avg_sunset_times[$i] .'</span>';
 
                     }
                     ?>
-                    <img src="<?php echo get_template_directory_uri()?>/assets/icons/weather-sunset.svg">
+                    <span>Západ</span>
                 </div>
             </div>
             <div class="weather-selected-day-night">
@@ -152,7 +160,13 @@ $avg_weather_codes = $fetched_data["avg_weather_codes"];
                     ?>
                 </div>
                 <div class="weather-selected-day-night-info-img">
-
+                <?php
+                for ($i = 0; $i < 7; $i++) {
+                    echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
+                    echo '<img src="' . get_template_directory_uri() . get_weather_category_by_code($fetched_data['cities_data']['Praha']->daily->weather_code[$i]) . '">';
+                    echo '</div>';
+                }
+                ?>
                 </div>
             </div>
         </div>
@@ -164,31 +178,39 @@ $avg_weather_codes = $fetched_data["avg_weather_codes"];
                 if (isset($fetched_data['cities_data'][$city_name])) {
                     $city_data = $fetched_data['cities_data'][$city_name];
 
-                    echo '<div class="city-weather-'.$city_name.'">';
-                        echo "<h3>" . $city_name . "</h3>";
-
-                        for ($i = 0; $i < 7; $i++) {
-                            echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
-                            echo '<span>' . round($city_data->daily->temperature_2m_max[$i]) . '°</span>';
-                            echo '</div>';
-                        }
-
-                        for ($i = 0; $i < 7; $i++) {
-                            echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
-                            echo '<span>' . $city_data->daily->weather_code[$i] . '</span>';
-                            echo '</div>';
-                        }
+                    echo '<div class="city-weather-'.$city_name.' city-weather-forecast">';
+                        echo "<div class='city-weather-forecast-top'>";
+                            for ($i = 0; $i < 7; $i++) {
+                                echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
+                                echo '<img src="' . get_template_directory_uri() . get_weather_category_by_code($city_data->daily->weather_code[$i]) . '">';
+                                echo '</div>';
+                            }
+                            for ($i = 0; $i < 7; $i++) {
+                                echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
+                                echo '<span>' . round($city_data->daily->temperature_2m_max[$i]) . '°</span>';
+                                echo '</div>';
+                            }
+                        echo "</div>";
+                        echo "<div class='city-weather-forecast-bottom'>";
+                            echo "<img src='" . get_template_directory_uri() . "/assets/icons/hearth-green.svg'>";
+                            for ($i = 0; $i < 7; $i++) {
+                                echo '<div class="weather-data-'.$i + 1 .'" style="'. ($i !== 0 ? 'display: none;' : '') .'">';
+                                echo '<span>' . round($city_data->daily->uv_index_max[$i]) . '</span>';
+                                echo '</div>';
+                            }
+                        echo "</div>";
                     echo '</div>';
 
 
                 }
             }
             ?>
+            <div class="weather-selected-map">
+                <img src="<?php echo get_template_directory_uri()?>/assets/icons/czech-map.svg">
+            </div>
         </div>
         </div>
-        <div class="weather-selected-map">
-            <img src="<?php echo get_template_directory_uri()?>/assets/icons/czech-map.svg">
-        </div>
+
     </div>
 </div>
 <?php get_footer();

@@ -33,6 +33,7 @@ module.exports = {
             "36px": "2.25rem", //36px
             "42px": "2.625rem", //42px
             "48px": "3rem", //48px
+            "80px": "5rem"
         },
         colors: {
             lightscale: {
