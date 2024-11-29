@@ -19,6 +19,7 @@ module.exports = {
     ],
     theme: {
         fontSize: {
+            "10px": "0.6rem", //10px
             "11px": "0.688rem", //11px
             "12px": ".75rem", //12px
             "13px": "0.813rem", //13px
@@ -33,6 +34,7 @@ module.exports = {
             "36px": "2.25rem", //36px
             "42px": "2.625rem", //42px
             "48px": "3rem", //48px
+            "64px": "4rem",
             "80px": "5rem"
         },
         colors: {
@@ -84,6 +86,7 @@ module.exports = {
                 'shadow-gradient': 'linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8))',
                 'blue-gradient-transparent': 'linear-gradient(270deg, rgba(1, 156, 225, .85) 0%, rgba(0, 40, 140, .85) 100%)',
                 'blue-gradient-transparent-solid': 'linear-gradient(270deg, rgba(1, 156, 225, 1) 0%, rgba(0, 40, 140, 1) 100%)',
+                'blue-gradient-weather': 'linear-gradient(90deg, #000a50, #00288c)',
                 'dropdown-arrow': "url('/wp-content/themes/ct22-theme/assets/icons/dropdown-arrow.png')"
             },
             boxShadow: {
@@ -123,7 +126,8 @@ module.exports = {
             },
             colors: {
                 ...colors,
-                'navigator-green': "#228900"
+                'navigator-green': "#228900",
+                'uv-green': "#00A052"
             },
             gridTemplateColumns: {
                 '2-auto': 'repeat(2, auto)',

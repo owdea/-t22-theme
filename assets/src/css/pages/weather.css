@@ -1,9 +1,24 @@
+.weather-page-container {
+    @apply bg-blue-gradient-weather;
+}
+
 .weather-page {
-    @apply max-w-[1248px] px-4 mx-auto font-Source;
+    @apply px-4 mx-auto font-Source pb-52 pt-5;
+    @apply 992:max-w-[960px];
+    @apply 1200:max-w-[1140px];
+    @apply 1400:max-w-[1248px];
+}
+
+.weather-page h2 {
+    @apply text-white;
 }
 
 .weather-page .weather-days-row {
     @apply flex;
+}
+
+.weather-page .weather-days-row swiper-container {
+    @apply w-full;
 }
 
 .weather-page .weather-days-row .weather-day {
@@ -18,52 +33,133 @@
     @apply flex justify-between text-12px font-Source;
 }
 
+.weather-page .weather-days-row .weather-day button .weather-day-bottom-row {
+    @apply flex justify-between text-21px;
+}
+
+.weather-page .weather-days-row .weather-day button .weather-day-bottom-row img {
+    @apply w-8;
+}
+
 .weather-page .weather-overlay-selected-data {
-    @apply w-full relative;
+    @apply w-full h-min relative mx-[-12px];
 }
 
 .weather-page .weather-overlay-selected-data .city-weather-forecast {
-    @apply flex flex-col justify-center items-center w-[90px] px-1 py-2 absolute;
+    @apply flex flex-col justify-center items-center w-[50px] absolute p-1 pt-[1px] bg-white rounded translate-x-[-50%] translate-y-[-100%] opacity-90;
+    @apply 992:w-[90px] 992:px-2 992:py-1;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-pin {
+    @apply absolute top-[100%] left-[50%] translate-x-[-50%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-pin {
+    @apply w-3;
 }
 
 .weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Karlovy_Vary {
     @apply top-[40%] left-[10%];
 }
 
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Plzen {
+    @apply top-[61%] left-[16%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Usti_nad_Labem {
+    @apply top-[24%] left-[24%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Praha {
+    @apply top-[49%] left-[35%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Ceske_Budejovice {
+    @apply top-[85%] left-[34%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Liberec {
+    @apply top-[14%] left-[41%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Hradec_Kralove {
+    @apply top-[30%] left-[55%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Pardubice {
+    @apply top-[49%] left-[61%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Jihlava {
+    @apply top-[70%] left-[54%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Brno {
+    @apply top-[80%] left-[69%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Zlin {
+    @apply top-[75%] left-[85%];
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Olomouc {
+    @apply top-[56%] left-[76%];
+}
+
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast.city-weather-Ostrava {
+    @apply top-[47%] left-[90%];
+}
+
 .weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-top img {
-    @apply h-8;
+    @apply h-[21px];
+    @apply 992:h-8;
 }
 
 .weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-top {
-    @apply flex items-center justify-between w-full;
+    @apply flex items-center justify-between w-full text-12px text-darkscale-100 font-semibold;
+    @apply 992:text-21px;
 }
 
 .weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-bottom {
-    @apply flex items-center;
+    @apply flex items-center 992:leading-[0.6px];
+    @apply 992:leading-4;
 }
 
 .weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-bottom img {
-    @apply h-3;
+    @apply h-[10px] w-[10px];
+    @apply 992:h-3 992:w-3;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-bottom span {
+    @apply text-10px text-uv-green leading-[0.6rem];
+    @apply 992:leading-4 text-16px;
+}
+
+.weather-page .weather-overlay-selected-data .city-weather-forecast .city-weather-forecast-bottom div {
+    @apply leading-[0.6rem];
+    @apply 992:leading-4;
 }
 
 .weather-page .weather-map {
-    @apply flex;
+    @apply flex flex-col;
+    @apply 767:flex-row
 }
 
 .weather-page .weather-map .weather-selected-day-container {
-    @apply w-full p-2 pr-0;
+    @apply w-full p-2 pr-0 bg-white rounded-2xl h-fit;
     @apply 767:max-w-[345px] w-full 767:p-4 767:pr-0 767:mr-[72px];
 }
 
 .weather-page .weather-map .weather-selected-day-container .weather-selected-day-day {
-    @apply flex;
+    @apply flex justify-between px-4 pt-2 mb-6;
 }
 
 .weather-page .weather-map .weather-selected-day-container .weather-selected-day-day .weather-selected-day-day-info-col {
-    @apply text-80px leading-none font-semibold font-TV;
+    @apply flex flex-col text-64px font-semibold font-TV;
 }
 
-.weather-page .weather-map .weather-selected-day-container .weather-selected-day-day .weather-selected-day-day-info-col span:first-of-type{
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-day .weather-selected-day-day-info-col span:first-of-type {
     @apply text-16px font-Source;
 }
 
@@ -72,19 +168,26 @@
 }
 
 .weather-page .weather-map .weather-selected-day-container .weather-selected-day-night {
-    @apply flex;
+    @apply flex justify-between bg-lightscale-10 rounded-2xl p-4 mr-4;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-night .weather-selected-day-night-info-col {
+    @apply flex flex-col text-36px font-TV font-semibold;
+}
+
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-night .weather-selected-day-night-info-col span:first-of-type {
+    @apply text-14px;
 }
 
 .weather-page .weather-map .weather-selected-day-container .weather-selected-day-night .weather-selected-day-night-info-img {
     @apply w-[72px];
 }
-
-.weather-page .weather-map .weather-selected-day-container .weather-selected-day-night .weather-selected-day-night-info-img {
-
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events {
+    @apply flex justify-between p-2 mr-4 text-darkscale-100;
 }
 
-.weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events {
-    @apply flex justify-between;
+.weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events div span:last-of-type {
+    @apply text-darkscale-60;
 }
 
 .weather-page .weather-map .weather-selected-day-container .weather-selected-day-sun-events .weather-sunrise-time {
