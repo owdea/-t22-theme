@@ -313,3 +313,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    /*const element = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.scrollY;
+
+        if (currentScroll < lastScroll) {
+            element.classList.add('header-fixed');
+        } else {
+            element.classList.remove('header-fixed');
+        }
+
+        lastScroll = currentScroll;
+    });
+    const adminBar = document.getElementById('wpadminbar');
+    if (adminBar && element) {
+        element.style.marginTop = adminBar.offsetHeight + "px";
+    }*/
+});
+

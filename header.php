@@ -8,6 +8,7 @@
 	<?php wp_head(); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <style>
         .primary-navigator:hover {
             background-color: <?php echo get_field('selected_navigator_bg', 'option') ? get_field('selected_navigator_bg', 'option') : get_field_object('selected_navigator_bg', 'option')['default_value']; ?>;
@@ -19,7 +20,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<header>
+<header id="header">
     <div class="header-top">
         <a id="header-logo" href="<?php echo get_site_url(); ?>">
             <img class="header-logo" src="<?php echo get_template_directory_uri(); ?>/assets/icons/ct22-logo-white.svg" alt="Logo ČT22">

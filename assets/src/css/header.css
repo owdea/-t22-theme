@@ -165,7 +165,7 @@ header {
 }
 
 .primary-menu-container {
-    @apply my-0;
+    @apply my-0 relative;
     @apply 767:px-6;
 }
 
@@ -322,7 +322,7 @@ header {
 }
 
 .primary-menu-container .primary-menu-mobile-active {
-    @apply flex;
+    @apply fixed w-full flex z-10 bg-white;
     @apply 767:hidden;
 }
 
